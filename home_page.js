@@ -34,6 +34,20 @@ if(input.files && input.files[0])
 }
 }
 
+//FOR IMAGE PREVIEW ONCE EDIT BUTTON IS CLICKED
+function readEditURL(input)
+{
+if(input.files && input.files[0])
+{
+    var reader = new FileReader();
+    reader.onload = function(e)
+    {
+        $("#edit_image_preview").attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+}
+
 // ==========================BIRTHDAY TAB FUNCTIONS =========================
 
 // FUNCTION FOR ADDING BIRTHDATE
@@ -61,7 +75,7 @@ else
     $.ajax( 
     {
     type:'post',
-    url:'backend/add_bday.php',
+    url:'backend/birthday_tab/add_bday.php',
     data:formData,
     contentType: false,
     processData: false,
@@ -90,13 +104,68 @@ function edit_bday(id_to_edit)
 {
     $.ajax(
         {
-            url:'backend/load_to_edit_bday.php',
+            url:'backend/birthday_tab/load_to_edit_bday.php',
             type:'post',
             data:{id_to_edit:id_to_edit},
             success: function(data)
             {   
                 data = $.parseJSON(data);
+                if(data.status == 'success')
+                {
+                    $('#edit_image_preview').attr('src','backend/birthday_tab/bday_images/'+data.image);
+                    // $('#edit_bday_image').val('backend/birthday_tab/bday_images/'+data.image);
+                    $('#edit_name').val(data.name);
+                    $('#edit_bdate').val(data.date);
+                    $('#edit_bday_modal').modal('toggle');
+                    $('#edit_name').focus();
+                }
+                else if(data.status == 'exception')
+                {
+                    $('.sys_modal_title').css('color','red');
+                    $('.sys_modal_title').html("Exception");
+                    $('.sys_mod_msg').html(data.errmsg);
+                    $('#sys_mod').modal('toggle');
+                    $('#edit_name').focus();
+                }
+                else if(data.status == 'failed')
+                {
+                    $('.sys_modal_title').css('color','red');
+                    $('.sys_modal_title').html(data.html);
+                    $('.sys_mod_msg').html(data.msg);
+                    $('#sys_mod').modal('toggle');   
+                    $('#edit_name').focus();
+                }
             }
+        })
+}
+
+// FUNCTION TO UPDATE EDITED BDAY DETAILS
+let edited_name = "";
+let edited_bdate = "";
+let edited_image = "";
+$(document).on('click','#Update_edited_bday',function()
+{
+    edited_name = $('#edit_name').val();
+    edited_bdate = $('#edit_bdate').val();
+    edited_image = $('#edit_bday_image').val();
+
+    if(edited_name != "" && edited_bdate != "" && edited_image  != "")
+    {
+        update_details();
+    }
+    else
+    {
+        alert('PLease fill in all fields');
+    }
+})
+
+function update_details()
+{
+    $.ajax(
+        {
+            url:'backend/birthday_tab/update_bday.php',
+            type:'post',
+
         })
 }
 
@@ -106,7 +175,7 @@ function load_bday()
 {
 $.ajax(
     {
-        url:'backend/load_bday.php',
+        url:'backend/birthday_tab/load_bday.php',
         method:'post',
         success: function(data)
         {
@@ -148,7 +217,7 @@ function delete_bday()
 {
 $.ajax(
     {
-        url:'backend/delete_bday.php',
+        url:'backend/birthday_tab/delete_bday.php',
         type:'post',
         data:{to_delete_bday:to_delete_bday},
         success: function(data)
@@ -181,7 +250,7 @@ else
 {
     $.ajax(
         {
-            url:'backend/add_quote.php',
+            url:'backend/quote_tab/add_quote.php',
             type:'post',
             data:{quote:quote, quote_owner:quote_owner},
             success: function(data)
@@ -225,7 +294,7 @@ function load_quote()
 {
 $.ajax(
     {
-        url:'backend/load_quote.php',
+        url:'backend/quote_tab/load_quote.php',
         type:'post',
         success: function(data)
         {

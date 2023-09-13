@@ -30,7 +30,12 @@
             <tr>
                 <td>Upload Image: &nbsp;</td>
                 <td>
-                  <img src="img/default.png" alt="image" style="width: 150px; height:150px;" id="image_preview" class="mt-1">
+                  <img 
+                  src="img/default.png" 
+                  alt="image" 
+                  style="width: 150px; height:150px;" 
+                  id="image_preview" 
+                  class="mt-1">
                 <br>
                   <input 
                   type="file" 
@@ -46,8 +51,18 @@
         </table>
       </div>
       <div class="modal-footer">
-        <button id="save_bday" type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button 
+          id="save_bday" 
+          type="button" 
+          class="btn btn-primary">
+          Save
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-secondary" 
+          data-bs-dismiss="modal">
+          Cancel
+        </button>
       </div>
     </div>
   </div>
@@ -59,7 +74,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title">Edit Birthday Details</h3>
-        <button type="button" class="close" data-bs-dismiss="modal" >
+        <button 
+          type="button" 
+          class="close" 
+          data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
@@ -71,36 +89,57 @@
             <tr>
                 <td>Name: &nbsp;</td>
                 <td>
-                  <input name="name" id="name" type="text" class="form-control bday_input">
+                  <input 
+                  name="edit_name" 
+                  id="edit_name" 
+                  type="text" 
+                  class="form-control bday_input">
                 </td>
             </tr>
             <tr>
                 <td>Birth Date: &nbsp;</td>
                 <td>
-                  <input name="bdate" id="bdate" type="date" class="form-control bday_input">
+                  <input 
+                  name="edit_bdate" 
+                  id="edit_bdate" 
+                  type="date" 
+                  class="form-control bday_input">
                 </td>
             </tr>
             <tr>
                 <td>Upload Image: &nbsp;</td>
                 <td>
-                  <img src="img/default.png" alt="image" style="width: 150px; height:150px;" id="image_preview" class="mt-1">
+                  <img 
+                  src="img/default.png" 
+                  alt="image" 
+                  style="width: 150px; height:150px;" id="edit_image_preview" 
+                  class="mt-1">
                 <br>
                   <input 
-                  type="file" 
-                  name="bday_image"
-                  id="bday_image"
+                  type="file"
+                  name="edit_bday_image"
+                  id="edit_bday_image"
                   class="btn btn-success mt-1"
-                  accept="image/jpg, image/jpeg" 
-                  onchange="readURL(this);">
+                  accept="image/jpg, image/jpeg"
+                  onchange="readEditURL(this);">
                 </td>
             </tr>
         </form>
-
         </table>
       </div>
       <div class="modal-footer">
-        <button id="save_bday" type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button 
+          id="Update_edited_bday" 
+          type="button" 
+          class="btn btn-primary">
+          Update
+        </button>
+        <button 
+          type="button" 
+          class="btn btn-secondary" 
+          data-bs-dismiss="modal">
+          Cancel
+        </button>
       </div>
     </div>
   </div>
