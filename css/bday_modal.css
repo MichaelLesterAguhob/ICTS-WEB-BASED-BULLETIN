@@ -1,0 +1,48 @@
+.modal-content{
+    min-height: 300px;
+    color: black;
+}
+.modal-dialog{
+    margin-top: 5%;
+}
+.modal .modal-header{
+    display: flex;
+    justify-content: left;
+}
+.modal .modal-header .close{
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+ }
+.modal table{
+    color: black;
+}
+.modal-title{
+    text-align: left;
+}
+.modal-footer button{
+    min-width: 100px;
+}
+
+.bday_input_table{
+    line-height: 50px;
+}
+#image_preview{
+    max-height: 150px;
+    max-width: 150px;
+}
+
+/* confirmation modal */
+.confirmation_modal_content{ 
+    min-height: 100px;
+    color: black;
+}
+.confirmation_modal_dialog{
+    margin-top: 20%;
+}
+.confirmation_modal_header{
+    border-bottom: none;
+}
+.confirmation_modal_footer{
+    border-top: none;
+}

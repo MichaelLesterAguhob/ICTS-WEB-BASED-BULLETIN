@@ -1,0 +1,15 @@
+ /* FOOTER */
+.footer{
+    margin-top: 5px;
+    height: auto;
+    border-top: 1px solid rgba(149, 105, 9, 0.946);
+    padding-bottom: 20px;
+}
+.icts_footer{
+    margin: auto;
+    margin-top: 50px;
+}
+.icts_footer_logo{
+    width: 70px;
+    height: 35px;
+}

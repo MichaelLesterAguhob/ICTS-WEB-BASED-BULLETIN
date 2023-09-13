@@ -1,0 +1,92 @@
+
+/* MAIN CONTENT */
+.home_container{
+    height: 85vh;
+    overflow: auto;
+    margin-top: -20px;
+} 
+/* ROW COL */
+.col-lg-3, .col-lg-9{
+    height: 85vh;
+}
+
+/* BUTTONS CONTAINER*/
+.buttons_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+}
+.buttons_cont .btn_add{
+    text-align: left;
+}
+
+/* DATA CONTAINER*/
+.col-lg-9{
+    padding: 0;
+}
+.col-lg-9 .container-fluid{
+    width: 100%;
+}
+.col-lg-9 .nav-tabs{
+    width: 100%;
+}
+.nav-tabs li a{
+    font-weight: bold;
+    color: aliceblue;
+}
+.nav-tabs li a:hover{
+    color: black;
+}
+.tab-content .table{
+    width: 100%;
+    table-layout: fixed;
+}
+.tab-content td{
+    word-wrap: break-word;
+}
+.event_table_cont{
+    width: 100%;
+    max-height: 65vh;
+    overflow: auto;
+}
+/* quote tab */
+#quote{
+    width: 100%;
+}
+
+
+/* quote modal design */
+.quote_table{
+    width: 100%;
+    margin: auto;
+}
+#quote_input{ 
+    height: 200px;
+    width: 100%;
+    resize: none;
+}
+.quote_input{
+    text-align: left;
+    font-size: large;
+}
+
+
+
+/* system modal */
+.sys_modal_dialog{
+    margin-top: 20%;
+}
+.sys_modal_content{ 
+    color: black;
+}
+.sys_modal_header{
+    height: 20%;
+    border-bottom: none;
+}
+.sys_mod_body{
+    overflow: auto;
+}  
+.sys_modal_footer{
+    border-top: none;
+}

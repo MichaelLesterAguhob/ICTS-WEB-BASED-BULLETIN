@@ -1,0 +1,60 @@
+
+.container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.input_fields_cont{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    min-height: 70%; 
+    margin-top: 7%;
+    margin-bottom: 10%;
+    background-color: #243647;
+}
+.input_fields_cont h2{
+    margin: auto;
+    margin-top: 10px;
+    background-color: #BACDFF;
+    width: 90%;
+    border-radius: 10px;
+    font-size: 40px;
+}
+.icts_logo{
+    width: 200px;
+    height: 90px;
+}
+.icts_logo:hover{
+    transform: rotate(-20deg);
+}
+.input_fields_table, img{
+    margin: auto;
+    line-height: 60px;
+    width: 90%;
+}
+.input_fields{
+    width: 100%;
+}
+.input_fields input{
+    background-color: transparent;
+    border-color: rgb(0, 119, 255);
+}
+.btn{
+    width: 80%;
+}
+.fields{
+    width: 50%;
+}
+.login_link{
+    color: aliceblue;
+    font-size: 15px;
+}
+.login_link:hover{
+    cursor: pointer;
+    font-size: 18px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
