@@ -7,7 +7,7 @@
                 &nbsp;
             </th>
             <td>
-                2023 © HRep ICTS All Rights Reserved.
+                2023 © HRep ICTS | <i>All Rights Reserved.<i>
             </td>
         </tr>
     </table>

@@ -42,6 +42,7 @@ if(input.files && input.files[0])
     var reader = new FileReader();
     reader.onload = function(e)
     {
+        $('#image_changes').val("image_changed");
         $("#edit_image_preview").attr('src', e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
@@ -93,13 +94,15 @@ else
 }
 }
 
+// FUNCTION FOR EDITING BIRTHDAY DETAILS
+let bday_id = 0;
 $(document).on('click','.edit_bday_btn', function()
 {
-    let edit = $(this).attr('data-id')
-    edit_bday(edit);
+    bday_id = $(this).attr('data-id')
+    $('#bday_id').val(bday_id);
+    edit_bday(bday_id);
 })
 
-// FUNCTION FOR EDITING BIRTHDAY DETAILS
 function edit_bday(id_to_edit)
 {
     $.ajax(
@@ -113,9 +116,9 @@ function edit_bday(id_to_edit)
                 if(data.status == 'success')
                 {
                     $('#edit_image_preview').attr('src','backend/birthday_tab/bday_images/'+data.image);
-                    // $('#edit_bday_image').val('backend/birthday_tab/bday_images/'+data.image);
                     $('#edit_name').val(data.name);
                     $('#edit_bdate').val(data.date);
+                    $('#edit_old_image').val(data.image);
                     $('#edit_bday_modal').modal('toggle');
                     $('#edit_name').focus();
                 }
@@ -143,28 +146,66 @@ function edit_bday(id_to_edit)
 let edited_name = "";
 let edited_bdate = "";
 let edited_image = "";
+let edit_old_image = "";
+let image_changes = "";
 $(document).on('click','#Update_edited_bday',function()
-{
+{   
     edited_name = $('#edit_name').val();
     edited_bdate = $('#edit_bdate').val();
     edited_image = $('#edit_bday_image').val();
 
-    if(edited_name != "" && edited_bdate != "" && edited_image  != "")
+    if(edited_name != "" && edited_bdate != "")
     {
         update_details();
-    }
-    else
-    {
-        alert('PLease fill in all fields');
     }
 })
 
 function update_details()
-{
+{   
+    $("form").submit(function()
+    {
+        $.post($(this).attr("action"), $(this).serialize());
+        return false;
+    });
+    let edit_bday_form = $('#edit_bday_form')[0];
+    let formData = new FormData(edit_bday_form);
+
     $.ajax(
         {
             url:'backend/birthday_tab/update_bday.php',
             type:'post',
+            data:formData,
+            contentType: false,
+            processData: false,
+            success:function(data)
+            {
+               data = $.parseJSON(data);
+               if(data.status == 'success')
+                {
+                    $('#edit_bday_modal').modal('toggle');
+                    load_bday();
+                    $("#bday_tab_msg").css('font-size', '15px');
+                    $("#bday_tab_msg").css('color', 'blue');
+                    $('#bday_tab_msg').html(data.html).fadeIn(1000).fadeOut(5000);
+                    $('#edit_bday_form').trigger('reset');
+                }
+                else if(data.status == 'exception')
+                {
+                    $('.sys_modal_title').css('color','red');
+                    $('.sys_modal_title').html("Exception");
+                    $('.sys_mod_msg').html(data.errmsg);
+                    $('#sys_mod').modal('toggle');
+                    $('#edit_name').focus();
+                }
+                else if(data.status == 'failed')
+                {
+                    $('.sys_modal_title').css('color','red');
+                    $('.sys_modal_title').html(data.html);
+                    $('.sys_mod_msg').html(data.msg);
+                    $('#sys_mod').modal('toggle');   
+                    $('#edit_name').focus();
+                }         
+            }
 
         })
 }

@@ -75,9 +75,9 @@
     <ul class="nav nav-tabs bg-secondary">
         <li class="active"><a data-toggle="tab" href="#icts_annncmnts">ICTS Announcements</a></li>
         <li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>
-        <li><a data-toggle="tab" href="#birthday">Birthday</a></li>
-        <li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>
         <li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>
+        <li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>
+        <li><a data-toggle="tab" href="#birthday">Birthday</a></li>
         <li><a data-toggle="tab" href="#quote">Quote</a></li>
     </ul>
 
@@ -190,7 +190,7 @@
             <thead>
                 <tr>
                     <th style="width: 50%;">Quotes</th>
-                    <th style="width: 30%;">Quote Owner</th>
+                    <th style="width: 30%;">Author</th>
                     <th style="width: 20%;">Action</th>
                 </tr>
             </thead>

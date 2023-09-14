@@ -2,12 +2,12 @@
 include_once ('connection.php'); 
 
 $response = "";
-$name = strtoupper($_POST['name']);
-$date = $_POST['bdate'];
+$edited_name = strtoupper($_POST['name']);
+$edited_date = $_POST['bdate'];
+
 try
 {
     move_uploaded_file($_FILES['bday_image']['tmp_name'],'bday_images/'. $_FILES['bday_image'] ['name']);
-    
     $image = $_FILES['bday_image']['name'];
     $query = "INSERT INTO birthday_tbl (name, birth_date, image) VALUES ('$name','$date','$image')";
     $result = mysqli_query($con, $query);

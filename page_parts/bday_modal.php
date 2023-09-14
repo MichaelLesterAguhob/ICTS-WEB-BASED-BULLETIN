@@ -84,8 +84,9 @@
       <div class="modal-body">
         <table class="bday_input_table">
           
-        <!-- edit Birthday Form -->
+          <!-- edit Birthday Form -->
         <form id="edit_bday_form" method="post" enctype="multipart/form-data">
+          <input type="hidden" id="bday_id" name="bday_id">
             <tr>
                 <td>Name: &nbsp;</td>
                 <td>
@@ -114,11 +115,13 @@
                   alt="image" 
                   style="width: 150px; height:150px;" id="edit_image_preview" 
                   class="mt-1">
+                  <input type="hidden" name="edit_old_image" id="edit_old_image">
+                  <input type="hidden" name="image_changes" id="image_changes">
                 <br>
                   <input 
                   type="file"
-                  name="edit_bday_image"
-                  id="edit_bday_image"
+                  name="edited_bday_image"
+                  id="edited_bday_image"
                   class="btn btn-success mt-1"
                   accept="image/jpg, image/jpeg"
                   onchange="readEditURL(this);">
