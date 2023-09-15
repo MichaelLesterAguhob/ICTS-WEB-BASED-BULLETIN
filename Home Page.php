@@ -27,15 +27,15 @@
 <?php include_once('page_components/navigation.php')?>
 
 <!-- MAIN CONTENT -->
-<div class="container-fluid home_container">
+<div class="home_container">
 <div class="row crud_data_cont">
 
 <!-- data -->
 <div class="col-lg-12">
-<div class="container-fluid mt-2">
+<div class="container-fluid">
 
 <!-- TAB NAVIGATION -->
-    <ul class="nav nav-tabs bg-secondary">
+    <ul class="nav nav-tabs bg-secondary m-2">
         <li class="active"><a data-toggle="tab" href="#icts_annncmnts">ICTS Announcements</a></li>
         <li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>
         <li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>
@@ -48,15 +48,17 @@
 
 <!-- ICTS ANNOUNCEMENTS TAB -->
     <div id="icts_annncmnts" class="tab-pane fade in active">
-        <div class="title_cont">
-            <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; ICTS Announcements</h3>
-            <div class="button_cont">
-                <button class="btn btn-primary mb-3 btn_add">
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; ICTS Announcements</h3>
+            </div>
+            <div class="col-lg-5 tab_button">
+                <button class="btn btn-primary btn_add">
                 <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
         </div>
-        
+
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -75,15 +77,18 @@
 
 <!-- HREP ANNOUNCEMENTS TAB -->
     <div id="hrep_annncmnts" class="tab-pane fade">
-        
-        <div class="title_cont">
-            <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; HREP Announcements</h3>
-            <div class="button_cont">
-                <button class="btn btn-primary mb-3 btn_add">
+
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; HREP Announcements</h3>
+            </div>
+            <div class="col-lg-5 tab_button">
+                <button class="btn btn-primary btn_add">
                     <i class="fa-solid fa-plus"></i> 
                 </button>
             </div>
         </div>
+
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -102,13 +107,17 @@
 
 <!-- BIRTHDAY TAB -->
     <div id="birthday" class="tab-pane fade">
-        <div class="title_cont">
-            <h3><i class="fa-solid fa-cake-candles fa-bounce"></i> 
-            &nbsp;Birthdays &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="bday_tab_msg"></span></h3>
-            <div class="button_cont">
-            <button class="btn btn-primary mb-3 btn_add add_bday" data-bs-toggle="modal" data-bs-target="#bday_modal"> 
-                <i class="fa-solid fa-plus"></i> 
-            </button>
+
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-solid fa-cake-candles fa-bounce"></i> 
+                &nbsp;Birthdays &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="bday_tab_msg"></span>
+                </h3>
+            </div>
+            <div class="col-lg-5 tab_button">
+                <button class="btn btn-primary btn_add add_bday" data-bs-toggle="modal" data-bs-target="#bday_modal"> 
+                    <i class="fa-solid fa-plus"></i> 
+                </button>
             </div>
         </div>
         
@@ -132,13 +141,17 @@
 
 <!-- COMMITTEE MEETING AND EVENT SCHEDULE TAB -->
     <div id="cmes" class="tab-pane fade">
-        <div class="title_cont">
-            <h3><i class="fa-regular fa-calendar-days fa-beat"></i>&nbsp;
-            Comittee Meeting and Event Schedule</h3>
-            <div class="button_cont">
-            <button class="btn btn-primary mb-3 btn_add cmes"> 
-                <i class="fa-solid fa-plus"></i>
-            </button>
+  
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-regular fa-calendar-days fa-beat"></i>&nbsp;
+                Comittee Meeting and Event Schedule
+                </h3>
+            </div>
+            <div class="col-lg-5 tab_button">
+                <button class="btn btn-primary btn_add cmes"> 
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </div>
         </div>
 
@@ -161,10 +174,12 @@
     <!-- HREP ACTIVITIES TAB -->
     <div id="hrep_actvts" class="tab-pane fade">
 
-        <div class="title_cont">
-            <h3><i class="fa-solid fa-person-running fa-bounce"></i> &nbsp; HREP Actvities</h3>
-            <div class="button_cont">
-                <button class="btn btn-primary mb-3 btn_add">
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-solid fa-person-running fa-bounce"></i> &nbsp; HREP Actvities</h3>
+            </div>
+            <div class="col-lg-5 tab_button">
+                <button class="btn btn-primary btn_add">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
@@ -190,8 +205,19 @@
     <div id="quote" class="tab-pane fade">
 
         <div class="title_cont">
-            <h3><i class="fa-solid fa-comment fa-beat"></i> &nbsp; Quote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="quote_tab_msg"></span></h3>
+            
             <div class="button_cont">
+                
+            </div>
+        </div>
+
+        <div class="row tab_header">
+            <div class="col-lg-7 tab_title">
+                <h3><i class="fa-solid fa-comment fa-beat"></i>
+                 &nbsp; Quote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="quote_tab_msg"></span>
+                </h3>
+            </div>
+            <div class="col-lg-5 tab_button">
                 <button class="btn btn-primary btn_add add_quote" data-bs-toggle="modal" data-bs-target="#quote_modal">
                     <i class="fa-solid fa-plus"></i>
                 </button>

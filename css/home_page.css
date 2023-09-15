@@ -5,42 +5,55 @@
     overflow: auto;
     margin-top: -20px;
 } 
-/* ROW COL */
-.col-lg-9{
-    height: 85vh;
-}
-.title_cont{
+
+.tab_header{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    height: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.title_cont h3{
-    width: 50%;
-    height: fit-content;
+.tab_title, .tab_button{
+    padding-left: 10px;
+    padding-right: 5px;
+    height: 100%;
 }
-.title_cont .button_cont{
-    width: 50%;
-    height: fit-content;
+.tab_button{
+    padding-left: 0;
+    padding-right: 5px;
     display: flex;
     justify-content: right;
     align-items: center;
 }
-
+.tab_header h3, .btn_add {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.tab_header h3{
+    font-size: 25px;
+    height: 29px;
+}
 .btn_add{
-    font-size: 15px;
-    margin-bottom: 0;
-    width: 100px;
+    width: 20%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+/* DATA CONTAINER*/
+.col-lg-12{
+    border: 1px solid black;
+    padding: 0;
+    height: 85vh;
+}
+.col-lg-12 .container-fluid{
+    width: 100%;
+}
+.col-lg-12 .nav-tabs{
+    width: 100%;
 }
 
-/* DATA CONTAINER*/
-.col-lg-9{
-    padding: 0;
-}
-.col-lg-9 .container-fluid{
-    width: 100%;
-}
-.col-lg-9 .nav-tabs{
-    width: 100%;
-}
 .nav-tabs li a{
     font-weight: bold;
     color: aliceblue;
