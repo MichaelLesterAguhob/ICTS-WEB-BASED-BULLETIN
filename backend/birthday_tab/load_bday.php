@@ -22,7 +22,7 @@ else
             <td>'.$row['name'].'</td>
             <td>'.$row['birth_date'].'</td>
             <td>'.$row['image'].'</td>
-            <td>
+            <td class="action_td">
                 <button 
                     data-id="'.$row['id'].'" 
                     class="btn btn-sm btn-warning edit_bday_btn">

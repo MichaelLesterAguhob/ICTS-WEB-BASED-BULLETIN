@@ -2,11 +2,11 @@
 <?php 
 include_once('connection.php');
 $quote = mysqli_real_escape_string($con, $_POST['quote']);
-$quote_owner = mysqli_real_escape_string($con,$_POST['quote_owner']);
+$author = mysqli_real_escape_string($con,$_POST['author']);
 $response = "";
 try
 {
-    $query = "INSERT INTO quote_of_the_week VALUES('', '$quote', '$quote_owner')";
+    $query = "INSERT INTO quote_of_the_week VALUES('', '$quote', '$author')";
     $result = mysqli_query($con, $query);
     if($result)
     {

@@ -19,9 +19,9 @@ try
         {
             $data .= '
                 <tr>
-                    <td style="width: 50%;"">'.$row['quote'].'</td>    
-                    <td style="width: 30%;"">'.$row['quote_owner'].'</td>    
-                    <td style="width: 20%;"">
+                    <td style="width: 50%;">'.$row['quote'].'</td>    
+                    <td style="width: 30%;">'.$row['author'].'</td>    
+                    <td style="width: 20%;" class="action_td">
                         <button 
                             data-id="'.$row['id'].'" 
                             class="btn btn-sm btn-warning edit_quote_btn">

@@ -148,23 +148,7 @@
   </div>
 </div>
 
-<!-- CONFIRMATION MODAL -->
-<div class="modal" id="confirmation_modal">
-  <div class="modal-dialog confirmation_modal_dialog">
-    <div class="modal-content confirmation_modal_content">
-      <div class="modal-header confirmation_modal_header">
-        <button type="button" class="close" data-bs-dismiss="modal" >
-          <i class="fa-regular fa-circle-xmark"></i>
-        </button>
-        <h3 class="modal-title confirmation_modal_title"></h3>
-      </div>
-      <div class="modal-footer confirmation_modal_footer">
-        <button id="delete_bday" type="button" class="btn btn-danger" onclick="delete_bday();">Delete</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 

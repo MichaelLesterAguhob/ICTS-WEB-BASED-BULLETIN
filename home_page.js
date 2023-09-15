@@ -18,6 +18,9 @@ $(window).keydown(function(event){
         return false;
     }
     });
+
+$('#delete_bday').css('display','none');    
+$('#delete_quote').css('display','none');    
 });
 
 //FOR IMAGE PREVIEW ONCE SELECTED
@@ -249,10 +252,12 @@ load_bday();
 let to_delete_bday = 0;
 $(document).on('click','.delete_bday_btn',function()
 {
-to_delete_bday = $(this).attr('data-id');
-$(".confirmation_modal_title").html("Are you sure you want to DELETE this?")
-$(".confirmation_modal_title").css("color","red")
-$("#confirmation_modal").modal('toggle');
+    $('#delete_bday').css('display','unset');    
+    $('#delete_quote').css('display','none');
+    to_delete_bday = $(this).attr('data-id');
+    $(".confirmation_modal_title").html("Are you sure you want to DELETE this?")
+    $(".confirmation_modal_title").css("color","red")
+    $("#confirmation_modal").modal('toggle');
 })
 function delete_bday()
 {
@@ -281,9 +286,9 @@ save_quote();
 function save_quote()
 {
 let quote = $("#quote_input").val();
-let quote_owner = $("#quote_owner").val();
+let author = $("#author").val();
 
-if(quote == "" || quote_owner == "")
+if(quote == "" || author == "")
 {   
     alert("Please fill in the blank(s)")
 }
@@ -293,7 +298,7 @@ else
         {
             url:'backend/quote_tab/add_quote.php',
             type:'post',
-            data:{quote:quote, quote_owner:quote_owner},
+            data:{quote:quote, author:author},
             success: function(data)
             {
                 data = $.parseJSON(data); 
@@ -301,13 +306,13 @@ else
                 {
                     $('.add_quote_msg').html(data.html).fadeIn(1000).fadeOut(5000);
                     $('#quote_input').val("");
-                    $('#quote_owner').val("");
+                    $('#author').val("");
                 }
                 else if(data.status == 'failed_add')
                 {
                     $('.add_quote_msg').html(data.html).fadeIn(1000).fadeOut(5000);
                     $('#quote_input').val("");
-                    $('#quote_owner').val("");
+                    $('#author').val("");
                 }
                 else if(data.status == 'exception')
                 {
@@ -363,3 +368,97 @@ $.ajax(
     })
 }
 load_quote();
+
+// FUNCTION FOR DELETING QUOTE
+let to_delete_quote = 0;
+$(document).on('click','.delete_quote_btn',function()
+{
+    to_delete_quote = $(this).attr('data-id');
+    $('#delete_bday').css('display','none');    
+    $('#delete_quote').css('display','unset');
+    $(".confirmation_modal_title").html("Are you sure you want to DELETE this?")
+    $(".confirmation_modal_title").css("color","red")
+    $("#confirmation_modal").modal('toggle');
+})
+function delete_quote()
+{
+$.ajax(
+    {
+        url:'backend/quote_tab/delete_quote.php',
+        type:'post',
+        data:{to_delete_quote:to_delete_quote},
+        success: function(data)
+        {
+            $("#confirmation_modal").modal('toggle');
+            $("#quote_tab_msg").css('font-size', '15px');
+            $("#quote_tab_msg").css('color', 'red');
+            $("#quote_tab_msg").html(" " + data).fadeIn(1000).fadeOut(5000);
+            load_quote();
+        }
+    })
+}
+
+// EDIT QUOTES
+let to_edit_quote = 0;
+$(document).on('click', '.edit_quote_btn', function()
+{
+    to_edit_quote = $(this).attr('data-id');
+    $("#edit_quote_modal").modal('toggle');
+    load_to_edit_quote();
+})
+
+function load_to_edit_quote()
+{
+    $.ajax(
+        {
+
+            url:'backend/quote_tab/load_to_edit_quote.php',
+            type:'post',
+            data:{to_edit_quote:to_edit_quote},
+            success: function(data)
+            {
+                data = $.parseJSON(data);
+                if(data.status == 'success')
+                {
+                    $('#edited_quote_input').val(data.quote);
+                    $('#edited_author_input').val(data.author);
+                }
+            }
+        })
+}
+
+// UPDATE QUOTE
+function update_quote()
+{
+    let quote = $('#edited_quote_input').val();
+    let author = $('#edited_author_input').val();
+    if(quote != "" && author != "")
+    {
+        $.ajax(
+            {
+                url:'backend/quote_tab/update_quote.php',
+                type:'post',
+                data:{to_edit_quote:to_edit_quote, quote:quote, author:author},
+                success: function(data)
+                {
+                    data = $.parseJSON(data);
+                    if(data.status == 'success')
+                    {
+                        $("#quote_tab_msg").css('font-size', '15px');
+                        $("#quote_tab_msg").css('color', 'blue');
+                        $("#edit_quote_modal").modal('toggle');
+                        $("#quote_tab_msg").html(" " + data.html).fadeIn(1000).fadeOut(5000);
+                        $('#edited_quote_input').val("");
+                        $('#edited_author_input').val("");
+                        load_quote();
+                    }
+
+                    
+                }
+            })
+    }
+    else if(quote == "" || author == "")
+    {
+        $('.edit_quote_msg').html("Fill in the blank(s)").fadeIn(1000).fadeOut(5000);     
+ }
+}

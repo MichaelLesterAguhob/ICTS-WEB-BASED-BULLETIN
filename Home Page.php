@@ -24,51 +24,14 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-<?php include_once('page_parts/navigation.php')?>
+<?php include_once('page_components/navigation.php')?>
 
 <!-- MAIN CONTENT -->
 <div class="container-fluid home_container">
 <div class="row crud_data_cont">
-<!-- crud -->
-<div class="col-lg-3 buttons_cont">
-        <!-- button for creating ICTSannouncements -->
-    <button class="btn btn-primary mb-3 btn_add">
-        <i class="fa-solid fa-plus"></i> 
-        ICTS Announcements
-    </button>
-
-    <!-- button for creating HREP announcements -->
-    <button class="btn btn-primary mb-3 btn_add">
-        <i class="fa-solid fa-plus"></i> 
-        HREP Announcements
-    </button>
-
-    <!-- button for adding birthdays -->
-    <button class="btn btn-primary mb-3 btn_add add_bday" data-bs-toggle="modal" data-bs-target="#bday_modal"> 
-        <i class="fa-solid fa-plus"></i> 
-        Birthday
-    </button>
-    
-    <!-- button for adding Committe meeting and event schedule -->
-    <button class="btn btn-primary mb-3 btn_add cmes"> 
-        <i class="fa-solid fa-plus"></i> 
-        Committee Meeting and Event Schedule
-    </button>
-
-    <!-- button for adding hrep activities -->
-    <button class="btn btn-primary mb-3 btn_add">
-        <i class="fa-solid fa-plus"></i> HRep Activities
-    </button>
-
-    <!-- button for updating quotes -->
-    <button class="btn btn-success btn_add add_quote" data-bs-toggle="modal" data-bs-target="#quote_modal">
-        <i class="fa-solid fa-pen-to-square"></i> 
-        Add/Update Quote
-    </button>
-</div>
 
 <!-- data -->
-<div class="col-lg-9">
+<div class="col-lg-12">
 <div class="container-fluid mt-2">
 
 <!-- TAB NAVIGATION -->
@@ -85,7 +48,15 @@
 
 <!-- ICTS ANNOUNCEMENTS TAB -->
     <div id="icts_annncmnts" class="tab-pane fade in active">
-        <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; ICTS Announcements</h3>
+        <div class="title_cont">
+            <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; ICTS Announcements</h3>
+            <div class="button_cont">
+                <button class="btn btn-primary mb-3 btn_add">
+                <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -104,7 +75,15 @@
 
 <!-- HREP ANNOUNCEMENTS TAB -->
     <div id="hrep_annncmnts" class="tab-pane fade">
-        <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; HREP Announcements</h3>
+        
+        <div class="title_cont">
+            <h3><i class="fa-solid fa-bullhorn fa-shake"></i>&nbsp; HREP Announcements</h3>
+            <div class="button_cont">
+                <button class="btn btn-primary mb-3 btn_add">
+                    <i class="fa-solid fa-plus"></i> 
+                </button>
+            </div>
+        </div>
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -123,8 +102,16 @@
 
 <!-- BIRTHDAY TAB -->
     <div id="birthday" class="tab-pane fade">
-        <h3><i class="fa-solid fa-cake-candles fa-bounce"></i> 
-        &nbsp;Birthdays &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="bday_tab_msg"></span></h3>
+        <div class="title_cont">
+            <h3><i class="fa-solid fa-cake-candles fa-bounce"></i> 
+            &nbsp;Birthdays &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="bday_tab_msg"></span></h3>
+            <div class="button_cont">
+            <button class="btn btn-primary mb-3 btn_add add_bday" data-bs-toggle="modal" data-bs-target="#bday_modal"> 
+                <i class="fa-solid fa-plus"></i> 
+            </button>
+            </div>
+        </div>
+        
         <div class="event_table_cont">
             <table class="table table-striped">
             <thead>
@@ -132,7 +119,7 @@
                     <th>Name</th>
                     <th>Birth Date</th>
                     <th>Image</th>
-                    <th>Action</th>
+                    <th class="action_th">Action</th>
                 </tr>
             </thead>
             <tbody id="bday_data">
@@ -145,8 +132,16 @@
 
 <!-- COMMITTEE MEETING AND EVENT SCHEDULE TAB -->
     <div id="cmes" class="tab-pane fade">
-        <h3><i class="fa-regular fa-calendar-days fa-beat"></i>&nbsp;
-        Comittee Meeting and Event Schedule</h3>
+        <div class="title_cont">
+            <h3><i class="fa-regular fa-calendar-days fa-beat"></i>&nbsp;
+            Comittee Meeting and Event Schedule</h3>
+            <div class="button_cont">
+            <button class="btn btn-primary mb-3 btn_add cmes"> 
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            </div>
+        </div>
+
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -165,7 +160,16 @@
 
     <!-- HREP ACTIVITIES TAB -->
     <div id="hrep_actvts" class="tab-pane fade">
-        <h3><i class="fa-solid fa-person-running fa-bounce"></i> &nbsp; HREP Actvities</h3>
+
+        <div class="title_cont">
+            <h3><i class="fa-solid fa-person-running fa-bounce"></i> &nbsp; HREP Actvities</h3>
+            <div class="button_cont">
+                <button class="btn btn-primary mb-3 btn_add">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
         <div class="event_table_cont">
             <table >
                 <thead>
@@ -184,14 +188,23 @@
 
     <!-- QUOTE TAB -->
     <div id="quote" class="tab-pane fade">
-        <h3><i class="fa-solid fa-comment fa-beat"></i> &nbsp; Quote</h3>
+
+        <div class="title_cont">
+            <h3><i class="fa-solid fa-comment fa-beat"></i> &nbsp; Quote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="quote_tab_msg"></span></h3>
+            <div class="button_cont">
+                <button class="btn btn-primary btn_add add_quote" data-bs-toggle="modal" data-bs-target="#quote_modal">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+        </div>
+
         <div class="event_table_cont">
             <table class="table table-striped">
             <thead>
                 <tr>
                     <th style="width: 50%;">Quotes</th>
                     <th style="width: 30%;">Author</th>
-                    <th style="width: 20%;">Action</th>
+                    <th style="width: 20%;" class="action_th">Action</th>
                 </tr>
             </thead>
             <tbody id="quote_data">
@@ -227,12 +240,31 @@
   </div>
 </div>
 
+<!-- CONFIRMATION MODAL -->
+<div class="modal" id="confirmation_modal">
+  <div class="modal-dialog confirmation_modal_dialog">
+    <div class="modal-content confirmation_modal_content">
+      <div class="modal-header confirmation_modal_header">
+        <button type="button" class="close" data-bs-dismiss="modal" >
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <h3 class="modal-title confirmation_modal_title"></h3>
+      </div>
+      <div class="modal-footer confirmation_modal_footer">
+        <button id="delete_bday" type="button" class="btn btn-danger" onclick="delete_bday();">Delete</button>
+        <button id="delete_quote" type="button" class="btn btn-danger" onclick="delete_quote();">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
-<?php include_once 'page_parts/bday_modal.php'; ?>
-<?php include_once 'page_parts/quote_modal.php'; ?>
+<?php include_once 'page_components/bday_modal.php'; ?>
+<?php include_once 'page_components/quote_modal.php'; ?>
 
 <!-- FOOTER -->
-<?php include_once 'page_parts/footer.php'; ?>
+<?php include_once 'page_components/footer.php'; ?>
 
 <!-- JAVASCRIPT -->
 <script src="home_page.js"></script>

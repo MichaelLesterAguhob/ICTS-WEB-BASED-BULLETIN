@@ -17,7 +17,7 @@
 </head>
 <body class="bg-dark">  
     <!-- navigation -->
-    <?php include_once('page_parts/navigation.php');?>
+    <?php include_once('page_components/navigation.php');?>
 
     <!-- Main Content -->
     <div class="container-fluid main_container text-light" >
@@ -88,7 +88,7 @@
     </div>
 
     <!-- footer -->
-    <?php include_once 'page_parts/footer.php'; ?>
+    <?php include_once 'page_components/footer.php'; ?>
 
     <!-- JAVASCRIPT -->
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script> 
