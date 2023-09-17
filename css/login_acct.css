@@ -46,15 +46,7 @@
 .fields{
     width: 50%;
 }
-.login_link{
+
+.input_fields input{
     color: aliceblue;
-    font-size: 15px;
-}
-.login_link:hover{
-    cursor: pointer;
-    font-size: 18px;
-}
-a{
-    text-decoration: none;
-    color: inherit;
 }

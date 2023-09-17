@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICTS | Create account</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="jquery_bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
+
+    <!-- Jquery Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/create_acct.css">
 </head>
 <body class="bg-dark">
@@ -20,25 +27,28 @@
 <tr><td colspan="2" style="height: 50px;"></td></tr>     
                 <tr>
                     <td class="input_fields" colspan="2">
-                        <input type="text" class="form-control" placeholder="Enter Username">
+                        <input id="create_username" type="text" class="form-control" placeholder="Enter Username">
                     </td>
                 </tr>
 <tr><td colspan="2" style="height: 20px;"></td></tr> 
                 <tr>
                     <td class="input_fields" colspan="2">
-                        <input type="text" class="form-control" placeholder="Enter Password">
+                        <input id="create_password" type="password" class="form-control" placeholder="Enter Password">
                     </td>
                 </tr>    
 <tr><td colspan="2" style="height: 50px;"></td></tr>       
                 <tr>
-                    <td class="fields"><button class="btn btn-success">Create</button></td>
+                    <td class="fields"><button class="btn btn-success" onclick="create_account();">Create</button></td>
                     <td class="fields"><button class="btn btn-warning">Cancel</button></td>
                 </tr>    
                 <tr>
-                    <td class="text-secondary" colspan="2">Already have an Account?<a href="login_acct.php"><b class="login_link">Login</b></a>  </td>
+                    <td class="text-secondary" colspan="2"><br></td>
                 </tr>     
             </table>
         </div>
     </div>
+
+<!-- JAVASCRIPT -->
+<script src="login_create.js"></script>    
 </body>
 </html>
