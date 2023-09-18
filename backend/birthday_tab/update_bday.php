@@ -7,6 +7,8 @@ $edit_bdate = $_POST['edit_bdate'];
 $edit_old_image = $_POST['edit_old_image'];
 $image_changes = $_POST['image_changes'];
 
+$user_type = $_SESSION['user_type'];
+$username = $_SESSION['username'];
 try
 { 
     if($image_changes == "image_changed")
@@ -20,10 +22,21 @@ try
             if($result)
             {
                 $response = json_encode(['status'=>'success', 'html'=>'Updated Successfully']);
+
+                if( $user_type != 'admin')
+                {
+                    $date = date("Y/m/d");
+                    $timeZone = date_default_timezone_set("Asia/Manila");
+                    $time = date("h:i:sa");
+                    $dt = $date ." - ".$time;
+            
+                    $query2 = "INSERT INTO activity VALUES ('','$username','Edited Birthday','$dt')";
+                    $result2 = mysqli_query($con, $query2);
+                }
             }
             else
             {
-                $response = json_encode(['status'=>'success', 'html'=>'Unknown Error Occured']);
+                $response = json_encode(['status'=>'success', 'html'=>'Unknown Error Occurred']);
             }
 
         }
@@ -35,17 +48,28 @@ try
         if($result)
         {
             $response = json_encode(['status'=>'success', 'html'=>'Updated Successfully']);
+
+            if( $user_type != 'admin')
+                {
+                    $date = date("Y/m/d");
+                    $timeZone = date_default_timezone_set("Asia/Manila");
+                    $time = date("h:i:sa");
+                    $dt = $date ." - ".$time;
+            
+                    $query2 = "INSERT INTO activity VALUES ('','$username','Edited Birthday','$dt')";
+                    $result2 = mysqli_query($con, $query2);
+                }
         }
         else
         {
-            $response = json_encode(['status'=>'success', 'html'=>'Unknown Error Occured']);
+            $response = json_encode(['status'=>'success', 'html'=>'Unknown Error Occurred']);
         }
     }
 
 }
 catch(Exception $ex)
 {
-    $response = json_encode(['status'=>'exception', 'html'=>'Unknown Error Occured']);
+    $response = json_encode(['status'=>'exception', 'html'=>'Unknown Error Occurred']);
 }
 echo $response;
 

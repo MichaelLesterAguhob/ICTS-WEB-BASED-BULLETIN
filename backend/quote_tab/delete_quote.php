@@ -13,7 +13,7 @@ try
 }
 catch(Exception $ex)
 {
-    $response = "Exception Occured" . $ex;
+    $response = "Exception Occurred" . $ex;
 }
 
 echo $response;

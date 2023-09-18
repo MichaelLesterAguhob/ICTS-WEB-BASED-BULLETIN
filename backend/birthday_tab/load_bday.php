@@ -42,7 +42,7 @@ else
 } 
 catch(Exception $ex) 
 {
-    $response = "Error Occured";
+    $response = "Error Occurred";
 }
 
 echo $response;

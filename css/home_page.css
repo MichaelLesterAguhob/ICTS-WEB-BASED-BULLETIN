@@ -3,7 +3,6 @@
 .home_container{ 
     height: 85vh;
     overflow: auto;
-    margin-top: -20px;
 } 
 
 .tab_header{

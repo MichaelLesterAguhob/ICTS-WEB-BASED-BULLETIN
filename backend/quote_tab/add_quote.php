@@ -19,7 +19,7 @@ try
 }
 catch(Exception $ex)
 {
-    $response = json_encode(['status'=>'exception', 'ex_msg'=>'Error Occured'.$ex]);
+    $response = json_encode(['status'=>'exception', 'ex_msg'=>'Error Occurred'.$ex]);
 }
 echo $response;
 

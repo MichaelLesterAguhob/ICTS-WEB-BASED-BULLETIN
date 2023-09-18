@@ -13,5 +13,5 @@ catch(Exception $ex)
     echo json_encode(['status'=>'failed', 'html'=>'Connection Error', 'msg'=>'Error Message: <br><br>' . $ex]);
     exit();
 }
-
+session_start();
 ?>

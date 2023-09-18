@@ -15,7 +15,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/login_acct.css">
 </head>
-<body class="bg-dark">
+<body class="bg-secondary">
     <div class="container">
         <div class="input_fields_cont">
             <h2>Login</h2>

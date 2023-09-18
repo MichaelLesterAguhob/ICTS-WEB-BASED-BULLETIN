@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+        header('location:login_acct.php');
+    }
+?>
+ 
 <!DOCTYPE html> 
 <html lang="en">
 <head>
@@ -6,84 +14,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICTS | Admin</title>
 
-    <!-- CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="jquery_bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
+    
+    <!-- jquery ajax -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script>  
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/general_style.css">
-    <link rel="stylesheet" href="css/admin_page.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/admin_page.css">
     
 </head>
-<body class="bg-dark">  
+<body>  
     <!-- navigation -->
     <?php include_once('page_components/navigation.php');?>
 
     <!-- Main Content -->
-    <div class="container-fluid main_container text-light" >
-        <h1 class="mt-2">Welcome Admin</h1>
-        <div class="row">
-            <div class="col-sm-4">
-                <h5>User Accounts</h5>
-                <table class="table bordered text-light">
-                    <thead>
-                        <tr>
-                            <th style="width: 15%;">U_ID</th>
-                            <th style="width: 40%;">Username</th>
-                            <th style="width: 20%;">Password</th>
-                            <th style="width: 25%;">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="width: 15%;">01</td>
-                            <td style="width: 40%;">michael@icts</td>
-                            <td style="width: 25%;">*****(encrypted)</td>
-                            <td style="width: 25%;">June 23, 2023</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container-fluid main_container" >
+       
+            <!-- TAB NAVIGATION -->
+        <ul class="nav nav-tabs bg-secondary">
+            <li class="active"><a data-toggle="tab" href="#user_accounts">User Accounts</a></li>
+            <li><a data-toggle="tab" href="#activities">Activities</a></li>
+            <li><a data-toggle="tab" href="#logs">Logs</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <!-- USER ACCOUNTS TAB -->
+            <div id="user_accounts" class="tab-pane fade in active">
+                <div class="tab_header">
+                    <div class="tab_title">
+                        <h3><i class="fa-solid fa-users-gear fa-shake"></i>&nbsp; User Accounts</h3>
+                    </div> 
+                </div>
+
+                <div class="container event_table_cont">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user_acct_data">
+                            <!-- user accounts data here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <h5>Activity</h5>
-                <table class="table bordered text-light">
-                    <thead>
-                        <tr>
-                            <th style="width: 20%;">U_ID</th>
-                            <th style="width: 50%;">Activites</th>
-                            <th style="width: 30%;">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="width: 20%;">01</td>
-                            <td style="width: 50%;">Added Michael's Birthday</td>
-                            <td style="width: 30%;">July 26, 2023</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- ACTIVITIES TAB -->
+            <div id="activities" class="tab-pane fade">
+                <div class="tab_header">
+                    <div class="tab_title">
+                        <h3><i class="fa-solid fa-person-running fa-bounce"></i>&nbsp; Activities</h3>
+                    </div>
+                </div>
+
+                <div class="container event_table_cont">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Activites</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity_data">
+                            <!-- Activities data here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <h5>Logs</h5>
-                <table class="table bordered text-light">
-                    <thead>
-                        <tr>
-                            <th style="width: 10%;">U_ID</th>
-                            <th style="width: 40%;">Username</th>
-                            <th style="width: 25%;">LogIn</th>
-                            <th style="width: 25%;">LogOut</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="width: 10%;">01</td>
-                            <td style="width: 40%;">michael@icts</td>
-                            <td style="width: 25;">8:00 AM July 23, 2023</td>
-                            <td style="width: 25%;">3:00 PM July 23, 2023</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- LOGS TAB -->
+            <div id="logs" class="tab-pane fade">
+                <div class="tab_header">
+                    <div class="tab_title">
+                        <h3><i class="fa-solid fa-right-to-bracket fa-fade"></i>&nbsp; Logs</h3>
+                    </div>
+                </div>
+
+                <div class="container event_table_cont">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Date LogIn</th>
+                                <th>Date LogOut</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs_data">
+                            <!-- user accounts data here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+            
         </div>
     </div>
 
@@ -92,5 +128,6 @@
 
     <!-- JAVASCRIPT -->
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script> 
+    <script src="admin.js"></script>
 </body>
 </html>

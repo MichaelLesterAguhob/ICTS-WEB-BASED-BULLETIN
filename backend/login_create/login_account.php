@@ -4,7 +4,7 @@ $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 $response = "";
 
-try
+try 
 {
     $result1 = mysqli_query($con, "SELECT username FROM user_account WHERE `username`='$username' AND `password`='$password'");
 
@@ -13,8 +13,15 @@ try
         $_SESSION['username'] = $username;
         $_SESSION['user_type'] = 'user';
         $response = json_encode(['status'=>'success', 'location'=>"Home Page.php"]);
+
+        $date = date("Y/m/d");
+        $timeZone = date_default_timezone_set("Asia/Manila");
+        $time = date("h:i:sa");
+        $dt = $date ." - ".$time;
+
+        $insert_logs = mysqli_query($con, "INSERT INTO logs VALUES('','$username','$dt','')");
     }
-    else
+    else    
     {
         $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username' AND `password`='$password'");
 
@@ -34,7 +41,7 @@ try
 }
 catch(Exception $ex)
 {
-    $response = "Error Occured" . $ex;
+    $response = "Error Occurred" . $ex;
 }
 echo $response;
 ?>

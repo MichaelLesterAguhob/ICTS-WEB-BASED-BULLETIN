@@ -32,7 +32,7 @@ try
 }
 catch(Exception $ex)
 {
-    $response = "Error Occured" . $ex;
+    $response = "Error Occurred" . $ex;
 }
 echo $response;
 ?>
