@@ -4,7 +4,7 @@
     {
         header('location:login_acct.php');
     }
-?>
+?> 
  
 <!DOCTYPE html> 
 <html lang="en">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="css/general_style.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/admin_page.css">
-    
+    <link rel="stylesheet" href="css/create_acct.css">
 </head>
 <body>  
     <!-- navigation -->
@@ -39,7 +39,7 @@
     <div class="container-fluid main_container" >
        
             <!-- TAB NAVIGATION -->
-        <ul class="nav nav-tabs bg-secondary">
+        <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#user_accounts">User Accounts</a></li>
             <li><a data-toggle="tab" href="#activities">Activities</a></li>
             <li><a data-toggle="tab" href="#logs">Logs</a></li>
@@ -49,19 +49,23 @@
 
             <!-- USER ACCOUNTS TAB -->
             <div id="user_accounts" class="tab-pane fade in active">
-                <div class="tab_header">
-                    <div class="tab_title">
-                        <h3><i class="fa-solid fa-users-gear fa-shake"></i>&nbsp; User Accounts</h3>
+                <div class="row tab_header">
+                    <div class="col-lg-6 tab_title">
+                        <h3><i class="fa-solid fa-users-gear"></i>&nbsp; User Accounts</h3>
+                    </div> 
+                    <div class="col-lg-6 tab_btn">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_acct_modal">Create Account</button>
                     </div> 
                 </div>
 
-                <div class="container event_table_cont">
+                <div class="container-fluid event_table_cont">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>User ID</th>
-                                <th>Username</th>
-                                <th>Password</th>
+                                <th style="width:10%;">User ID</th>
+                                <th style="width:45%;">Username</th>
+                                <th style="width:35%;">Password</th>
+                                <th style="width:10%;">Forgot Pass</th>
                             </tr>
                         </thead>
                         <tbody id="user_acct_data">
@@ -73,13 +77,13 @@
 
             <!-- ACTIVITIES TAB -->
             <div id="activities" class="tab-pane fade">
-                <div class="tab_header">
-                    <div class="tab_title">
-                        <h3><i class="fa-solid fa-person-running fa-bounce"></i>&nbsp; Activities</h3>
+                <div class="tab_header2">
+                    <div class="tab_title2">
+                        <h3><i class="fa-solid fa-person-running"></i>&nbsp; Activities</h3>
                     </div>
                 </div>
 
-                <div class="container event_table_cont">
+                <div class="container-fluid event_table_cont">
                     <table class="table">
                         <thead>
                             <tr>
@@ -97,19 +101,19 @@
 
             <!-- LOGS TAB -->
             <div id="logs" class="tab-pane fade">
-                <div class="tab_header">
-                    <div class="tab_title">
-                        <h3><i class="fa-solid fa-right-to-bracket fa-fade"></i>&nbsp; Logs</h3>
+                <div class="tab_header2">
+                    <div class="tab_title2">
+                        <h3><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Logs</h3>
                     </div>
                 </div>
 
-                <div class="container event_table_cont">
+                <div class="container-fluid event_table_cont">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Username</th>
-                                <th>Date LogIn</th>
-                                <th>Date LogOut</th>
+                                <th>LogIn</th>
+                                <th>LogOut</th>
                             </tr>
                         </thead>
                         <tbody id="logs_data">
@@ -123,11 +127,14 @@
         </div>
     </div>
 
+
     <!-- footer -->
     <?php include_once 'page_components/footer.php'; ?>
+    <?php include_once 'page_components/create_acct_modal.php'; ?>
 
     <!-- JAVASCRIPT -->
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script> 
     <script src="admin.js"></script>
+    <script src="login_create.js"></script>
 </body>
 </html>

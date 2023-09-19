@@ -15,15 +15,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/login_acct.css">
 </head>
-<body class="bg-secondary">
+<body>
     <div class="container">
         <div class="input_fields_cont">
             <h2>Login</h2>
             <br>
             <table class="input_fields_table">
-                <tr>
+                <!-- <tr>
                     <td colspan="2"><img src="img/logo icts.png" alt="ICTS LOGO" class="icts_logo"></td>
-                </tr>      
+                </tr>       -->
 <tr><td colspan="2" style="height: 50px;"></td></tr>     
                 <tr>
                     <td class="input_fields" colspan="2">
@@ -51,6 +51,6 @@
     </div>
 
 <!-- JAVASCRIPT -->
-<script src="login_create.js"></script>
+<script src="login_create.js"></script> 
 </body>
 </html>

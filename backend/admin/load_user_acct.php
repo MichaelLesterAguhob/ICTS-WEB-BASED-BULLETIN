@@ -16,16 +16,19 @@ try
         $result2 = mysqli_query($con, "SELECT * FROM user_account");
         while($rows = mysqli_fetch_assoc($result2))
         {
-            $temp_pass_char ='';
-            for($i=0; $i < strlen($rows['password']); $i++)
+            $view_btn = '';
+            if($rows['forgot'] == 'yes')
             {
-                $temp_pass_char .= '*';
+                $view_btn .= '<button data-id="'.$rows['account_id'].'" class="btn btn-sm btn-success view_btn">View</button>';
             }
             $data .= '
                 <tr>
-                    <td>'.$rows['account_id'].'</td>
-                    <td>'.$rows['username'].'</td>
-                    <td class="user_pass">'.$temp_pass_char.'</td>
+                    <td style="width:10%;">'.$rows['account_id'].'</td>
+                    <td style="width:45%;">'.$rows['username'].'</td>
+                    <td class="user_pass" style="width:35%;">
+                    <input type="password" id="'.$rows['account_id'].'" value="'.$rows['password'].'" class="user_password" readonly>
+                    </td>
+                    <td style="width:10%;">'.$view_btn.'</td>
                 </tr>
             ';
         }

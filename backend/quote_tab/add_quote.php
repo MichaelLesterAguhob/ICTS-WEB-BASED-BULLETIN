@@ -6,7 +6,7 @@ $author = mysqli_real_escape_string($con,$_POST['author']);
 $response = "";
 try
 {
-    $query = "INSERT INTO quote_of_the_week VALUES('', '$quote', '$author')";
+    $query = "INSERT INTO quote_of_the_week VALUES('', '$quote', '$author','Use')";
     $result = mysqli_query($con, $query);
     if($result)
     {

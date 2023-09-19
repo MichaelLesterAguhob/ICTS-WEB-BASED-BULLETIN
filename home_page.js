@@ -462,3 +462,19 @@ function update_quote()
         $('.edit_quote_msg').html("Fill in the blank(s)").fadeIn(1000).fadeOut(5000);     
  }
 }
+
+
+$(document).on('click', '.btn_activate', function()
+{
+    let quote_id = $(this).attr('data-id');
+    $.ajax(
+        {
+            url:'backend/quote_tab/activate_quote.php',
+            type:'post',
+            data:{quote_id:quote_id},
+            success: function(data)
+            {
+                load_quote();
+            }
+        })
+})

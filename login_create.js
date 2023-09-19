@@ -1,4 +1,16 @@
 
+    $(document).on('click', '.cancel', function()
+    {
+        $('#create_username').val("");
+        $('#create_password').val("");
+    })
+    $(document).on('click', '.close', function()
+    {
+        $('#create_username').val("");
+        $('#create_password').val("");
+    })
+
+
 function create_account()
 {
     let c_username = $('#create_username').val();
@@ -10,7 +22,7 @@ function create_account()
     }
     else
     {
-        $.ajax(
+        $.ajax( 
             {
                 url:'backend/login_create/create_account.php',
                 type:'post',
@@ -20,6 +32,7 @@ function create_account()
                     alert(data);
                     $('#create_username').val("");
                     $('#create_password').val("");
+                    load_user_account();
                 }
             })
     }

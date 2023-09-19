@@ -1,13 +1,13 @@
-<div class="footer bg-dark">
+<div class="footer">
 
-    <table class="icts_footer text-light"> 
+    <table class="icts_footer"> 
         <tr>
-            <th>
-                <img src="img/logo icts.png" alt="ICTS LOGO" class="icts_footer_logo">
+            <th class="footer_th">
+                <h4>ICTS</h4>
                 &nbsp;
             </th>
-            <td>
-                2023 © HRep ICTS | <i>All Rights Reserved.<i>
+            <td class="footer_td">
+                2023 © HRep ICTS | &nbsp;<i>All Rights Reserved.<i>
             </td>
         </tr>
     </table>

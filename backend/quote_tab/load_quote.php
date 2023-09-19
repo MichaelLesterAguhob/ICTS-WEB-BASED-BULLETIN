@@ -12,15 +12,29 @@ try
     {
         $response = json_encode(['status'=>'no_data', 'msg'=>"No data found!"]);
     }
-    else
+    else 
     {
         $result2 = mysqli_query($con, "SELECT * FROM quote_of_the_week");
         while($row = mysqli_fetch_assoc($result2))
         {
+            $button = '';
+
+            if($row['use_quote'] == 'Active')
+            {
+                $button .= '<button data-id="'.$row['id'].'" class="btn btn-sm btn-success btn_activate" disabled>'.$row['use_quote'].'</button>';
+            }
+            else
+            {
+                $button .= '<button data-id="'.$row['id'].'" class="btn btn-sm btn-secondary btn_activate">'.$row['use_quote'].'</button>';
+            }
+     
             $data .= '
                 <tr>
                     <td style="width: 50%;">'.$row['quote'].'</td>    
-                    <td style="width: 30%;">'.$row['author'].'</td>    
+                    <td style="width: 20%;">'.$row['author'].'</td>    
+                    <td style="width: 10%;" class="action_td">
+                        '.$button.'
+                    </td>    
                     <td style="width: 20%;" class="action_td">
                         <button 
                             data-id="'.$row['id'].'" 

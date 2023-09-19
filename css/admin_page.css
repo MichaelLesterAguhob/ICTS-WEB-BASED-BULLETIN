@@ -6,16 +6,49 @@
 }
 
 .main_container .nav-tabs a{
-    color: aliceblue;
-    font-size: larger;
-    font-weight: 700;
+    color: black;
 }
 .main_container .nav-tabs a:hover{
     color: black;
 } 
-.tab_title{
-    padding-left: 20px;
+.tab_header{
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    margin-right: 0px;
 }
+.tab_title, .tab_btn{
+    margin: auto;
+}
+.tab_btn{
+    display: flex;
+    justify-content: right;
+    padding: 0;
+    padding-top: 5px;
+}
+.tab_title h3{
+   padding: 0;
+   margin: auto;
+   margin-left: 5px;
+   margin-top: 10px;
+}
+.tab_title2, .tab_btn2{
+    margin: auto;
+}
+.tab_btn2{
+    display: flex;
+    justify-content: right;
+    padding: 0;
+    padding-top: 5px;
+}
+.tab_title2 h3{
+   padding: 0;
+   margin: auto;
+   margin-left: 5px;
+   margin-top: 10px;
+}
+
+
 .tab_content{
     text-align: center;
 }
@@ -35,4 +68,9 @@ th, td{
 }
 .user_pass{
     font-size: x-large;
+}
+.user_password{
+    font-size: x-large;
+    text-align: center;
+    border: none;
 }

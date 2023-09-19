@@ -10,6 +10,8 @@ try
 
     if(mysqli_num_rows($result1) > 0)
     {
+        $query = mysqli_query($con, "UPDATE user_account SET `forgot`='no' WHERE `username`='$username' ");
+
         $_SESSION['username'] = $username;
         $_SESSION['user_type'] = 'user';
         $response = json_encode(['status'=>'success', 'location'=>"Home Page.php"]);

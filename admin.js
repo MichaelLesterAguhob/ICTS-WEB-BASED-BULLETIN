@@ -1,3 +1,4 @@
+
 function load_user_account()
 {
     $.ajax(
@@ -39,3 +40,22 @@ function load_activities()
         })
 }
 load_activities();
+
+let viewed = 0;
+$(document).on('click','.view_btn', function()
+{
+    let id = $(this).attr('data-id');
+    if(viewed == id)
+    {
+        $('#'+id).attr('type','password');
+        viewed = 0;
+    }
+    else
+    {
+        $('.user_password').attr('type','password');
+        $('#'+id).attr('type','text');
+        viewed = id;
+    }
+
+    
+})

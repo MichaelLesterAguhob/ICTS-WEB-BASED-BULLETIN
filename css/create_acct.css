@@ -1,9 +1,18 @@
 
-.container{
-    display: flex;
-    justify-content:center;
+.c_acct_row{
+    display: inline-flex;
     align-items: center;
+    width: 100%;
 }
+
+.c_modal_dialog{
+    margin-top: 10%;
+}
+
+.c_header{
+    border-bottom: none;
+}
+
 .input_fields_cont{
     width: 50%;
     margin: auto;
@@ -16,18 +25,12 @@
 .input_fields_cont h2{
     margin: auto;
     margin-top: 10px;
-    background-color: #BACDFF;
+    background-color: transparent;
     width: 90%;
     border-radius: 10px;
     font-size: 40px;
 }
-.icts_logo{
-    width: 200px;
-    height: 90px;
-}
-.icts_logo:hover{
-    transform: rotate(-20deg);
-}
+
 .input_fields_table, img{
     margin: auto;
     line-height: 60px;
@@ -36,17 +39,21 @@
 .input_fields{
     width: 100%;
 }
-.input_fields input{
-    background-color: transparent;
-    border-color: rgb(0, 119, 255);
-}
-.btn{
-    width: 80%;
-}
+
 .fields{
     width: 50%;
 }
 
 .input_fields input{
-    color: aliceblue;
+    color: black;
+}
+
+.c_btn{
+    width: 90%;
+    color: black;
+}
+#create_username, #create_password{
+    border: none;
+    border-bottom: 1px solid blue;
+    border-radius: 0%;
 }

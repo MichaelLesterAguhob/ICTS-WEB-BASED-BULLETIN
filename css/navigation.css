@@ -1,25 +1,20 @@
 .navbar{
-    border-bottom: 2px solid rgba(149, 105, 9, 0.946);
+    background-color: rgba(242, 238, 238, 0.534);
 }
-.icts_logo{
-    width: 100px;
-    height: 50px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-} 
-.icts_logo:hover{
-    transform: rotate(20deg); 
+.navbar h1{
+    margin: auto;
 }
+
 #navbarNav{
     padding-left: 2%;
     font-size: large;
 }
 #navbarNav .navbar-nav .nav-link{
     margin-right: 50px;
-    color: rgba(211, 148, 13, 0.946);
+    color: black;
 }
 .nav-link:hover{
-    background-color: gray;
+    background-color: rgb(253, 249, 249);
 }
 #navbarNav .navbar-nav .logout{
     color: red;

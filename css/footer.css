@@ -1,15 +1,19 @@
+
  /* FOOTER */
 .footer{
-    margin-top: 5px;
-    height: auto;
-    border-top: 1px solid rgba(149, 105, 9, 0.946);
+    background-color: rgba(242, 238, 238, 0.534);
+    padding-top: 50px;
     padding-bottom: 20px;
 }
-.icts_footer{
+.footer .icts_footer{
     margin: auto;
-    margin-top: 50px;
 }
-.icts_footer_logo{
-    width: 70px;
-    height: 35px;
+.footer .icts_footer .footer_th h4{
+    margin: auto;
+}
+.footer .icts_footer .footer_th, .footer_td{
+    display: inline-flex;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
 }

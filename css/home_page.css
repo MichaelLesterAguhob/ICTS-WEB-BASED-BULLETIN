@@ -1,9 +1,13 @@
 
 /* MAIN CONTENT */
 .home_container{ 
-    height: 85vh;
-    overflow: auto;
+    height: 89vh;
+    margin: 0;
+    padding: 0;
 } 
+.tab-content{
+    height: 81vh;
+}
 
 .tab_header{
     display: flex;
@@ -11,6 +15,9 @@
     height: 10%;
     padding-left: 10px;
     padding-right: 10px;
+}
+.tab_title, .tab_title{
+    margin: auto;
 }
 .tab_title, .tab_button{
     padding-left: 10px;
@@ -41,24 +48,13 @@
     justify-content: center;
 }
 /* DATA CONTAINER*/
-.col-lg-12{
-    padding: 0;
-    height: 85vh;
-}
-.col-lg-12 .container-fluid{
-    width: 100%;
-}
-.col-lg-12 .nav-tabs{
-    width: 100%;
-}
-
 .nav-tabs li a{
-    font-weight: bold;
-    color: aliceblue;
+    color: black;
 }
 .nav-tabs li a:hover{
     color: black;
 }
+
 .tab-content .table{
     width: 100%;
     table-layout: fixed;
@@ -68,18 +64,21 @@
 }
 .event_table_cont{
     width: 100%;
-    max-height: 65vh;
+    height: 76vh;
     overflow: auto;
+}
+.event_table_cont table{
+    width: 100%;
+    margin: auto;
 }
 .action_th, .action_td{
     text-align: center;
 }
-
-/* quote tab */
-#quote{
-    width: 100%;
+.btn_activate{
+    min-width: 50px;
+    max-width: 100%;
+    margin: 0;
 }
-
 
 /* quote modal design */
 .quote_table{
