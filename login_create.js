@@ -33,6 +33,7 @@ function create_account()
                     $('#create_username').val("");
                     $('#create_password').val("");
                     load_user_account();
+                    load_access_role();
                 }
             })
     }
@@ -69,5 +70,27 @@ function login()
                     }
                 }
             })
+    }
+}
+
+function forgot_pass()
+{
+    let username = $('#username').val();
+    if(username != "")
+    {
+        $.ajax(
+            {
+                url:'backend/login_create/forgot_pass.php',
+                type:'post',
+                data:{username:username},
+                success: function(data)
+                {
+                    alert(data);
+                }
+            })
+    }
+    else
+    {
+        alert('Fill in the username!');
     }
 }

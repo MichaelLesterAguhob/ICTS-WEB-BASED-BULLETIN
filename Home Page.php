@@ -1,11 +1,89 @@
 
 <?php
+    include_once('backend/admin/connection.php');
     session_start();
     if(!isset($_SESSION['username']))
     {
         header('location:login_acct.php');
     }
+
+    $in_active1 = "";
+    $in_active2 = "";
+    $in_active3 = "";
+    $in_active4 = "";
+    $in_active5 = "";
+    $in_active6 = "";
     
+    $username = $_SESSION['username'];
+    $icts_announcement = '';
+    $hrep_announcement = '';
+    $hrep_act = '';
+    $cmes = '';
+    $bday = '';
+    $quote = '';
+
+    // condition for showing category tab
+    if($_SESSION['user_type'] == "admin")
+    {
+        $in_active1 = "in active";
+        $icts_announcement = '<li class="active"><a data-toggle="tab" href="#icts_annncmnts">ICTS Announcements</a></li>';
+        $hrep_announcement = '<li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>';
+        $hrep_act = '<li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>';
+        $cmes = '<li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>';
+        $bday = '<li><a data-toggle="tab" href="#birthday">Birthday</a></li>';
+        $quote = '<li><a data-toggle="tab" href="#quote">Quote</a></li>';
+    }
+    else
+    {
+        $query = mysqli_query($con, "SELECT * FROM user_account WHERE username = '$username'");
+        $data = mysqli_fetch_assoc($query);
+        if($data['icts_an'] == 'YES')
+        {
+            $icts_announcement = '<li class="active"><a data-toggle="tab" href="#icts_annncmnts">ICTS Announcements</a></li>';
+            $in_active1 = "in active";
+        }
+        if($data['hrep_an'] == 'YES')
+        {
+            $hrep_announcement = '<li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>';
+            if($in_active1 == "")
+            {
+                $in_active2 = "in active";
+            }
+        }
+        if($data['hrep_act'] == 'YES')
+        {
+            $hrep_act = '<li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>';
+            if($in_active1 == "" && $in_active2 == "")
+            {
+                $in_active3 = "in active";
+            }
+        }
+        if($data['cmes'] == 'YES')
+        {
+            $cmes = '<li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>';
+            if($in_active1 == "" && $in_active2 == "" && $in_active3 == "")
+            {
+                $in_active4 = "in active";
+            }
+        }
+        if($data['bday'] == 'YES')
+        {
+            $bday = '<li><a data-toggle="tab" href="#birthday">Birthday</a></li>';
+            if($in_active1 == "" && $in_active2 == "" && $in_active3 == "" && $in_active4 == "")
+            {
+                $in_active5 = "in active";
+            }
+        }
+        if($data['quote'] == 'YES')
+        {
+            $quote = '<li><a data-toggle="tab" href="#quote">Quote</a></li>';
+            if($in_active1 == "" && $in_active2 == "" && $in_active3 == "" && $in_active4 == "" && $in_active5 == "")
+            {
+                $in_active6 = "in active";
+            }
+        }
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -39,20 +117,21 @@
 <!-- MAIN CONTENT -->
 <div class="home_container container-fluid">
 
-<!-- TAB NAVIGATION -->
+<!-- TAB NAVIGATION --> 
     <ul class="nav nav-tabs m-2">
-        <li class="active"><a data-toggle="tab" href="#icts_annncmnts">ICTS Announcements</a></li>
-        <li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>
-        <li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>
-        <li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>
-        <li><a data-toggle="tab" href="#birthday">Birthday</a></li>
-        <li><a data-toggle="tab" href="#quote">Quote</a></li>
+        <!-- SHOW ONLY THE ACCESS SET BY ADMIN -->
+        <?php echo $icts_announcement ?>
+        <?php echo $hrep_announcement ?>
+        <?php echo $hrep_act ?>
+        <?php echo $cmes ?>
+        <?php echo $bday ?>
+        <?php echo $quote ?>
     </ul>
 
     <div class="tab-content">
 
 <!-- ICTS ANNOUNCEMENTS TAB -->
-    <div id="icts_annncmnts" class="tab-pane fade in active">
+    <div id="icts_annncmnts" class="tab-pane fade <?php echo $in_active1?>">
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
                 <h3><i class="fa-solid fa-bullhorn"></i>&nbsp; ICTS Announcements</h3>
@@ -81,7 +160,7 @@
     </div>
 
 <!-- HREP ANNOUNCEMENTS TAB -->
-    <div id="hrep_annncmnts" class="tab-pane fade">
+    <div id="hrep_annncmnts" class="tab-pane fade <?php echo $in_active2?>">
 
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
@@ -111,7 +190,7 @@
     </div>
 
 <!-- BIRTHDAY TAB -->
-    <div id="birthday" class="tab-pane fade">
+    <div id="birthday" class="tab-pane fade <?php echo $in_active5?>">
 
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
@@ -145,7 +224,7 @@
     </div>
 
 <!-- COMMITTEE MEETING AND EVENT SCHEDULE TAB -->
-    <div id="cmes" class="tab-pane fade">
+    <div id="cmes" class="tab-pane fade <?php echo $in_active4?>">
   
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
@@ -177,7 +256,7 @@
     </div>
 
     <!-- HREP ACTIVITIES TAB -->
-    <div id="hrep_actvts" class="tab-pane fade">
+    <div id="hrep_actvts" class="tab-pane fade <?php echo $in_active3?>">
 
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
@@ -207,7 +286,7 @@
     </div>
 
     <!-- QUOTE TAB -->
-    <div id="quote" class="tab-pane fade">
+    <div id="quote" class="tab-pane fade <?php echo $in_active6?>">
 
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">

@@ -38,6 +38,14 @@ body{
 .input_fields{
     width: 100%;
 }
+.input_fieldss a{
+    text-decoration: none;
+    text-align: left;
+    display: flex;
+}
+.input_fieldss a:hover{
+    cursor: pointer;
+}
 .input_fields input{
     background-color: transparent;
     border: none;

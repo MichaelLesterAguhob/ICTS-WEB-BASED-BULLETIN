@@ -43,6 +43,7 @@
             <li class="active"><a data-toggle="tab" href="#user_accounts">User Accounts</a></li>
             <li><a data-toggle="tab" href="#activities">Activities</a></li>
             <li><a data-toggle="tab" href="#logs">Logs</a></li>
+            <li><a data-toggle="tab" href="#access_role">Set Access Role</a></li>
         </ul>
 
         <div class="tab-content">
@@ -61,7 +62,7 @@
                 <div class="container-fluid event_table_cont">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr> 
                                 <th style="width:10%;">User ID</th>
                                 <th style="width:45%;">Username</th>
                                 <th style="width:35%;">Password</th>
@@ -117,6 +118,34 @@
                             </tr>
                         </thead>
                         <tbody id="logs_data">
+                            <!-- user accounts data here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Access Role TAB -->
+            <div id="access_role" class="tab-pane fade">
+                <div class="tab_header2">
+                    <div class="tab_title2">
+                        <h3>&nbsp;<i class="fa-solid fa-check"></i>&nbsp; Set Access Role</h3>
+                    </div>
+                </div>
+ 
+                <div class="container-fluid event_table_cont">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:20%;">Username</th>
+                                <th style="width:15%;">ICTS Announce.</th>
+                                <th style="width:15%;">HREP Announce.</th>
+                                <th style="width:15%;">HREP Activities</th>
+                                <th style="width:15%;">Committee Meeting</th>
+                                <th style="width:10%;">Birthday</th>
+                                <th style="width:10%;">Quote</th>
+                            </tr>
+                        </thead>
+                        <tbody id="access_role_data">
                             <!-- user accounts data here -->
                         </tbody>
                     </table>

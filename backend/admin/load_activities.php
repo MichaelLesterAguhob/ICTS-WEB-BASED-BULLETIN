@@ -15,7 +15,7 @@ try
     }
     else
     {
-        $result2 = mysqli_query($con, "SELECT * FROM activity");
+        $result2 = mysqli_query($con, "SELECT * FROM activity ORDER BY id DESC");
         while($rows = mysqli_fetch_assoc($result2))
         {
             $data .= '

@@ -3,7 +3,7 @@
 include_once('connection.php');
 $response = "";
 $data = '';
-try 
+try  
 {
     
     $result = mysqli_query($con, "SELECT * FROM user_account");
@@ -26,7 +26,7 @@ try
                     <td style="width:10%;">'.$rows['account_id'].'</td>
                     <td style="width:45%;">'.$rows['username'].'</td>
                     <td class="user_pass" style="width:35%;">
-                    <input type="password" id="'.$rows['account_id'].'" value="'.$rows['password'].'" class="user_password" readonly>
+                    <input type="password" id="'.$rows['account_id'].'" value="'.$rows['password'].'" class="user_password" disabled>
                     </td>
                     <td style="width:10%;">'.$view_btn.'</td>
                 </tr>

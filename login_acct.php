@@ -36,7 +36,12 @@
                         <input id="password" type="password" class="form-control" placeholder="Enter Password">
                     </td>
                 </tr>   
-<tr><td colspan="2" style="height: 50px;"></td></tr>       
+                <tr>
+                    <td class="input_fieldss" colspan="2">
+                        <a class="text-left" onclick="forgot_pass();">Forgot password?</a>
+                    </td>
+                </tr>   
+<tr><td colspan="2" style="height: 20px;"></td></tr>       
                 <tr>
                     <td class="fields"><button id="login_btn" class="btn btn-success" onclick="login();">Login</button></td>
                     <td class="fields"><button class="btn btn-warning">Cancel</button></td>

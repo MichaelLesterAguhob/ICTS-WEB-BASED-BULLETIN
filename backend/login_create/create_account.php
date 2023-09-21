@@ -22,7 +22,7 @@ try
         }
         else
         {
-            $result3 = mysqli_query($con, "INSERT INTO user_account VALUES('','$c_username','$c_password','no')");
+            $result3 = mysqli_query($con, "INSERT INTO user_account VALUES('','$c_username','$c_password','no','NO','NO','NO','NO','NO','NO')");
             if($result3)
             {
                 $response = "Account Created Successfully.";
