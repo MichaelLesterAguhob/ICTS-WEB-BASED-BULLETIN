@@ -113,3 +113,24 @@
 .sys_modal_footer{
     border-top: none;
 }
+
+/* CMES */
+#cmes .event_table_cont .cmes_date{
+    background-color: rgba(235, 237, 235, 0.374);
+    font-size: larger;
+}
+
+#cmes .cmes_btn{
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+}
+#cmes .cmes_del{
+    color: rgba(255, 0, 0, 0.625);
+}
+#cmes .cmes_edit{
+    color: rgba(255, 140, 0, 0.605);
+}
+.navbar .home_nav{
+    background-color: rgba(148, 189, 163, 0.468);
+}

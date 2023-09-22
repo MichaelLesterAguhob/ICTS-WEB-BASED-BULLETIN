@@ -2,7 +2,7 @@
   $admin_btn = '';
   if($_SESSION['user_type']=='admin')
   {
-      $admin_btn = '<a class="nav-link" aria-current="page" href="admin_page.php"><i class="fa-solid fa-user-gear"></i> Admin</a>';
+      $admin_btn = '<a class="nav-link admin_nav" aria-current="page" href="admin_page.php"><i class="fa-solid fa-user-gear"></i> Admin</a>';
   }
 ?>
 
@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Home Page.php"><i class="fa-solid fa-house-user"></i></i> Home</a>
+            <a class="nav-link active home_nav" aria-current="page" href="Home Page.php"><i class="fa-solid fa-house-user"></i></i> Home</a>
           </li>
           <li class="nav-item">
             <!-- admin nav show only if login is admin user -->

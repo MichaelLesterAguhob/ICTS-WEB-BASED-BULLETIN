@@ -1,47 +1,49 @@
-<?php 
+<?php
 include_once('connection.php');
-$respo = "";
 $data = '';
-$min_num = 0;
-$max_num = 0;
-$prev_date = "";
+$respo = "";
 
 try
 {
-    // min num
-    $query1 = mysqli_query($con, "SELECT MIN(id) FROM cmes");
-    $data1 = mysqli_fetch_array($query1);
-    $min_num = $data1[0];
-    // max num
-    $query2 = mysqli_query($con, "SELECT MAX(id) FROM cmes");
-    $data2 = mysqli_fetch_array($query2);
-    $max_num = $data2[0];
-    // Select Min Num Date
-    $query3 = mysqli_query($con, "SELECT date FROM cmes WHERE id='$min_num'");
-    $data3 = mysqli_fetch_array($query3);
-    $prev_date = $data3[0];
-
-    while($min_num <= $max_num)
+    
+    $query1 = mysqli_query($con, "SELECT * FROM cmes");
+    if(mysqli_num_rows($query1) > 0)
     {
-        // Select Min Num Date
-        $query4 = mysqli_query($con, "SELECT date FROM cmes WHERE id='$min_num'");
-        $data4 = mysqli_fetch_array($query4);
-        if($prev_date != $data4[0])
+        $query = mysqli_query($con, "SELECT * FROM cmes ORDER BY `date` ASC");
+        while($rows = mysqli_fetch_assoc($query))
         {
             $data .= '
                 <tr>
-                    <td colspan="6"></td>
+                    <td style="width: 20%;">'.$rows['committee_office'].'</td>
+                    <td style="width: 10%;">'.$rows['time'].'</td>
+                    <td style="width: 10%;">'.$rows['date'].'</td>
+                    <td style="width: 20%;">'.$rows['host'].'</td>
+                    <td style="width: 5%;">'.$rows['fb_live'].'</td>
+                    <td style="width: 5%;">'.$rows['ppab_cam'].'</td>
+                    <td style="width: 20%;">'.$rows['remarks'].'</td>
+                    <td style="width: 10%;">
+                        <button class="cmes_btn cmes_edit">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button class="cmes_btn cmes_del">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
                 </tr>
             ';
         }
-
-        $query5 = mysqli_query($con, "SELECT * FROM cmes WHERE ");
-        $min_num ++;
     }
+    else
+    {
+        $respo = "No data found";
+    }
+    
+    $respo = $data;
 }
 catch(Exception $ex)
 {
-
+    $respo = "Error occurred" . $ex;
 }
+echo $respo;
 
 ?>

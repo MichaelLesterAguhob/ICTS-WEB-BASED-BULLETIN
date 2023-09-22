@@ -67,7 +67,7 @@ $("form").submit(function()
     return false;
 });
 
-if(name == "" || bdate == "" || bday_image == "")
+if(name == "" && bdate == "" && bday_image == "")
 {
 alert("Fill in all fields!");   
 }
@@ -288,7 +288,7 @@ function save_quote()
 let quote = $("#quote_input").val();
 let author = $("#author").val();
 
-if(quote == "" || author == "")
+if(quote == "" && author == "")
 {   
     alert("Please fill in the blank(s)")
 }
@@ -457,7 +457,7 @@ function update_quote()
                 }
             })
     }
-    else if(quote == "" || author == "")
+    else if(quote == "" && author == "")
     {
         $('.edit_quote_msg').html("Fill in the blank(s)").fadeIn(1000).fadeOut(5000);     
  }
@@ -499,22 +499,36 @@ $(document).on('click','#ppab_no', function()
 
 // SAVING CMES
 $(document).on('click','#save_cmes',function()
-{
-    let cmes_input_data = $('#add_cmes_form')[0];
-    let formData = new FormData(cmes_input_data);
-    $.ajax(
-        {
-            url:'backend/cmes_tab/save_cmes.php',
-            type:'post',
-            data:formData,
-            contentType:false,
-            processData:false,
-            success: function(data)
+{   
+    let office = $('#office').val();
+    let host = $('#host').val();
+    let time = $('#time').val();
+    let date = $('#date').val();
+    let remarks = $('#remarks').val();
+
+    if(office != "" && host != "" && time != "" && remarks != "" && date != "")
+    {
+        let cmes_input_data = $('#add_cmes_form')[0];
+        let formData = new FormData(cmes_input_data);
+        $.ajax(
             {
-                $('.add_cmes_form_msg').html(data).fadeIn(1000).fadeOut(4000);
-                $('#add_cmes_form').trigger('reset');
-            }
-        })
+                url:'backend/cmes_tab/save_cmes.php',
+                type:'post',
+                data:formData,
+                contentType:false,
+                processData:false,
+                success: function(data)
+                {
+                    $('.add_cmes_form_msg').html(data).fadeIn(1000).fadeOut(4000);
+                    $('#add_cmes_form').trigger('reset');
+                    load_cmes();
+                }
+            })
+    }
+    else
+    {
+        alert("Fill in the blanks")
+    }
 })
 
 function load_cmes()

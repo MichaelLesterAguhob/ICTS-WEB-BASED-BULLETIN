@@ -244,12 +244,14 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Committee/Office</th>
-                        <th>Time</th>
-                        <th>Host</th>
-                        <th>FB Live</th>
-                        <th>PPAB CAM</th>
-                        <th>Remarks</th>
+                        <th style="width: 25%;">Committee/Office</th>
+                        <th style="width: 10%;">Time</th>
+                        <th style="width: 10%;">Date</th>
+                        <th style="width: 20%;">Host</th>
+                        <th style="width: 5%;">FB Live</th>
+                        <th style="width: 5%;">PPAB CAM</th>
+                        <th style="width: 20%;">Remarks</th>
+                        <th style="width: 5%;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="cmes_data">
