@@ -478,3 +478,55 @@ $(document).on('click', '.btn_activate', function()
             }
         })
 })
+// fb
+$(document).on('click','#fb_yes', function()
+{
+    $('#fb_yes_no').val("YES");
+})
+$(document).on('click','#fb_no', function()
+{
+    $('#fb_yes_no').val("NO");
+})
+// ppab
+$(document).on('click','#ppab_yes', function()
+{
+    $('#ppab_yes_no').val("YES");
+})
+$(document).on('click','#ppab_no', function()
+{
+    $('#ppab_yes_no').val("NO");
+})
+
+// SAVING CMES
+$(document).on('click','#save_cmes',function()
+{
+    let cmes_input_data = $('#add_cmes_form')[0];
+    let formData = new FormData(cmes_input_data);
+    $.ajax(
+        {
+            url:'backend/cmes_tab/save_cmes.php',
+            type:'post',
+            data:formData,
+            contentType:false,
+            processData:false,
+            success: function(data)
+            {
+                $('.add_cmes_form_msg').html(data).fadeIn(1000).fadeOut(4000);
+                $('#add_cmes_form').trigger('reset');
+            }
+        })
+})
+
+function load_cmes()
+{
+    $.ajax(
+        {
+            url:'backend/cmes_tab/load_cmes.php',
+            type:'post',
+            success: function(data)
+            {
+                $('#cmes_data').html(data);
+            }
+        })
+}
+load_cmes();

@@ -1,0 +1,28 @@
+
+.cmes_modal_dialog{
+    margin-left: 10%; 
+    margin-top: 5%
+}
+
+.cmes_input_table{
+    line-height: 50px;
+    width: 100%;
+}
+
+.cmes_input_table th{
+    text-align: right;
+}
+
+.cmes_input_table td label{
+    font-weight: unset;
+}
+
+.date_time{
+    height: 34px;
+}
+
+.yes_no{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}   

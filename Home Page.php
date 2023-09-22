@@ -109,6 +109,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/bday_modal.css">
     <link rel="stylesheet" href="css/home_page.css">
+    <link rel="stylesheet" href="css/cmes_modal.css">
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -233,23 +234,26 @@
                 </h3>
             </div>
             <div class="col-lg-5 tab_button">
-                <button class="btn btn-primary btn_add cmes"> 
+                <button class="btn btn-primary btn_add cmes" data-bs-toggle="modal" data-bs-target="#cmes_modal"> 
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
         </div>
 
         <div class="event_table_cont">
-            <table >
+            <table class="table">
                 <thead>
                     <tr>
-                        
+                        <th>Committee/Office</th>
+                        <th>Time</th>
+                        <th>Host</th>
+                        <th>FB Live</th>
+                        <th>PPAB CAM</th>
+                        <th>Remarks</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
+                <tbody id="cmes_data">
+                   <!-- DATA HERE -->
                 </tbody>
             </table>
         </div>
@@ -364,6 +368,7 @@
 <!-- MODAL -->
 <?php include_once 'page_components/bday_modal.php'; ?>
 <?php include_once 'page_components/quote_modal.php'; ?>
+<?php include_once 'page_components/cmes_modal.php'; ?>
 
 <!-- FOOTER -->
 <?php include_once 'page_components/footer.php'; ?>
