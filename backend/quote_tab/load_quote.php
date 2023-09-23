@@ -28,7 +28,7 @@ try
                 $button .= '<button data-id="'.$row['id'].'" class="btn btn-sm btn-secondary btn_activate">'.$row['use_quote'].'</button>';
             }
      
-            $data .= '
+            $data .= ' 
                 <tr>
                     <td style="width: 50%;">'.$row['quote'].'</td>    
                     <td style="width: 20%;">'.$row['author'].'</td>    
@@ -38,13 +38,14 @@ try
                     <td style="width: 20%;" class="action_td">
                         <button 
                             data-id="'.$row['id'].'" 
-                            class="btn btn-sm btn-warning edit_quote_btn">
-                            Edit
+                            class="edit_quote_btn">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </button>
+                        &nbsp;&nbsp;
                         <button 
                             data-id="'.$row['id'].'" 
-                            class="btn btn-sm btn-danger delete_quote_btn">
-                            Del
+                            class="delete_quote_btn">
+                            <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </td>    
                 </tr>

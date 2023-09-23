@@ -230,7 +230,7 @@
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
                 <h3><i class="fa-regular fa-calendar-days"></i>&nbsp;
-                Comittee Meeting and Event Schedule
+                Committee Meeting and Event Schedule
                 </h3>
             </div>
             <div class="col-lg-5 tab_button">

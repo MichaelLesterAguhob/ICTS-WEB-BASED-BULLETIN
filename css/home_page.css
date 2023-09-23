@@ -131,6 +131,34 @@
 #cmes .cmes_edit{
     color: rgba(255, 140, 0, 0.605);
 }
+
+/*  */
+#birthday .edit_btn, .delete_btn{
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+}
+#birthday .delete_btn{
+    color: rgba(255, 0, 0, 0.625);
+}
+#birthday .edit_btn{
+    color: rgba(255, 140, 0, 0.605);
+}
+
+/*  */
+#quote .edit_quote_btn, .delete_quote_btn{
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+}
+#quote .delete_quote_btn{
+    color: rgba(255, 0, 0, 0.625);
+}
+#quote .edit_quote_btn{
+    color: rgba(255, 140, 0, 0.605);
+}
+
+
 .navbar .home_nav{
-    background-color: rgba(148, 189, 163, 0.468);
+    background-color: rgba(145, 161, 151, 0.468);
 }

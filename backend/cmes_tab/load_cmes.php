@@ -5,7 +5,6 @@ $respo = "";
 
 try
 {
-    
     $query1 = mysqli_query($con, "SELECT * FROM cmes");
     if(mysqli_num_rows($query1) > 0)
     {
@@ -19,13 +18,13 @@ try
                     <td style="width: 10%;">'.$rows['date'].'</td>
                     <td style="width: 20%;">'.$rows['host'].'</td>
                     <td style="width: 5%;">'.$rows['fb_live'].'</td>
-                    <td style="width: 5%;">'.$rows['ppab_cam'].'</td>
+                    <td style="width: 5%;">'.$rows['ppab_cam'].'</td> 
                     <td style="width: 20%;">'.$rows['remarks'].'</td>
                     <td style="width: 10%;">
-                        <button class="cmes_btn cmes_edit">
+                        <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button class="cmes_btn cmes_del">
+                        <button class="cmes_btn cmes_del" data-id="'.$rows['id'].'">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </td>

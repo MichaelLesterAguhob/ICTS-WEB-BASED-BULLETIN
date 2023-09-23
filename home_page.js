@@ -478,7 +478,7 @@ $(document).on('click', '.btn_activate', function()
             }
         })
 })
-// fb
+// fb yes or no checkbox
 $(document).on('click','#fb_yes', function()
 {
     $('#fb_yes_no').val("YES");
@@ -487,7 +487,7 @@ $(document).on('click','#fb_no', function()
 {
     $('#fb_yes_no').val("NO");
 })
-// ppab
+// ppab yes or no 
 $(document).on('click','#ppab_yes', function()
 {
     $('#ppab_yes_no').val("YES");
@@ -497,7 +497,7 @@ $(document).on('click','#ppab_no', function()
     $('#ppab_yes_no').val("NO");
 })
 
-// SAVING CMES
+// SAVING CMES data
 $(document).on('click','#save_cmes',function()
 {   
     let office = $('#office').val();
@@ -531,6 +531,7 @@ $(document).on('click','#save_cmes',function()
     }
 })
 
+// loading cmes data
 function load_cmes()
 {
     $.ajax(
@@ -544,3 +545,105 @@ function load_cmes()
         })
 }
 load_cmes();
+
+// Editing committee meeting and event schedule's content
+let cmes_id='';
+$(document).on('click','.cmes_edit', function()
+{
+    cmes_id = $(this).attr('data-id');
+    $('#cmes_id').val(cmes_id);
+    $.ajax(
+        {
+            url:'backend/cmes_tab/load_to_edit_cmes.php',
+            type:'post',
+            data:{cmes_id:cmes_id},
+            success:function(data)
+            {
+                data = $.parseJSON(data);
+                if(data.status == 'success')
+                {
+                    $('#edit_office').val(data.office);
+                    $('#edit_host').val(data.host);
+                    $('#edit_time').val(data.time);
+                    $('#edit_date').val(data.date);
+                    $('#edit_remarks').val(data.remarks);
+
+                    // let fb = 
+                    // let ppab = $('#edit_ppab_yes_no').val();
+                    if(data.fb == "YES")
+                    {
+                        $('#edit_fb_yes').attr('checked',"true");
+                        $('#edit_fb_yes_no').val("YES");
+                    }
+                    else
+                    {
+                        $('#edit_fb_no').attr('checked',"true");
+                        $('#edit_fb_yes_no').val("NO");
+                    }
+                    if(data.ppab == "YES")
+                    {
+                        $('#edit_ppab_yes').attr('checked',"true");
+                        $('#edit_ppab_yes_no').val("YES");
+                    }
+                    else
+                    {
+                        $('#edit_ppab_no').attr('checked',"true");
+                        $('#edit_ppab_yes_no').val("NO");
+                    }
+
+                    $('#cmes_edit_modal').modal('toggle');
+                    // alert(data.time)
+                }
+                else
+                {
+                    alert(data.msg);
+                }
+            }
+        })
+    
+})
+
+// save edited
+$(document).on('click','#save_edited_cmes',function()
+{
+    let edited_cmes_form = $('#edit_cmes_form')[0];
+    let formData = new FormData(edited_cmes_form);
+    
+    $.ajax(
+        {
+            url:'backend/cmes_tab/save_edited_cmes.php',
+            type:'post',
+            data:formData,
+            contentType: false,
+            processData: false,
+            success: function(data)
+            {
+                $('#cmes_edit_modal').modal('toggle');
+                load_cmes();
+            }
+        })
+})
+
+// delete cmes
+$(document).on('click','.cmes_del', function()
+{
+    cmes_id = $(this).attr('data-id');
+    $('.cmes_confirm_modal_title').css('color','red');
+    $('.cmes_confirm_modal_title').html('Please confirm to delete');
+    $('#cmes_confirm_modal').modal('toggle');
+})
+
+$(document).on('click','#delete_cmes',function()
+{   
+    $.ajax(
+        {
+            url:'backend/cmes_tab/delete_cmes.php',
+            type:'post',
+            data:{cmes_id:cmes_id},
+            success: function(data)
+            {
+                $('#cmes_confirm_modal').modal('toggle');
+                load_cmes();
+            }
+        })
+})

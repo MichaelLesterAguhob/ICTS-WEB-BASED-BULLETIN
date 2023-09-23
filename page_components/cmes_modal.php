@@ -101,16 +101,17 @@
         </button>
       </div>
       <div class="modal-body cmes_modal_body">
-        <span class="edit_cmes_form_msg text-success text-center"></span>
+        <!-- <span class="edit_cmes_form_msg text-success text-center"></span> -->
         <table class="cmes_input_table">
           
         <!-- Edit cmes Form -->
         <form id="edit_cmes_form" method="post" enctype="multipart/form-data">
             <tr>
+              <input type="text" name="cmes_id" id="cmes_id">
                 <th style="width: 20%;">Committee/Office: &nbsp;</th>
                 <td style="width:80%;">
                   <input name="edit_office" id="edit_office" type="text" class="form-control cmes_input">
-                </td>
+                </td> 
             </tr>
             <tr>
                 <th style="width: 20%;">Host/s: &nbsp;</th>
@@ -169,7 +170,7 @@
           id="save_edited_cmes" 
           type="button" 
           class="btn btn-primary">
-          Save
+          Update
         </button>
         <button 
           type="button" 
@@ -182,7 +183,23 @@
   </div>
 </div>
 
-
+<!-- CMES CONFIRMATION MODAL -->
+<div class="modal" id="cmes_confirm_modal">
+  <div class="modal-dialog confirmation_modal_dialog">
+    <div class="modal-content confirmation_modal_content">
+      <div class="modal-header confirmation_modal_header">
+        <button type="button" class="close" data-bs-dismiss="modal" >
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <h3 class="modal-title cmes_confirm_modal_title"></h3>
+      </div>
+      <div class="modal-footer confirmation_modal_footer">
+        <button id="delete_cmes" type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

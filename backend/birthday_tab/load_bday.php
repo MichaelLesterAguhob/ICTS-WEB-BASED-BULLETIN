@@ -1,6 +1,6 @@
 <?php 
 $response = "";
-include_once('connection.php');
+include_once('connection.php'); 
 
 try 
 {
@@ -25,13 +25,13 @@ else
             <td class="action_td">
                 <button 
                     data-id="'.$row['id'].'" 
-                    class="btn btn-sm btn-warning edit_bday_btn">
-                    Edit
-                </button>
+                    class="edit_btn edit_bday_btn">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>&nbsp;&nbsp;
                 <button 
                     data-id="'.$row['id'].'" 
-                    class="btn btn-sm btn-danger delete_bday_btn">
-                    Del
+                    class="delete_btn delete_bday_btn">
+                    <i class="fa-solid fa-trash-can"></i>
                 </button>
             </td>
         </tr>

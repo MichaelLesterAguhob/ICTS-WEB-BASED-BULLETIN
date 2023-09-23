@@ -1,13 +1,13 @@
 <?php 
 include_once('connection.php');
-$office = $_POST['office'];
-$host = $_POST['host'];
+$office = mysqli_real_escape_string($con,  $_POST['office']);
+$host = mysqli_real_escape_string($con,  $_POST['host']);
 $time = date('h:i A', strtotime($_POST['time']));
 // $time = $_POST['time'];
 $date = $_POST['date'];
 $fb_yes_no = $_POST['fb_yes_no'];
 $ppab_yes_no = $_POST['ppab_yes_no'];
-$remarks = $_POST['remarks'];
+$remarks = mysqli_real_escape_string($con,  $_POST['remarks']);
 $response = '';
 
 try
