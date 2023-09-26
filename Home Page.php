@@ -231,6 +231,8 @@
             <div class="col-lg-7 tab_title">
                 <h3><i class="fa-regular fa-calendar-days"></i>&nbsp;
                 Committee Meeting and Event Schedule
+                &nbsp;&nbsp;
+                <p class="cmes_msg"></p>
                 </h3>
             </div>
             <div class="col-lg-5 tab_button">
@@ -269,17 +271,19 @@
                 <h3><i class="fa-solid fa-person-running"></i> &nbsp; HREP Actvities</h3>
             </div>
             <div class="col-lg-5 tab_button">
-                <button class="btn btn-primary btn_add">
+                <button class="btn btn-primary btn_add" data-bs-toggle="modal" data-bs-target="#hrep_act_modal">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
         </div>
 
         <div class="event_table_cont">
-            <table >
+            <table class="table">
                 <thead>
                     <tr>
-                        
+                        <th>#</th>
+                        <th>Image</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -335,7 +339,7 @@
       <div class="modal-header sys_modal_header">
         <button type="button" class="close" data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
-        </button>
+        </button>   
         <h3 class="modal-title sys_modal_title"></h3>
       </div>
       <div class="modal-body sys_mod_body">
@@ -367,10 +371,11 @@
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- MODALS -->
 <?php include_once 'page_components/bday_modal.php'; ?>
 <?php include_once 'page_components/quote_modal.php'; ?>
 <?php include_once 'page_components/cmes_modal.php'; ?>
+<?php include_once 'page_components/hrep_act_modal.php'; ?>
 
 <!-- FOOTER -->
 <?php include_once 'page_components/footer.php'; ?>

@@ -21,10 +21,10 @@ try
                     <td style="width: 5%;">'.$rows['ppab_cam'].'</td> 
                     <td style="width: 20%;">'.$rows['remarks'].'</td>
                     <td style="width: 10%;">
-                        <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'">
+                        <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'" title="Edit">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button class="cmes_btn cmes_del" data-id="'.$rows['id'].'">
+                        <button class="cmes_btn cmes_del" data-id="'.$rows['id'].'" title="Delete">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </td>

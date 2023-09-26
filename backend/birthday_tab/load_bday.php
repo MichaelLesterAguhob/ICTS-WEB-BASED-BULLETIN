@@ -25,12 +25,14 @@ else
             <td class="action_td">
                 <button 
                     data-id="'.$row['id'].'" 
-                    class="edit_btn edit_bday_btn">
+                    class="edit_btn edit_bday_btn"
+                    title="Edit">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>&nbsp;&nbsp;
                 <button 
                     data-id="'.$row['id'].'" 
-                    class="delete_btn delete_bday_btn">
+                    class="delete_btn delete_bday_btn"
+                    title="Delete">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
             </td>

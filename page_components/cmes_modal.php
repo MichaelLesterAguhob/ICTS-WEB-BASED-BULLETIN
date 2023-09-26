@@ -107,7 +107,7 @@
         <!-- Edit cmes Form -->
         <form id="edit_cmes_form" method="post" enctype="multipart/form-data">
             <tr>
-              <input type="text" name="cmes_id" id="cmes_id">
+              <input type="hidden" name="cmes_id" id="cmes_id">
                 <th style="width: 20%;">Committee/Office: &nbsp;</th>
                 <td style="width:80%;">
                   <input name="edit_office" id="edit_office" type="text" class="form-control cmes_input">

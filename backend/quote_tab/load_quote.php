@@ -38,13 +38,15 @@ try
                     <td style="width: 20%;" class="action_td">
                         <button 
                             data-id="'.$row['id'].'" 
-                            class="edit_quote_btn">
+                            class="edit_quote_btn"
+                            title="Edit">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                         &nbsp;&nbsp;
                         <button 
                             data-id="'.$row['id'].'" 
-                            class="delete_quote_btn">
+                            class="delete_quote_btn"
+                            title="Delete">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </td>    

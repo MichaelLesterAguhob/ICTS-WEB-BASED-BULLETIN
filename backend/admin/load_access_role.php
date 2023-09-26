@@ -26,61 +26,61 @@ try
             // 
             if($rows['icts_an']=='NO')
             {
-                $icts_an_chckbx = '<input name="icts_chckbx" data-id="'.$rows['account_id'].'" data-col="icts_an" type="checkbox" class="chckbx">';
+                $icts_an_chckbx = '<input name="icts_chckbx" data-id="'.$rows['account_id'].'" data-col="icts_an" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $icts_an_chckbx = '<input name="icts_chckbx" data-id="'.$rows['account_id'].'" data-col="icts_an" type="checkbox" class="chckbx" checked>';
+                $icts_an_chckbx = '<input name="icts_chckbx" data-id="'.$rows['account_id'].'" data-col="icts_an" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
 
             // 
             if($rows['hrep_an']=='NO')
             {
-                $hrep_an_chckbx = '<input name="hrep_chckbx" data-id="'.$rows['account_id'].'" data-col="hrep_an" type="checkbox" class="chckbx">';
+                $hrep_an_chckbx = '<input name="hrep_chckbx" data-id="'.$rows['account_id'].'" data-col="hrep_an" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $hrep_an_chckbx = '<input name="hrep_chckbx" data-id="'.$rows['account_id'].'" data-col="hrep_an" type="checkbox" class="chckbx" checked>';
+                $hrep_an_chckbx = '<input name="hrep_chckbx" data-id="'.$rows['account_id'].'" data-col="hrep_an" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
 
             // 
             if($rows['hrep_act']=='NO')
             {
-                $hrep_act_chckbx = '<input name="hrep_act_chckbox" data-id="'.$rows['account_id'].'" data-col="hrep_act" type="checkbox" class="chckbx">';
+                $hrep_act_chckbx = '<input name="hrep_act_chckbox" data-id="'.$rows['account_id'].'" data-col="hrep_act" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $hrep_act_chckbx = '<input name="hrep_act_chckbox" data-id="'.$rows['account_id'].'" data-col="hrep_act" type="checkbox" class="chckbx" checked>';
+                $hrep_act_chckbx = '<input name="hrep_act_chckbox" data-id="'.$rows['account_id'].'" data-col="hrep_act" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
 
             // 
             if($rows['cmes']=='NO')
             {
-                $cmes_chckbx = '<input name="cmes_chckbx" data-id="'.$rows['account_id'].'" data-col="cmes" type="checkbox" class="chckbx">';
+                $cmes_chckbx = '<input name="cmes_chckbx" data-id="'.$rows['account_id'].'" data-col="cmes" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $cmes_chckbx = '<input name="cmes_chckbx" data-id="'.$rows['account_id'].'" data-col="cmes" type="checkbox" class="chckbx" checked>';
+                $cmes_chckbx = '<input name="cmes_chckbx" data-id="'.$rows['account_id'].'" data-col="cmes" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
 
             // 
             if($rows['bday']=='NO')
             {
-                $bday_chckbx = '<input name="bday_chckbx" data-id="'.$rows['account_id'].'" data-col="bday" type="checkbox" class="chckbx">';
+                $bday_chckbx = '<input name="bday_chckbx" data-id="'.$rows['account_id'].'" data-col="bday" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $bday_chckbx = '<input name="bday_chckbx" data-id="'.$rows['account_id'].'" data-col="bday" type="checkbox" class="chckbx" checked>';
+                $bday_chckbx = '<input name="bday_chckbx" data-id="'.$rows['account_id'].'" data-col="bday" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
 
             // 
             if($rows['quote']=='NO')
             {
-                $quote_chckbx = '<input name="quote_chckbx" data-id="'.$rows['account_id'].'" data-col="quote" type="checkbox" class="chckbx">';
+                $quote_chckbx = '<input name="quote_chckbx" data-id="'.$rows['account_id'].'" data-col="quote" type="checkbox" class="chckbx" title="Check to give access">';
             }
             else
             {
-                $quote_chckbx = '<input name="quote_chckbx" data-id="'.$rows['account_id'].'" data-col="quote" type="checkbox" class="chckbx" checked>';
+                $quote_chckbx = '<input name="quote_chckbx" data-id="'.$rows['account_id'].'" data-col="quote" type="checkbox" class="chckbx" checked title="Check to give access">';
             }
             
             $data .= '

@@ -21,6 +21,7 @@ $(window).keydown(function(event){
 
 $('#delete_bday').css('display','none');    
 $('#delete_quote').css('display','none');    
+
 });
 
 //FOR IMAGE PREVIEW ONCE SELECTED
@@ -620,11 +621,14 @@ $(document).on('click','#save_edited_cmes',function()
             {
                 $('#cmes_edit_modal').modal('toggle');
                 load_cmes();
+                $('.cmes_msg').css('font-size','16px');
+                $('.cmes_msg').css('color','blue');
+                $('.cmes_msg').html(data).fadeIn(1000).fadeOut(3000);
             }
         })
 })
 
-// delete cmes
+// delete cmes 
 $(document).on('click','.cmes_del', function()
 {
     cmes_id = $(this).attr('data-id');
@@ -644,6 +648,23 @@ $(document).on('click','#delete_cmes',function()
             {
                 $('#cmes_confirm_modal').modal('toggle');
                 load_cmes();
+                $('.cmes_msg').css('font-size','16px');
+                $('.cmes_msg').css('color','red');
+                $('.cmes_msg').html(data).fadeIn(1000).fadeOut(3000);
             }
         })
 })
+
+//FOR IMAGE PREVIEW ONCE SELECTED
+function readURLHrepAct(input)
+{
+if(input.files && input.files[0])
+{
+    var reader = new FileReader();
+    reader.onload = function(e)
+    {
+        $("#hrep_act_img_prev").attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+}

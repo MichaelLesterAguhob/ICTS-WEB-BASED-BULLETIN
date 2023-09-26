@@ -13,6 +13,10 @@ $remarks = mysqli_real_escape_string($con,  $_POST['edit_remarks']);
 try
 {
     $query = mysqli_query($con, "UPDATE cmes SET `committee_office`='$com_off', `date`='$date', `time`='$time', `host`='$host', `fb_live`='$fb', `ppab_cam`='$ppab', `remarks`='$remarks' WHERE id='$cmes_id'");   
+    if($query)
+    {
+        $respo = "Updated Successfully";
+    }
 }
 catch(Exception $ex)
 {   

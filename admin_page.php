@@ -40,7 +40,7 @@
        
             <!-- TAB NAVIGATION -->
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#user_accounts">User Accounts</a></li>
+            <li class="active"><a data-toggle="tab" href="#user_accounts">Accounts</a></li>
             <li><a data-toggle="tab" href="#activities">Activities</a></li>
             <li><a data-toggle="tab" href="#logs">Logs</a></li>
             <li><a data-toggle="tab" href="#access_role">Set Access Role</a></li>
@@ -52,7 +52,7 @@
             <div id="user_accounts" class="tab-pane fade in active">
                 <div class="row tab_header">
                     <div class="col-lg-6 tab_title">
-                        <h3><i class="fa-solid fa-users-gear"></i>&nbsp; User Accounts</h3>
+                        <h3><i class="fa-solid fa-users-gear"></i>&nbsp; Accounts</h3>
                     </div> 
                     <div class="col-lg-6 tab_btn">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_acct_modal">Create Account</button>

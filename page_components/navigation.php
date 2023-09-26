@@ -26,7 +26,7 @@
             ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="viewing_screen.php" target="_blank"><i class="fa-solid fa-eye"></i> Preview</a>
+            <a class="nav-link" aria-current="page" href="viewing_screen.php" target="_blank"><i class="fa-solid fa-eye"></i> Go to Viewing Page</a>
           </li>
           <li class="nav-item">
               <a class="nav-link logout" aria-current="page" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> LogOut </a>
