@@ -655,16 +655,140 @@ $(document).on('click','#delete_cmes',function()
         })
 })
 
-//FOR IMAGE PREVIEW ONCE SELECTED
+// HREP ACT
+//FOR IMAGE PREVIEW ONCE SELECTED 
 function readURLHrepAct(input)
 {
-if(input.files && input.files[0])
-{
-    var reader = new FileReader();
-    reader.onload = function(e)
+    if(input.files && input.files[0])
     {
-        $("#hrep_act_img_prev").attr('src', e.target.result);
-    };
-    reader.readAsDataURL(input.files[0]);
+        var reader = new FileReader();
+        reader.onload = function(e)
+        {
+            $("#hrep_act_img_prev").attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
 }
+//FOR IMAGE PREVIEW ONCE SELECTED (EDITING)
+function readURLEditHrepAct(input)
+{
+    if(input.files && input.files[0])
+    {
+        var reader = new FileReader();
+        reader.onload = function(e)
+        {
+            $("#edit_hrep_act_img_prev").attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// Adding Hrep Act
+$(document).on('click','#save_hrep_act',function()
+{
+    let img = $('#upload_hrep_act_img').val();
+
+    if(img != "")
+    {
+        let add_hrep_act = $('#add_hrep_act_form')[0];
+        let formData = new FormData(add_hrep_act);
+    
+        $.ajax(
+            {
+                url:'backend/hrep_act_tab/add_hrep_act.php',
+                type:'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success:function(data)
+                {
+                    $('.add_hrep_act_form_msg').html(data).fadeIn(1000).fadeOut(3000);
+                    $('#add_hrep_act_form').trigger('reset');
+                    $('#hrep_act_img_prev').attr('src','img/default2.png');
+                    load_hrep_act();
+                }
+            })
+    }
+})
+
+// Loading Hrep Act
+load_hrep_act();
+function load_hrep_act()
+{
+    $.ajax(
+        {
+            url:'backend/hrep_act_tab/load_hrep_act.php',
+            type:'post',
+            success: function(data)
+            {
+               $('#hrep_act_data').html(data);
+            }
+        })
+}
+
+// EDITING and UPDATING HREP ACTIVITIES
+$(document).on('click', '.hrept_act_edit', function()
+{
+    $('#edit_hrep_act_id').val($(this).attr('data-id'));
+    $('#edit_hrep_act_img_old').val($(this).attr('data-img'));
+    let hrep_act_img = $(this).attr('data-img');
+    $('#edit_hrep_act_img_prev').attr('src','backend/hrep_act_tab/img/'+hrep_act_img);
+    $('#edit_hrep_act_modal').modal('toggle');
+})
+
+// update hrep act
+$(document).on('click','#update_hrep_act', function()
+{
+    let img = $('#edit_hrep_act_img').val();
+
+    if(img != "")
+    {
+    let edited_hrep_act = $('#edit_hrep_act_form')[0];
+    let formData = new FormData(edited_hrep_act);
+
+    $.ajax(
+        {
+            url:'backend/hrep_act_tab/update_hrep_act.php',
+            type: 'post',
+            data:formData,
+            contentType: false,
+            processData: false,
+            success: function(data)
+            {
+                $('#edit_hrep_act_form').trigger('reset');
+                $('#edit_hrep_act_modal').modal('toggle');
+                $('.hrep_act_msg').css('font-size','16px');
+                $('.hrep_act_msg').css('color','blue');
+                $('.hrep_act_msg').html(data).fadeIn(1000).fadeOut(3000);
+                load_hrep_act();
+            }        
+        })
+    }
+})
+
+// del_hrep_act_modal
+let del_hrep_act_id = 0;
+$(document).on('click','.hrept_act_delete', function()
+{
+    del_hrep_act_id = $(this).attr('data-id');
+    $('#del_hrep_act_modal').modal('toggle');
+    $('.hrep_act_del_msg').css('color','red');
+})
+
+function del_hrep_act()
+{
+    $.ajax(
+        {
+            url:'backend/hrep_act_tab/delete_hrep_act.php',
+            type:'post',
+            data:{del_hrep_act_id:del_hrep_act_id},
+            success: function(data)
+            {
+                $('.hrep_act_msg').css('font-size','16px');
+                $('.hrep_act_msg').css('color','red');
+                $('.hrep_act_msg').html(data).fadeIn(1000).fadeOut(3000);
+                $('#del_hrep_act_modal').modal('toggle');
+                load_hrep_act();
+            }
+        })
 }

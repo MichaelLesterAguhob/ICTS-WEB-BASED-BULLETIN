@@ -268,9 +268,10 @@
 
         <div class="row tab_header">
             <div class="col-lg-7 tab_title">
-                <h3><i class="fa-solid fa-person-running"></i> &nbsp; HREP Actvities</h3>
+                <h3><i class="fa-solid fa-person-running"></i> &nbsp; HREP Actvities &nbsp;&nbsp;
+                <p class="hrep_act_msg"></p></h3>
             </div>
-            <div class="col-lg-5 tab_button">
+            <div class="col-lg-5 tab_button">   
                 <button class="btn btn-primary btn_add" data-bs-toggle="modal" data-bs-target="#hrep_act_modal">
                     <i class="fa-solid fa-plus"></i>
                 </button>
@@ -286,10 +287,8 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
+                <tbody id="hrep_act_data">
+                    
                 </tbody>
             </table>
         </div>

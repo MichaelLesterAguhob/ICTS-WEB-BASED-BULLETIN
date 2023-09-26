@@ -146,15 +146,15 @@
 }
 
 /*  */
-#quote .edit_quote_btn, .delete_quote_btn{
+#quote .edit_quote_btn, .delete_quote_btn, #hrep_actvts .hrept_act_edit, .hrept_act_delete{
     background-color: transparent;
     border: none;
     font-size: larger;
 }
-#quote .delete_quote_btn{
+#quote .delete_quote_btn, #hrep_actvts .hrept_act_delete{
     color: rgba(255, 0, 0, 0.625);
 }
-#quote .edit_quote_btn{
+#quote .edit_quote_btn, #hrep_actvts .hrept_act_edit{
     color: rgba(255, 140, 0, 0.605);
 }
 
@@ -165,4 +165,12 @@
 #hrep_act_img_prev{
     max-width: 100%;
     max-height: 250px;
+}
+
+#del_hrep_act_modal .modal-dialog{
+    margin-top: 20%;
+}
+#del_hrep_act_modal .modal-content{
+    min-height: 100px;
+    text-align: right;
 }
