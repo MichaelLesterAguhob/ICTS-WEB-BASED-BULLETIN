@@ -6,24 +6,47 @@ $response = "";
 
 try 
 {
-    $result1 = mysqli_query($con, "SELECT username FROM user_account WHERE `username`='$username' AND `password`='$password'");
+    $check = mysqli_query($con, "SELECT `username` FROM user_account WHERE `username`='$username' ");
 
-    if(mysqli_num_rows($result1) > 0)
+    if(mysqli_num_rows($check) > 0)
     {
-        $query = mysqli_query($con, "UPDATE user_account SET `forgot`='no' WHERE `username`='$username' ");
+        $verify_pass = mysqli_query($con, "SELECT `password` FROM user_account WHERE `username`='$username' ");
+        $encrypted_pass = mysqli_fetch_array($verify_pass);
+        $is_verified = password_verify($password, $encrypted_pass[0]);
+    
+        if($is_verified)
+        {
+                $query = mysqli_query($con, "UPDATE user_account SET `forgot`='no' WHERE `username`='$username' ");
+        
+                $_SESSION['username'] = $username;
+                $_SESSION['user_type'] = 'user';
+                $response = json_encode(['status'=>'success', 'location'=>"Home Page.php"]);
+        
+                $date = date("Y/m/d");
+                $timeZone = date_default_timezone_set("Asia/Manila");
+                $time = date("h:i:sa");
+                $dt = $date ." - ".$time;
+        
+                $insert_logs = mysqli_query($con, "INSERT INTO logs VALUES('','$username','$dt','')");
+        }
+        else
+        {
+            $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username' AND `password`='$password'");
 
-        $_SESSION['username'] = $username;
-        $_SESSION['user_type'] = 'user';
-        $response = json_encode(['status'=>'success', 'location'=>"Home Page.php"]);
-
-        $date = date("Y/m/d");
-        $timeZone = date_default_timezone_set("Asia/Manila");
-        $time = date("h:i:sa");
-        $dt = $date ." - ".$time;
-
-        $insert_logs = mysqli_query($con, "INSERT INTO logs VALUES('','$username','$dt','')");
+            if(mysqli_num_rows($result2) > 0)
+            {
+                $_SESSION['username'] = $username;
+                $_SESSION['user_type'] = 'admin';
+    
+                $response = json_encode(['status'=>'success', 'location'=>"admin_page.php"]);
+            }
+            else
+            {
+                $response = json_encode(['status'=>'failed', 'msg'=>"Account not found!"]);
+            }
+        }
     }
-    else    
+    else
     {
         $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username' AND `password`='$password'");
 
@@ -38,6 +61,7 @@ try
         {
             $response = json_encode(['status'=>'failed', 'msg'=>"Account not found!"]);
         }
+        
     }
 
 }

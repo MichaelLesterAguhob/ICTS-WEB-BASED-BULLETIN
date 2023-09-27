@@ -5,9 +5,13 @@ $data = '';
 
 try
 {
-    $count = 1;
     $query = mysqli_query($con, "SELECT * FROM hrep_activities");
-    while($rows = mysqli_fetch_assoc($query))
+    $check_data = mysqli_num_rows($query);
+    if($check_data > 0)
+    {
+    $count = 1;
+    $query1 = mysqli_query($con, "SELECT * FROM hrep_activities");
+    while($rows = mysqli_fetch_assoc($query1))
     {
         $data .= '
             <tr>
@@ -21,6 +25,7 @@ try
                     <button class="hrept_act_edit" data-img="'.$rows['img'].'" data-id="'.$rows['id'].'">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
+                    &nbsp;&nbsp;
                     <button class="hrept_act_delete" data-img="'.$rows['img'].'" data-id="'.$rows['id'].'">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
@@ -30,6 +35,11 @@ try
         $count ++;
     }
     $respo = $data;
+    }
+    else
+    {
+        $respo = '<td colspan="3" class="text-center">No Data Found</td>';
+    }
 }
 catch(Exception $ex)
 {

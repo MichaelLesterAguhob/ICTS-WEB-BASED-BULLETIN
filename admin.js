@@ -46,15 +46,17 @@ let viewed = 0;
 $(document).on('click','.view_btn', function()
 {
     let id = $(this).attr('data-id');
+    let pass = $(this).attr('password');
+    let pass_plain = $(this).attr('password-plain');
     if(viewed == id)
     {
-        $('#'+id).attr('type','password');
+        $('#'+id).val(pass);
         viewed = 0;
     }
     else
     {
-        $('.user_password').attr('type','password');
-        $('#'+id).attr('type','text');
+        // viewing the original form of password
+        $('#'+id).val(pass_plain);
         viewed = id;
     }  
 })

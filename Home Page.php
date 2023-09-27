@@ -358,7 +358,7 @@
       <div class="modal-header confirmation_modal_header">
         <button type="button" class="close" data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
-        </button>
+        </button> 
         <h3 class="modal-title confirmation_modal_title"></h3>
       </div>
       <div class="modal-footer confirmation_modal_footer">

@@ -24,6 +24,7 @@ try
                         <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'" title="Edit">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
+                        &nbsp;&nbsp;
                         <button class="cmes_btn cmes_del" data-id="'.$rows['id'].'" title="Delete">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
