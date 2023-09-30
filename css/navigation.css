@@ -1,5 +1,6 @@
 .navbar{
-    background-color: rgba(213, 198, 198, 0.444);
+    /* background-color: rgba(213, 198, 198, 0.444); */
+    background-color: white;
 }
 .navbar h1{
     margin: auto;
@@ -14,7 +15,7 @@
     color: black;
 }
 .nav-link:hover{
-    background-color: rgba(148, 189, 163, 0.468);
+    background-color: rgba(217, 213, 213, 0.556);
 }
 #navbarNav .navbar-nav .logout{
     color: red;

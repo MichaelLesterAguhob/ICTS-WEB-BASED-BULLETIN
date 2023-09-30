@@ -1,7 +1,8 @@
 
  /* FOOTER */
 .footer{
-    background-color: rgba(174, 163, 163, 0.512);
+    /* background-color: rgba(174, 163, 163, 0.512); */
+    background-color: white;
     padding-top: 50px;
     padding-bottom: 20px;
 }

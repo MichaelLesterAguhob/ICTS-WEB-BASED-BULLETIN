@@ -7,7 +7,7 @@ $response = "";
 $user_type = $_SESSION['user_type'];
 $username = $_SESSION['username'];
 try
-{
+{ 
     $image_filename = "SELECT image FROM birthday_tbl WHERE id='$to_delete_bday'";
     $filename_res = mysqli_query($con, $image_filename);
     $filename = mysqli_fetch_array($filename_res);

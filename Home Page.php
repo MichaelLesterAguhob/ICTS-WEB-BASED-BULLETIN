@@ -125,7 +125,7 @@
         <?php echo $hrep_announcement ?>
         <?php echo $hrep_act ?>
         <?php echo $cmes ?>
-        <?php echo $bday ?>
+        <?php echo $bday ?> 
         <?php echo $quote ?>
     </ul>
 
