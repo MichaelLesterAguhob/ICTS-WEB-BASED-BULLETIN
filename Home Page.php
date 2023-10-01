@@ -44,7 +44,15 @@
         }
         if($data['hrep_an'] == 'YES')
         {
-            $hrep_announcement = '<li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>';
+            if($data['icts_an'] == 'NO')
+            {
+                $hrep_announcement = '<li class="active"><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>';
+            }
+            else
+            {
+                $hrep_announcement = '<li><a data-toggle="tab" href="#hrep_annncmnts">HREP Announcements</a></li>';
+            }
+
             if($in_active1 == "")
             {
                 $in_active2 = "in active";
@@ -52,7 +60,15 @@
         }
         if($data['hrep_act'] == 'YES')
         {
-            $hrep_act = '<li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>';
+            if($data['icts_an'] == 'NO' && $data['hrep_an'] == 'NO')
+            {
+                $hrep_act = '<li class="active"><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>';
+            }
+            else
+            {
+                $hrep_act = '<li><a data-toggle="tab" href="#hrep_actvts">HREP Activities</a></li>';
+            }
+           
             if($in_active1 == "" && $in_active2 == "")
             {
                 $in_active3 = "in active";
@@ -60,7 +76,15 @@
         }
         if($data['cmes'] == 'YES')
         {
-            $cmes = '<li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>';
+            if($data['icts_an'] == 'NO' && $data['hrep_an'] == 'NO' && $data['hrep_act'] == 'NO')
+            {
+                $cmes = '<li class="active"><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>';
+            }
+            else
+            {
+                $cmes = '<li><a data-toggle="tab" href="#cmes">Committee Meeting and Event Sched</a></li>';
+            }
+            
             if($in_active1 == "" && $in_active2 == "" && $in_active3 == "")
             {
                 $in_active4 = "in active";
@@ -68,7 +92,15 @@
         }
         if($data['bday'] == 'YES')
         {
-            $bday = '<li><a data-toggle="tab" href="#birthday">Birthday</a></li>';
+            if($data['icts_an'] == 'NO' && $data['hrep_an'] == 'NO' && $data['hrep_act'] == 'NO' && $data['cmes'] == 'NO')
+            {
+                $bday = '<li class="active"><a data-toggle="tab" href="#birthday">Birthday</a></li>';
+            }
+            else
+            {
+                $bday = '<li><a data-toggle="tab" href="#birthday">Birthday</a></li>';
+            }
+
             if($in_active1 == "" && $in_active2 == "" && $in_active3 == "" && $in_active4 == "")
             {
                 $in_active5 = "in active";
@@ -76,7 +108,15 @@
         }
         if($data['quote'] == 'YES')
         {
-            $quote = '<li><a data-toggle="tab" href="#quote">Quote</a></li>';
+            if($data['icts_an'] == 'NO' && $data['hrep_an'] == 'NO' && $data['hrep_act'] == 'NO' && $data['cmes'] == 'NO' && $data['bday'] == 'NO')
+            {
+                $quote = '<li class="active"><a data-toggle="tab" href="#quote">Quote</a></li>';
+            }
+            else
+            {
+                $quote = '<li><a data-toggle="tab" href="#quote">Quote</a></li>';
+            }
+
             if($in_active1 == "" && $in_active2 == "" && $in_active3 == "" && $in_active4 == "" && $in_active5 == "")
             {
                 $in_active6 = "in active";
@@ -110,6 +150,7 @@
     <link rel="stylesheet" href="css/bday_modal.css">
     <link rel="stylesheet" href="css/home_page.css">
     <link rel="stylesheet" href="css/cmes_modal.css">
+    <link rel="stylesheet" href="css/icts_ann_modal.css">
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -138,7 +179,7 @@
                 <h3><i class="fa-solid fa-bullhorn"></i>&nbsp; ICTS Announcements</h3>
             </div>
             <div class="col-lg-5 tab_button">
-                <button class="btn btn-primary btn_add">
+                <button class="btn btn-primary btn_add add_icts_ann">
                 <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
@@ -375,6 +416,7 @@
 <?php include_once 'page_components/quote_modal.php'; ?>
 <?php include_once 'page_components/cmes_modal.php'; ?>
 <?php include_once 'page_components/hrep_act_modal.php'; ?>
+<?php include_once 'page_components/icts_ann_modal.php'; ?>
 
 <!-- FOOTER -->
 <?php include_once 'page_components/footer.php'; ?>

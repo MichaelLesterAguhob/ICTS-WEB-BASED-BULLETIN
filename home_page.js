@@ -12,12 +12,13 @@ $('.add_bday').on('click', function()
 {
     $("#name").focus();
 })
-$(window).keydown(function(event){
+
+$('#name').keydown(function(event){
     if(event.keyCode == 13) {
         event.preventDefault();
-        return false;
+        return true;
     }
-    });
+    });    
 
 $('#delete_bday').css('display','none');    
 $('#delete_quote').css('display','none');    
@@ -792,3 +793,22 @@ function del_hrep_act()
             }
         })
 }
+
+// icts_add_ann_modal
+$(document).on('click','.add_icts_ann',function() 
+{
+    $('#icts_add_ann_modal').modal('toggle');
+})
+
+let team_name_num = 1;
+$(document).on('click','.add_team_list',function()
+{
+    team_name_num ++;
+    $('#team_name_num').val(team_name_num);
+    $('#team_name_list').append('<tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+})
+
+
+
+
+

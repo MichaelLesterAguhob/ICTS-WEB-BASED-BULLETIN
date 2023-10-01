@@ -1,0 +1,18 @@
+.icts_add_ann_dialog{
+    margin-top: 5%;
+}
+.icts_add_ann_content, .icts_add_ann_body{
+    max-height: 500px;
+    overflow: auto;
+}
+.icts_ann_table{
+    width: 100%;
+}
+.icts_ann_input{
+    width: 100%;
+    resize: none;
+}
+.add_team_list{
+    font-size: 10px;
+    height: fit-content;
+}
