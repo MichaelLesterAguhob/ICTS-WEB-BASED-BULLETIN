@@ -804,11 +804,38 @@ let team_name_num = 1;
 $(document).on('click','.add_team_list',function()
 {
     team_name_num ++;
-    $('#team_name_num').val(team_name_num);
+    $('#team_num').val(team_name_num);
     $('#team_name_list').append('<tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
 })
 
+function selected_cont_type(){
+    let cont_type = $('#cont_type :selected').text();
+    $('#cont_type_selected').val(cont_type);
+}
 
+// saving ICTS Announcement
+$(document).on('click', '#save_icts_ann', function()
+{
+    let icts_add_ann = $('#icts_add_ann')[0];
+    let formData = new FormData(icts_add_ann);
 
+    $.ajax(
+        {
+            url:'backend/icts_announcement/add_icts_ann.php',
+            method:'post',
+            data:formData,
+            contentType: false,
+            processData: false,
+            success: function(data)
+            {
+                $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
+                $('#icts_add_ann').trigger('reset');
+                team_name_num = 1;
+                $('#team_num').val(team_name_num);
+                $('#team_name_list').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td></tr><tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+            }
+        })  
+   
+})
 
 
