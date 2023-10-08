@@ -36,13 +36,13 @@
     <?php include_once('page_components/navigation.php');?>
 
     <!-- Main Content -->
-    <div class="container-fluid main_container" >
+    <div class="main_container" >
        
             <!-- TAB NAVIGATION -->
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#user_accounts">Accounts</a></li>
-            <li><a data-toggle="tab" href="#activities">Activities</a></li>
-            <li><a data-toggle="tab" href="#logs">Logs</a></li>
+            <li><a data-toggle="tab" href="#activities">Activity Logs</a></li>
+            <!-- <li><a data-toggle="tab" href="#logs">Logs</a></li> -->
             <li><a data-toggle="tab" href="#access_role">Set Access Role</a></li>
         </ul>
 
@@ -100,30 +100,6 @@
                 </div>
             </div>
 
-            <!-- LOGS TAB -->
-            <div id="logs" class="tab-pane fade">
-                <div class="tab_header2">
-                    <div class="tab_title2">
-                        <h3><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Logs</h3>
-                    </div>
-                </div>
-
-                <div class="container-fluid event_table_cont">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>LogIn</th>
-                                <th>LogOut</th>
-                            </tr>
-                        </thead>
-                        <tbody id="logs_data">
-                            <!-- user accounts data here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
             <!-- Access Role TAB -->
             <div id="access_role" class="tab-pane fade">
                 <div class="tab_header2">
@@ -157,8 +133,7 @@
     </div>
 
 
-    <!-- footer -->
-    <?php include_once 'page_components/footer.php'; ?>
+<!-- modal -->
     <?php include_once 'page_components/create_acct_modal.php'; ?>
 
     <!-- JAVASCRIPT -->

@@ -44,11 +44,27 @@ try
     }
     else if($cont_type_selected == "QR/Form")
     {
-
+      move_uploaded_file($_FILES['qr_form_img']['tmp_name'],'icts_img/'. $_FILES['qr_form_img'] ['name']);
+    
+      $img = $_FILES['qr_form_img']['name'];
+      $query1 = mysqli_query($con, "INSERT INTO icts_ann_cont VALUES('',$cont_id,'$ann_title', '$cont_type_selected')");
+      if($query1)
+      {
+        $date = $_POST['qr_form_date'];
+        $query2 = mysqli_query($con, "INSERT INTO icts_img_date VALUES('',$cont_id,'$img', '$date')");
+        $respo = "Added Successfully";
+      }
     }
     else if($cont_type_selected == "Training")
     {
-
+      $query1 = mysqli_query($con, "INSERT INTO icts_ann_cont VALUES('',$cont_id,'$ann_title', '$cont_type_selected')");
+      if($query1)
+      {
+        $training_name = $_POST['training_name'];
+        $date = $_POST['training_date'];
+        $query2 = mysqli_query($con, "INSERT INTO icts_img_date VALUES('',$cont_id,'$training_name', '$date')");
+        $respo = "Added Successfully";
+      }
     }
 }
 catch(Exception $ex)

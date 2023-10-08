@@ -16,10 +16,10 @@ try
                     <td style="width: 20%;">'.$rows['committee_office'].'</td>
                     <td style="width: 10%;">'.$rows['time'].'</td>
                     <td style="width: 10%;">'.$rows['date'].'</td>
-                    <td style="width: 20%;">'.$rows['host'].'</td>
+                    <td style="width: 20%;" class="multiline">'.$rows['host'].'</td>
                     <td style="width: 5%;">'.$rows['fb_live'].'</td>
                     <td style="width: 5%;">'.$rows['ppab_cam'].'</td> 
-                    <td style="width: 20%;">'.$rows['remarks'].'</td>
+                    <td style="width: 20%;" class="multiline">'.$rows['remarks'].'</td>
                     <td style="width: 10%;">
                         <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'" title="Edit">
                             <i class="fa-solid fa-pen-to-square"></i>

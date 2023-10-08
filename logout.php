@@ -12,7 +12,7 @@
         $time = date("h:i:sa");
         $dt = $date ." - ".$time;
     
-        $insert_logs = mysqli_query($con, "UPDATE logs SET `date_logout`='$dt' WHERE username='$username' AND id='$max_id[0]' ");
+        $insert_logs = mysqli_query($con, "INSERT INTO activity VALUES('','$username','Logged Out', '$dt')");
     }
 
     session_start();

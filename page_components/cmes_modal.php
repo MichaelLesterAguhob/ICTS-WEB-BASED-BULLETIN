@@ -24,7 +24,7 @@
             <tr>
                 <th style="width: 20%;">Host/s: &nbsp;</th>
                 <td style="width:80%;">
-                  <input name="host" id="host" type="text" class="form-control cmes_input">
+                  <textarea rows="5" name="host" id="host" class="form-control cmes_input"></textarea>
                 </td>
             </tr>
             <tr>
@@ -64,7 +64,7 @@
             <tr>
                 <th style="width: 20%;">Remarks: &nbsp;</th>
                 <td style="width:80%;">
-                  <input name="remarks" id="remarks" type="text" class="form-control cmes_input">
+                  <textarea rows="5" name="remarks" id="remarks" class="form-control cmes_input"></textarea>
                 </td>
             </tr>
         </form>

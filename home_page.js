@@ -808,34 +808,131 @@ $(document).on('click','.add_team_list',function()
     $('#team_name_list').append('<tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
 })
 
+// for switching
+let cont_type = "Emergency Response Team";
 function selected_cont_type(){
-    let cont_type = $('#cont_type :selected').text();
+    cont_type = $('#cont_type :selected').text();
     $('#cont_type_selected').val(cont_type);
-}
+
+    if(cont_type == "Emergency Response Team")
+    {
+        $('#team_name_list').css('display','contents');
+        $('#training').css('display','none');
+        $('#qr_form').css('display','none');
+    }
+    else if(cont_type == "QR/Form")
+    {
+        $('#qr_form').css('display','contents');
+        $('#team_name_list').css('display','none');
+        $('#training').css('display','none');
+    }
+    else if(cont_type == "Training")
+    {
+        $('#training').css('display','contents');
+        $('#qr_form').css('display','none');
+        $('#team_name_list').css('display','none');
+    }
+} 
 
 // saving ICTS Announcement
 $(document).on('click', '#save_icts_ann', function()
 {
     let icts_add_ann = $('#icts_add_ann')[0];
     let formData = new FormData(icts_add_ann);
+    let ann_title_txt = $('#ann_title_txt').val();
+    let team_name_txt1 = $('#team_name_txt1').val();
+    let name_list_txt1 = $('#name_list_txt1').val();
+    let qr_form_img = $('#qr_form_img').val();
+    let qr_form_date = $('#qr_form_date').val();
 
-    $.ajax(
+    if(cont_type == "Emergency Response Team")
+    {
+        if(ann_title_txt == "" || team_name_txt1 == "" || name_list_txt1 == "")
         {
-            url:'backend/icts_announcement/add_icts_ann.php',
-            method:'post',
-            data:formData,
-            contentType: false,
-            processData: false,
-            success: function(data)
+            alert("No input(s)");
+        }
+        else
+        {
+        $.ajax(
             {
-                $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
-                $('#icts_add_ann').trigger('reset');
-                team_name_num = 1;
-                $('#team_num').val(team_name_num);
-                $('#team_name_list').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td></tr><tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
-            }
-        })  
+                url:'backend/icts_announcement/add_icts_ann.php',
+                method:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success: function(data)
+                {
+                    $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
+                    $('#icts_add_ann').trigger('reset');
+                    team_name_num = 1;
+                    $('#team_num').val(team_name_num);
+                    $('#team_name_list').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td></tr><tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+                }
+            }) 
+        }
+    }
+    else if(cont_type == "QR/Form")
+    {
+        if(ann_title_txt == "" || qr_form_date == "" || qr_form_img == "")
+        {
+            alert("No input(s)");
+        }
+        else
+        {
+        $.ajax(
+            {
+                url:'backend/icts_announcement/add_icts_ann.php',
+                method:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success: function(data)
+                {
+                    $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
+                    $('#icts_add_ann').trigger('reset');
+                    $('#qr_form_img_preview').attr('src','img/default2.png')
+                }
+            }) 
+        }
+    }
+    else if(cont_type == "Training")
+    {
+        $.ajax(
+            {
+                url:'backend/icts_announcement/add_icts_ann.php',
+                method:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success: function(data)
+                {
+                    $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
+                    $('#icts_add_ann').trigger('reset');
+                }
+            }) 
+    }
+     
    
 })
 
+//FOR IMAGE PREVIEW
+function readQRURL(input)
+{
+if(input.files && input.files[0])
+{
+    var reader = new FileReader();
+    reader.onload = function(e)
+    {
+        $("#qr_form_img_preview").attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+}
 
+let desc_date = 0;
+$(document).on('click','.add_desc_date', function()
+{
+    desc_date ++;
+    $('#desc_date_num').val(desc_date);
+    $('#training').append('<tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date" class="form-control"></td></tr>');
+})

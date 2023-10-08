@@ -160,7 +160,7 @@
 <div class="home_container container-fluid">
 
 <!-- TAB NAVIGATION --> 
-    <ul class="nav nav-tabs m-2">
+    <ul class="nav nav-tabs mb-2 mt-1">
         <!-- SHOW ONLY THE ACCESS SET BY ADMIN -->
         <?php echo $icts_announcement ?>
         <?php echo $hrep_announcement ?>
@@ -168,7 +168,7 @@
         <?php echo $cmes ?>
         <?php echo $bday ?> 
         <?php echo $quote ?>
-    </ul>
+    </ul> 
 
     <div class="tab-content">
 
@@ -419,7 +419,6 @@
 <?php include_once 'page_components/icts_ann_modal.php'; ?>
 
 <!-- FOOTER -->
-<?php include_once 'page_components/footer.php'; ?>
 
 <!-- JAVASCRIPT -->
 <script src="home_page.js"></script>

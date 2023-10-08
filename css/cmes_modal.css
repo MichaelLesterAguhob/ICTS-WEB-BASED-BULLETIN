@@ -1,7 +1,7 @@
 
 .cmes_modal_dialog{
     margin-left: 10%; 
-    margin-top: 5%
+    margin-top: .5%
 }
 
 .cmes_input_table{
@@ -17,6 +17,9 @@
     font-weight: unset;
 }
 
+.multiline{
+    white-space: pre-wrap;
+}
 .date_time{
     height: 34px;
 }

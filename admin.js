@@ -14,19 +14,7 @@ function load_user_account()
 }
 load_user_account();
 
-function load_logs()
-{
-    $.ajax(
-        {
-            url:'backend/admin/load_logs.php',
-            type:'post',
-            success: function(data)
-            {
-                $('#logs_data').html(data);
-            }
-        })
-}
-load_logs();
+
 
 function load_activities()
 {

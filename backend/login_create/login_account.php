@@ -27,7 +27,7 @@ try
                 $time = date("h:i:sa");
                 $dt = $date ." - ".$time;
         
-                $insert_logs = mysqli_query($con, "INSERT INTO logs VALUES('','$username','$dt','')");
+                $insert_logs = mysqli_query($con, "INSERT INTO activity VALUES('','$username','Logged In', '$dt')");
         }
         else
         {
