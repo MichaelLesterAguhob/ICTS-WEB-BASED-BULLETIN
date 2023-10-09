@@ -3,7 +3,7 @@ include_once ('connection.php');
 $response = "";
 $bday_id = $_POST['bday_id'];
 $edit_name = strtoupper($_POST['edit_name']);
-$edit_bdate = $_POST['edit_bdate'];
+$edit_bdate = date("F d, Y", strtotime($_POST['edit_bdate']));
 $edit_old_image = $_POST['edit_old_image'];
 $image_changes = $_POST['image_changes'];
 

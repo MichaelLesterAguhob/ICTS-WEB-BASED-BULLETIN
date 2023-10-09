@@ -11,16 +11,14 @@ try
     $row = mysqli_fetch_array($result);
 
     $name = $row[1];    
-    $date = $row[2];
+    $date = date("F d, Y", strtotime($row[2]));
     $image = $row[3];
 
     $response = json_encode(['status'=>'success', 'name'=>$name, 'date'=>$date, 'image'=>$image]);
-
 }
 catch(Exception $ex)
 {
     $response = json_encode(['status'=>'exception', 'errmsg'=>"".$ex]);
-
 }
 echo $response;
 ?>

@@ -94,6 +94,7 @@ else
         setTimeout(function() { 
             $('#save_bday').attr('disabled', false);
         }, 2000);
+        display_birthday()
     }
 })
 }

@@ -1,9 +1,9 @@
 <?php 
-include_once ('connection.php'); 
+include_once ('connection.php');  
 
 $response = "";
 $name = strtoupper($_POST['name']);
-$date = $_POST['bdate'];
+$date = date('F d, Y', strtotime($_POST['bdate']));
 $user_type = $_SESSION['user_type'];
 $username = $_SESSION['username'];
 try

@@ -13,27 +13,41 @@
 </head>
 <body>
     <div class="container-fluid">
+        
         <div class="icts_announcement" style="display: none;">
 
         </div>
+        
         <div class="hrep_announcement" style="display: none;">
 
         </div>
-        <div class="hrep_act" style="display: none;">
+        
+        <div class="hrep_act">
+            <h1>HRep Activities</h1>
+            <div class="hrep_activity">
 
+            </div>
         </div>
+        
         <div class="cmes" style="display: none;">
 
         </div>
-        <div class="bday" style="display: none;">
 
+        <div style="display: none;">
+            <h1 class="text-center">Happy Birthday!</h1>
+            <div class="bday_display">
+                <!-- birthday data load here -->
+            </div>
         </div>
-        <div class="quote" style="display: none;">
 
+        <div class="quote" style="display: none;">
+        <h1 class="mt-5">Quote of the Week</h1>
+            
         </div>
     </div>
 
     <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script> 
     <script src="viewing_page.js"></script> 
 </body>
