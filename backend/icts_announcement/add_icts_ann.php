@@ -60,10 +60,16 @@ try
       $query1 = mysqli_query($con, "INSERT INTO icts_ann_cont VALUES('',$cont_id,'$ann_title', '$cont_type_selected')");
       if($query1)
       {
-        $training_name = $_POST['training_name'];
-        $date = $_POST['training_date'];
-        $query2 = mysqli_query($con, "INSERT INTO icts_img_date VALUES('',$cont_id,'$training_name', '$date')");
-        $respo = "Added Successfully";
+        $desc_date_num = $_POST['desc_date_num'];
+        $d_t_num = 1;
+        while($d_t_num <= $desc_date_num )
+        {
+          $training_name = $_POST['training_name'.$d_t_num];
+          $date = $_POST['training_date'.$d_t_num];
+          $query2 = mysqli_query($con, "INSERT INTO icts_training VALUES('',$cont_id,'$training_name', '$date')");
+          $d_t_num ++;
+        }
+        $respo = "Added Successfully" ;
       }
     }
 }

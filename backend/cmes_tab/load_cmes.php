@@ -1,7 +1,7 @@
 <?php
 include_once('connection.php');
 $data = '';
-$respo = "";
+$respo = ""; 
 
 try
 {
@@ -15,7 +15,7 @@ try
                 <tr>
                     <td style="width: 20%;">'.$rows['committee_office'].'</td>
                     <td style="width: 10%;">'.$rows['time'].'</td>
-                    <td style="width: 10%;">'.$rows['date'].'</td>
+                    <td style="width: 10%;">'.date("F d, Y",strtotime($rows['date'])).'</td>
                     <td style="width: 20%;" class="multiline">'.$rows['host'].'</td>
                     <td style="width: 5%;">'.$rows['fb_live'].'</td>
                     <td style="width: 5%;">'.$rows['ppab_cam'].'</td> 

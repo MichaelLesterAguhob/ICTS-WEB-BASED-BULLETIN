@@ -192,10 +192,8 @@
 
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
+                <tbody id="icts_annncmnts_data">
+                    <!-- icts announcements data -->
                 </tbody>
             </table>
         </div>
@@ -284,8 +282,8 @@
         </div>
 
         <div class="event_table_cont">
-            <table class="table">
-                <thead>
+            <table class="table"> 
+                <thead>  
                     <tr>
                         <th style="width: 25%;">Committee/Office</th>
                         <th style="width: 10%;">Time</th>

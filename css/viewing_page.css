@@ -32,3 +32,20 @@
     letter-spacing: 2px;
     text-align: center;
 }
+
+/* CMES */
+.cmes_disp_table, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.cmes_display{
+    height: 90vh;
+    overflow: auto;
+}
+.cmes_date{
+    background-color: rgba(208, 200, 200, 0.729); 
+}
+
+.multiline{
+    white-space:pre-wrap;
+}

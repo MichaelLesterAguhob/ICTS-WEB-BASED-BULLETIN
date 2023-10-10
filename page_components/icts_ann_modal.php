@@ -25,9 +25,9 @@
                             <td><label for="cont_type">Choose Announcement Type: </label></td>
                         <td>
                             <select name="cont_type" id="cont_type" class="form-select mb-3" onchange="selected_cont_type();">
-                                <option value="">Emergency Response Team</option>
-                                <option value="">QR/Form</option>
-                                <option value="">Training</option>
+                                <option value="ert">Emergency Response Team</option>
+                                <option value="qr">QR/Form</option>
+                                <option value="training">Training</option>
                             </select>
                         </td>
                         </tr>
@@ -83,17 +83,17 @@
                             <tr>
                                 <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_desc_date">Add New</button></td>
                             </tr>
-                            <input type="hidden" name="desc_date_num" id="desc_date_num">
+                            <input type="hidden" name="desc_date_num" id="desc_date_num" value="1">
                             <tr>
                                 <th>Description: </th>
                                 <td>
-                                    <input type="text" name="training_name" id="training_name" class="form-control">
+                                    <input type="text" name="training_name1" id="training_name" class="form-control">
                                 </td>
                             </tr>
                             <tr>
                                 <th class="text-left">Date: </th>
                                 <td class="text-left">
-                                    <input type="date" name="training_date" class="form-control">
+                                    <input type="date" name="training_date1" class="form-control">
                                 </td>
                             </tr>
                         </tbody>

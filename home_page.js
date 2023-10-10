@@ -834,6 +834,13 @@ function selected_cont_type(){
         $('#team_name_list').css('display','none');
     }
 } 
+let desc_date = 1;
+$(document).on('click','.add_desc_date', function()
+{
+    desc_date ++;
+    $('#desc_date_num').val(desc_date);
+    $('#training').append('<tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr>');
+})
 
 // saving ICTS Announcement
 $(document).on('click', '#save_icts_ann', function()
@@ -892,13 +899,14 @@ $(document).on('click', '#save_icts_ann', function()
                     $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
                     $('#icts_add_ann').trigger('reset');
                     $('#qr_form_img_preview').attr('src','img/default2.png')
+                    $("table.icts_ann_table select").val("qr");
                 }
             }) 
         }
     }
     else if(cont_type == "Training")
     {
-        $.ajax(
+        $.ajax( 
             {
                 url:'backend/icts_announcement/add_icts_ann.php',
                 method:'post',
@@ -907,13 +915,14 @@ $(document).on('click', '#save_icts_ann', function()
                 processData: false,
                 success: function(data)
                 {
+                    desc_date = 1;
                     $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
                     $('#icts_add_ann').trigger('reset');
+                    $('#training').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_desc_date">Add New</button></td></tr><input type="hidden" name="desc_date_num" id="desc_date_num" value="1"><tr><th>Description: </th><td><input type="text" name="training_name1" id="training_name" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date1" class="form-control"></td></tr>');
+                    $("table.icts_ann_table select").val("training");
                 }
             }) 
     }
-     
-   
 })
 
 //FOR IMAGE PREVIEW
@@ -930,10 +939,3 @@ if(input.files && input.files[0])
 }
 }
 
-let desc_date = 0;
-$(document).on('click','.add_desc_date', function()
-{
-    desc_date ++;
-    $('#desc_date_num').val(desc_date);
-    $('#training').append('<tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date" class="form-control"></td></tr>');
-})

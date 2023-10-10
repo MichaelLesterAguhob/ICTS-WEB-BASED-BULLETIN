@@ -39,4 +39,18 @@ function display_hrep_activity()
             }
         })
 }
-display_hrep_activity()
+display_hrep_activity();
+
+function display_cmes()
+{
+    $.ajax(
+        {
+            url:'backend/cmes_tab/cmes_display.php',
+            method:'post',
+            success: function(data)
+            {
+                $('#cmes_data').html(data);
+            }
+        })
+}
+display_cmes();
