@@ -5,7 +5,7 @@ function display_birthday()
         { 
             url:'backend/birthday_tab/birthday_display.php',
             method:'post',
-            success: function(data)
+            success: function(data) 
             {
                 $('.bday_display').html(data);
             }
@@ -54,3 +54,4 @@ function display_cmes()
         })
 }
 display_cmes();
+

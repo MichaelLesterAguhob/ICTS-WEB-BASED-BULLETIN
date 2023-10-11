@@ -939,3 +939,17 @@ if(input.files && input.files[0])
 }
 }
 
+function load_icts_ann()
+{
+    // icts_annncmnts_data
+    $.ajax( 
+        {
+            url:'backend/icts_announcement/load_icts_ann.php',
+            method:'post',
+            success: function(data)
+            {
+                $('#icts_annncmnts_data').html(data);
+            }
+        })
+}
+load_icts_ann();

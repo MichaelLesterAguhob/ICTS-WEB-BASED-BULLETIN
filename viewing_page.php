@@ -14,17 +14,17 @@
 <body>
     <div class="container-fluid">
         <!--  -->
-        <div class="icts_announcement" style="display: none;">
+        <div class="icts_announcement displays" style="display: none;">
 
         </div>
         
         <!--  -->
-        <div class="hrep_announcement" style="display: none;">
+        <div class="hrep_announcement displays" style="display: none;">
 
         </div>
         
         <!--  -->
-        <div class="hrep_act" style="display: none;">
+        <div class="hrep_act displays" >
             <h1>HRep Activities</h1>
             <div class="hrep_activity">
 
@@ -32,7 +32,7 @@
         </div>
         
         <!--  -->
-        <div class="cmes" style="display: none;">
+        <div class="cmes displays" >
             <h1>Committee Meeting and Event Schedule </h1>
             <div class="cmes_display">
             <table class="cmes_disp_table">
@@ -54,7 +54,7 @@
         </div>
 
         <!--  -->
-        <div class="birthday" style="display: none;">
+        <div class="birthday displays" >
             <h1 class="text-center">Happy Birthday!</h1>
             <div class="bday_display">
                 <!-- birthday data load here -->
@@ -62,7 +62,7 @@
         </div>
 
         <!--  -->
-        <div class="quote" style="display: none;">
+        <div class="quote displays">
         <h1 class="mt-5">Quote of the Week</h1>
             
         </div>

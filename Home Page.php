@@ -185,17 +185,14 @@
             </div>
         </div>
 
-        <div class="event_table_cont">
-            <table >
-                <thead>
-                    <tr>
+        <div class="row event_table_cont" id="icts_annncmnts_data">
+            
+            <div class="col-lg-4">
 
-                    </tr>
-                </thead>
-                <tbody id="icts_annncmnts_data">
-                    <!-- icts announcements data -->
-                </tbody>
-            </table>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
         </div>
     </div>
 

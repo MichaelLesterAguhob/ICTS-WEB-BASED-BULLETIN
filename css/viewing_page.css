@@ -1,11 +1,13 @@
 .bday{
     display:flex;
+    justify-content: center;
     overflow: auto;
     width: 98%;
     height: 80vh;
 }
 .bday_card{
     min-width: 20rem;
+    max-width: 20rem;
     min-height: 80%;
     margin-right: 50px;
 }
@@ -48,4 +50,7 @@
 
 .multiline{
     white-space:pre-wrap;
+}
+.displays{
+    height: 100vh;
 }
