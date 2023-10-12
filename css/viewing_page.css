@@ -1,3 +1,7 @@
+::-webkit-scrollbar{
+    border: none;
+    background-color: none;
+}
 .bday{
     display:flex;
     justify-content: center;
@@ -6,8 +10,8 @@
     height: 80vh;
 }
 .bday_card{
-    min-width: 20rem;
-    max-width: 20rem;
+    min-width: 19rem;
+    max-width: 19rem;
     min-height: 80%;
     margin-right: 50px;
 }
@@ -15,6 +19,7 @@
     width: 100%;
     min-height: 90%;
     max-height: 90%;
+    padding: 0;
 }
 .birthday_image{
     width: 100%;
@@ -24,6 +29,9 @@
     width: 100%;
     height: 5%;
     text-align: right;
+}
+.bday_num{
+    font-size: 30px;
 }
 
 /* quote */
@@ -53,4 +61,25 @@
 }
 .displays{
     height: 100vh;
+}
+
+/* Hrep Act */
+.hrep_activity{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    overflow: auto;
+}
+.hrep_act_card{
+    width: 30%;
+    height: 70vh;
+}
+.hrep_act_card_body{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.hrep_act_img{
+    width: 100%;
+    height: 100%;
 }

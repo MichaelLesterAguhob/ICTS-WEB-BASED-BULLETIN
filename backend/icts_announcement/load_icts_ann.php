@@ -31,7 +31,7 @@ try
                             <th>
                             '.$teams['team_name'].'
                             </th>
-                            <td style="white-space:pre-wrap;">
+                            <td class="multiline">
                             '.$teams['name_list'].'
                             </td>
                         </tr>
@@ -47,6 +47,10 @@ try
     $check_qr_form = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
     if(mysqli_num_rows($check_qr_form) > 0)
     {
+        $data .= '
+                <div class="col-lg-4">
+                <h5>QR/Form</h5>
+                ';
         // selecting all records from qr form
         $query5 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
         while($rows = mysqli_fetch_assoc($query5))
@@ -54,14 +58,11 @@ try
             // getting the title 
             $qr_form_title = $rows['title'];    
 
-            // getting all records from icts ann cont cont id
+            // getting all records from icts ann cont
             $query6 = mysqli_query($con, "SELECT cont_id FROM icts_ann_cont WHERE `title`='$qr_form_title'");
             $row_6 = mysqli_fetch_array($query6);
             $data .= '
-                <div class="col-lg-4">
-                
-                    <table class="table">
-                       
+                <table class="table">
             ';
 
             // getting content for each title
@@ -70,7 +71,7 @@ try
             {
                 $data .= '
                     <tr>
-                        <th>'.$row_6[0].'</th>
+                        <th>'.$qr_form_title.'</th>
                         <td>'.$rows7['img'].'</td>
                         <td>'.$rows7['date'].'</td>
                     </tr>

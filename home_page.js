@@ -839,7 +839,7 @@ $(document).on('click','.add_desc_date', function()
 {
     desc_date ++;
     $('#desc_date_num').val(desc_date);
-    $('#training').append('<tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr>');
+    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Time: </th><td class="text-left"><input type="time"name="training_time'+desc_date+'"class="form-control"></td></tr>');
 })
 
 // saving ICTS Announcement

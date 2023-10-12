@@ -158,7 +158,7 @@
             <tr>
                 <th style="width: 20%;">Remarks: &nbsp;</th>
                 <td style="width:80%;">
-                  <input name="edit_remarks" id="edit_remarks" type="text" class="form-control cmes_input">
+                  <textarea name="edit_remarks" id="edit_remarks" class="form-control cmes_input"></textarea>
                 </td>
             </tr>
         </form>

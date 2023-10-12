@@ -12,7 +12,7 @@ function display_birthday()
         })
 }
 display_birthday();
-
+ 
 function display_quote()
 {
     $.ajax(
@@ -21,7 +21,7 @@ function display_quote()
             method:'post',
             success: function(data)
             {
-                $('.quote').append(data);
+                $('.quote').html(data);
             }
         })
 }
@@ -54,4 +54,30 @@ function display_cmes()
         })
 }
 display_cmes();
+
+$('.hrep_act').hide();
+$('.cmes').hide();
+$('.birthday').hide();
+$('.quote').hide();
+
+
+var myIndex = 0;
+loop_display();
+
+function loop_display() {
+  var i;
+  var x = document.getElementsByClassName("displays");
+  for (i = 0; i < x.length; i++) {
+    $(x[i]).hide();  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}  
+  $(x[myIndex-1]).fadeIn();  
+  setTimeout(loop_display, 6000); 
+    display_hrep_activity();
+    display_cmes();
+    display_birthday();
+    display_quote();
+}
+
 

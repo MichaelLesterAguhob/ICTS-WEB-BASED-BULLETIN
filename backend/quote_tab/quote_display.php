@@ -1,7 +1,7 @@
 <?php 
 include_once('connection.php');
 $respo = "";
-$data = '';
+$data = '<h1 >Quote of the Week</h1>';
 try
 {
     $query = mysqli_query($con, "SELECT * FROM quote_of_the_week WHERE use_quote = 'Active'");

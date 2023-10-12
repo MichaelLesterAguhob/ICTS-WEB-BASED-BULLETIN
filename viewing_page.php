@@ -14,14 +14,14 @@
 <body>
     <div class="container-fluid">
         <!--  -->
-        <div class="icts_announcement displays" style="display: none;">
+        <!-- <div class="icts_announcement displays" style="display: none;">
 
-        </div>
+        </div> -->
         
         <!--  -->
-        <div class="hrep_announcement displays" style="display: none;">
+        <!-- <div class="hrep_announcement displays" style="display: none;">
 
-        </div>
+        </div> -->
         
         <!--  -->
         <div class="hrep_act displays" >
@@ -63,7 +63,6 @@
 
         <!--  -->
         <div class="quote displays">
-        <h1 class="mt-5">Quote of the Week</h1>
             
         </div>
     </div>

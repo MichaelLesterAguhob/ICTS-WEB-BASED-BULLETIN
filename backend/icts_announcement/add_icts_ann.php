@@ -66,7 +66,9 @@ try
         {
           $training_name = $_POST['training_name'.$d_t_num];
           $date = $_POST['training_date'.$d_t_num];
-          $query2 = mysqli_query($con, "INSERT INTO icts_training VALUES('',$cont_id,'$training_name', '$date')");
+          $time = date('h:i A', strtotime($_POST['training_time'.$d_t_num]));
+
+          $query2 = mysqli_query($con, "INSERT INTO icts_training VALUES('',$cont_id,'$training_name', '$date', '$time')");
           $d_t_num ++;
         }
         $respo = "Added Successfully" ;

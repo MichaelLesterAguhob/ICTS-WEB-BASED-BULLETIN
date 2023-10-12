@@ -14,14 +14,14 @@ try
         $data .= 
         '
         <div class="card mb-3 text-dark text-center bday_card m-3">
-        <div class="header-body bday_card_body">
+        <div class="card-body bday_card_body">
 
             <img src="backend/birthday_tab/bday_images/'.$row['image'].'" alt="Image" class="birthday_image">
             <h3>'.$row['name'].'</h3>
         </div>
 
         <div class="bday_card_foot">
-            <h3>'.$day.'</h3>
+            <h3 class="bday_num">'.$day.'</h3>
         </div>
         </div>
         ';

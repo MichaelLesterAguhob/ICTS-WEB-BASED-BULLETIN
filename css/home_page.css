@@ -159,7 +159,7 @@
     background-color: rgba(195, 192, 192, 0.556);
 }
 
-/*  */
+/*  */ 
 #hrep_act_img_prev{
     max-width: 100%;
     max-height: 250px;
@@ -175,3 +175,6 @@
 
 
 /* ICTS ANNOUNCEMENTS */
+.multiline{
+    white-space:pre-wrap;
+}

@@ -96,6 +96,12 @@
                                     <input type="date" name="training_date1" class="form-control">
                                 </td>
                             </tr>
+                            <tr>
+                                <th class="text-left">Time: </th>
+                                <td class="text-left">
+                                    <input type="time" name="training_time1" class="form-control">
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </form>
