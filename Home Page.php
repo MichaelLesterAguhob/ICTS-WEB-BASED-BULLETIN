@@ -187,13 +187,7 @@
 
         <div class="row event_table_cont" id="icts_annncmnts_data">
             
-            <div class="col-lg-4">
-
-            </div>
-            <div class="col-lg-4">
-
-            </div>
-        </div>
+        </div> 
     </div>
 
 <!-- HREP ANNOUNCEMENTS TAB -->
@@ -283,8 +277,8 @@
                 <thead>  
                     <tr>
                         <th style="width: 25%;">Committee/Office</th>
-                        <th style="width: 10%;">Time</th>
                         <th style="width: 10%;">Date</th>
+                        <th style="width: 10%;">Time</th>
                         <th style="width: 20%;">Host</th>
                         <th style="width: 5%;">FB Live</th>
                         <th style="width: 5%;">PPAB CAM</th>

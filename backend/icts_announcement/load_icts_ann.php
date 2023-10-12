@@ -42,6 +42,10 @@ try
                     </div> ';
         }
     }
+    else
+    {
+        // if no data
+    }
 
     // to know if qr form has data
     $check_qr_form = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
@@ -59,7 +63,7 @@ try
             $qr_form_title = $rows['title'];    
 
             // getting all records from icts ann cont
-            $query6 = mysqli_query($con, "SELECT cont_id FROM icts_ann_cont WHERE `title`='$qr_form_title'");
+            $query6 = mysqli_query($con, "SELECT cont_id FROM icts_ann_cont WHERE `title`='$qr_form_title'"); 
             $row_6 = mysqli_fetch_array($query6);
             $data .= '
                 <table class="table">
@@ -84,6 +88,32 @@ try
             ';
         $respo = $data;
     }
+    else
+    {
+        // if no data
+    }
+
+    // know if training has data
+    $training = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
+    if(mysqli_num_rows($training) > 0)
+    {
+       
+        $trnng_query = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
+        while($trnng_title = mysqli_fetch_assoc($trnng_query))
+        {
+            $t_title = $trnng_title['title'];
+            $data .= '
+            <div class="col-lg-4">
+                '.$t_title[0].'
+                <table>
+            ';
+        }
+        
+
+
+
+    }
+    
 } 
 catch (Exception $ex) 
 {
