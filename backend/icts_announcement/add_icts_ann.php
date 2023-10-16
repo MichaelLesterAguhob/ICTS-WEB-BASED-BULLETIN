@@ -2,7 +2,7 @@
 include_once('connection.php');
 $respo = "";
 $cont_type_selected = trim($_POST['cont_type_selected']);
-$ann_title = trim($_POST['ann_title_txt']);
+$ann_title = strtoupper(trim($_POST['ann_title_txt']));
 $team_num = $_POST['team_num'];
 $cont_id = 0;
 

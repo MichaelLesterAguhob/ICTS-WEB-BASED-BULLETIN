@@ -839,7 +839,7 @@ $(document).on('click','.add_desc_date', function()
 {
     desc_date ++;
     $('#desc_date_num').val(desc_date);
-    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left">Time: </th><td class="text-left"><input type="time"name="training_time'+desc_date+'"class="form-control"></td></tr>');
+    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time"name="training_time'+desc_date+'"class="form-control"></td></tr>');
 })
 
 // saving ICTS Announcement
@@ -875,6 +875,7 @@ $(document).on('click', '#save_icts_ann', function()
                     team_name_num = 1;
                     $('#team_num').val(team_name_num);
                     $('#team_name_list').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td></tr><tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+                    load_icts_ann();
                 }
             }) 
         }
@@ -900,12 +901,15 @@ $(document).on('click', '#save_icts_ann', function()
                     $('#icts_add_ann').trigger('reset');
                     $('#qr_form_img_preview').attr('src','img/default2.png')
                     $("table.icts_ann_table select").val("qr");
+                    load_icts_ann();
                 }
             }) 
         }
     }
     else if(cont_type == "Training")
     {
+        if(ann_title_txt != "" && $('#training_name1').val() != "" && $('#training_date1').val() != "" && $('#training_time1').val() != "")
+        {
         $.ajax( 
             {
                 url:'backend/icts_announcement/add_icts_ann.php',
@@ -918,10 +922,16 @@ $(document).on('click', '#save_icts_ann', function()
                     desc_date = 1;
                     $('#add_ann_msg').html(data).fadeIn(1000).fadeOut(3000);
                     $('#icts_add_ann').trigger('reset');
-                    $('#training').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_desc_date">Add New</button></td></tr><input type="hidden" name="desc_date_num" id="desc_date_num" value="1"><tr><th>Description: </th><td><input type="text" name="training_name1" id="training_name" class="form-control"></td></tr><tr><th class="text-left">Date: </th><td class="text-left"><input type="date" name="training_date1" class="form-control"></td></tr>');
+                    $('#training').html('<tr><td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_desc_date">Add New</button></td></tr><input type="hidden" name="desc_date_num" id="desc_date_num" value="1"><tr><th>Description: </th><td><input type="text" name="training_name1" id="training_name" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date1" class="form-control"></td></tr> <th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="training_time1" id="training_time1" class="form-control"></td>');
                     $("table.icts_ann_table select").val("training");
+                    load_icts_ann();
                 }
             }) 
+        }
+        else
+        {
+            alert("No Input");
+        }
     }
 })
 
@@ -953,3 +963,12 @@ function load_icts_ann()
         })
 }
 load_icts_ann();
+
+$(document).on('click','.edit_icts_ann_btn', function()
+{
+    $('#icts_edit_ann_modal').modal('toggle');
+})
+$(document).on('click','.delete_icts_ann_btn', function()
+{
+    alert($(this).attr('data-cont-type'));
+})

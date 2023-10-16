@@ -1,124 +1,191 @@
 <?php 
 include_once('connection.php');
 $respo = "";
-$data = '';
+$data = '<table class="table mt-5">';
+
 try 
 {
-    $query = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Emergency Response Team'");
-    $is_not_null = mysqli_num_rows($query);
-    if($is_not_null > 0) 
+    // checking if ert data exist
+    $query_1 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Emergency Response Team'");
+    if(mysqli_num_rows($query_1) > 0) 
     {
-        $query2 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Emergency Response Team'");
-        while($rows = mysqli_fetch_assoc($query2))
-        {
-            $title = $rows['title'];
+        $query_2 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Emergency Response Team'");
+        while($rows_2 = mysqli_fetch_assoc($query_2)) {
+            $ert_title = $rows_2['title'];
+            $ert_id = $rows_2['cont_id'];
+            $ert_cont_type = $rows_2['cont_type'];
             $data .= '
-            <div class="col-lg-4">
-                <h5>'.$title.'</h5>
-            <table class="table">
-            ';  
-
-            $query3 = mysqli_query($con, "SELECT cont_id FROM icts_ann_cont WHERE title='$title'");
-            $id = mysqli_fetch_array($query3);
-            $cont_id = $id[0];
-
-            $query4 = mysqli_query($con, "SELECT * FROM icts_ert_teams WHERE `cont_id`=$cont_id");
-
-            while($teams = mysqli_fetch_assoc($query4))
-            {
-                $data .= '
-                        <tr>
-                            <th>
-                            '.$teams['team_name'].'
-                            </th>
-                            <td class="multiline">
-                            '.$teams['name_list'].'
-                            </td>
-                        </tr>
-                        '; 
-            }
-            $data .= ' 
-                    </table>
-                    </div> ';
-        }
-    }
-    else
-    {
-        // if no data
-    }
-
-    // to know if qr form has data
-    $check_qr_form = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
-    if(mysqli_num_rows($check_qr_form) > 0)
-    {
-        $data .= '
-                <div class="col-lg-4">
-                <h5>QR/Form</h5>
-                ';
-        // selecting all records from qr form
-        $query5 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
-        while($rows = mysqli_fetch_assoc($query5))
-        {
-            // getting the title 
-            $qr_form_title = $rows['title'];    
-
-            // getting all records from icts ann cont
-            $query6 = mysqli_query($con, "SELECT cont_id FROM icts_ann_cont WHERE `title`='$qr_form_title'"); 
-            $row_6 = mysqli_fetch_array($query6);
-            $data .= '
-                <table class="table">
-            ';
-
-            // getting content for each title
-            $query7 = mysqli_query($con, "SELECT * FROM icts_img_date WHERE cont_id='$row_6[0]' ");
-            while($rows7 = mysqli_fetch_assoc($query7))
-            {
-                $data .= '
-                    <tr>
-                        <th>'.$qr_form_title.'</th>
-                        <td>'.$rows7['img'].'</td>
-                        <td>'.$rows7['date'].'</td>
+                    <tr class="icts_ann_title">
+                        <th>' . $ert_title . '</th>
+                        <td class="text-right">
+                            <button 
+                                data-id="'.$ert_id.'" 
+                                data-cont-type="'.$ert_cont_type.'" 
+                                class="edit_btn edit_icts_ann_btn"
+                                title="Edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>&nbsp;&nbsp;
+                            <button 
+                                data-id="'.$ert_id.'" 
+                                data-cont-type="'.$ert_cont_type.'" 
+                                class="delete_btn delete_icts_ann_btn"
+                                title="Delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
                     </tr>
                 ';
+            $data .= '
+                    <tr>
+                        <th>Teams</th>
+                        <th>Members</th>
+                    </tr>
+                ';
+            $ert_cont_id = $rows_2['cont_id'];
+            $query_3 = mysqli_query($con, "SELECT * FROM icts_ert_teams WHERE cont_id='$ert_cont_id'");
+            while($rows_3 = mysqli_fetch_assoc($query_3)) {
+                $data .= '
+                        <tr>
+                            <td class="text-left">' . $rows_3['team_name'] . '</td>
+                            <td class="multiline text-left">' . $rows_3['name_list'] . '</td>
+                        </tr>
+                    ';
             }
         }
-        $data .= '   
-                    </table>
-                </div>
+    }
+                  
+    // checking if qr form data exist
+    $query_4 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
+    if(mysqli_num_rows($query_4) > 0) 
+    {
+        $data .= '
+                <tr style="height: 20px; border-color:white;">
+                    <td colspan="2"></td>
+                </tr>
             ';
-        $respo = $data;
-    }
-    else
-    {
-        // if no data
-    }
-
-    // know if training has data
-    $training = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
-    if(mysqli_num_rows($training) > 0)
-    {
-       
-        $trnng_query = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
-        while($trnng_title = mysqli_fetch_assoc($trnng_query))
-        {
-            $t_title = $trnng_title['title'];
+        $query_5 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
+        while($rows_5 = mysqli_fetch_assoc($query_5)) {
+            $qrform_title = $rows_5['title'];
+            $qrform_id = $rows_5['cont_id'];
+            $qrform_cont_type = $rows_5['cont_type'];
             $data .= '
-            <div class="col-lg-4">
-                '.$t_title[0].'
-                <table>
-            ';
+                    <tr style="height: 30px; border-color:white;">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr class="icts_ann_title">
+                        <th>' . $qrform_title . '</th>
+                        <td class="text-right">
+                            <button 
+                                data-id="'.$qrform_id.'" 
+                                data-cont-type="'.$qrform_cont_type.'" 
+                                class="edit_btn edit_icts_ann_btn"
+                                title="Edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>&nbsp;&nbsp;
+                            <button 
+                                data-id="'.$qrform_id.'" 
+                                data-cont-type="'.$qrform_cont_type.'" 
+                                class="delete_btn delete_icts_ann_btn"
+                                title="Delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                ';
+            $data .= '
+                    <tr>
+                        <th>QR</th>
+                        <th>Date</th>
+                    </tr>
+                ';
+            $qrform_cont_id = $rows_5['cont_id'];
+            $query_6 = mysqli_query($con, "SELECT * FROM icts_img_date WHERE cont_id='$qrform_cont_id'");
+            while($rows_6 = mysqli_fetch_assoc($query_6)) {
+                $data .= '
+                        <tr>
+                            <td class="text-left">' . $rows_6['img'] . '</td>
+                            <td class="multiline text-left p-2">' . $rows_6['date'] . '</td>
+                        </tr>
+                    ';
+            }
         }
-        
-
-
-
     }
-    
-} 
+
+    // checking if training data exist
+    $query_7 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
+    if(mysqli_num_rows($query_7) > 0) 
+    {
+        $data .= '
+                <tr style="height: 20px; border-color:white;">
+                    <td colspan="2"></td>
+                </tr>
+            ';
+        $query_8 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
+        while($rows_8 = mysqli_fetch_assoc($query_8)) {
+            $training_title = $rows_8['title'];
+            $training_id = $rows_8['cont_id'];
+            $training_cont_type = $rows_8['cont_type'];
+            $data .= '
+                    <tr style="height: 30px; border-color:white;">
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr class="icts_ann_title">
+                        <th>'.$training_title.'</th>
+                        <td class="text-right">
+                            <button 
+                                data-id="'.$training_id.'" 
+                                data-cont-type="'.$training_cont_type.'" 
+                                class="edit_btn edit_icts_ann_btn"
+                                title="Edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>&nbsp;&nbsp;
+                            <button 
+                                data-id="'.$training_id.'" 
+                                data-cont-type="'.$training_cont_type.'" 
+                                class="delete_btn delete_icts_ann_btn"
+                                title="Delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                ';
+            $data .= '
+                    <tr>
+                        <th>Description</th>
+                        <th>Date & Time</th>
+                    </tr>
+                ';
+            $training_cont_id = $rows_8['cont_id'];
+            $query_9 = mysqli_query($con, "SELECT * FROM icts_training WHERE cont_id='$training_cont_id'");
+            while($rows_9 = mysqli_fetch_assoc($query_9)) {
+                $data .= '
+                        <tr>
+                            <td class="text-left">' . $rows_9['title'] . '</td>
+                            <td class="multiline text-left p-2">' . $rows_9['date'] . ' - ' . $rows_9['time'] . '</td>
+                        </tr>
+                    ';
+            }
+        }
+    }
+
+    if($data == '<table class="table mt-5">')
+    {
+        $data .= '
+        <tr style="height: 20px; border-color:white;">
+            <td colspan="2">No Data Found....</td>
+        </tr>
+        ';
+    }
+    $data .= '
+        </table>
+    ';
+    $respo = $data;
+}
 catch (Exception $ex) 
 {
-    $respo = "Error Occurred <br>" . $ex;
+    $respo = "Error Occurred" . $ex;
 }
+
 echo $respo;
 
 ?>

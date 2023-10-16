@@ -185,8 +185,41 @@
             </div>
         </div>
 
-        <div class="row event_table_cont" id="icts_annncmnts_data">
-            
+        <div class="event_table_cont" id="icts_annncmnts_data">
+            <!-- <ul class="nav nav-tabs mb-2 mt-1">
+                <li class="active"><a data-toggle="tab" href="#ert">Emergency Response Team</a></li>
+            </ul> -->
+            <!-- QUOTE TAB -->
+            <!-- <div id="ert" class="tab-pane fade in active">
+                <div class="row tab_header">
+                    <div class="col-lg-7 tab_title">
+                        <h4>Emergency Response Team</h4>
+                    </div>
+                    <div class="col-lg-5 tab_button">
+                        <button class="btn btn-primary btn_add add_quote" data-bs-toggle="modal" data-bs-target="#quote_modal">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="event_table_cont">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Quotes</th>
+                            <th style="width: 20%;">Author</th>
+                            <th style="width: 10%;" class="action_th">Use</th>
+                            <th style="width: 20%;" class="action_th">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quote_data"> -->
+                        <!-- data from birthday table in database -->
+                        
+                    <!-- </tbody>
+                    </table>
+                </div>
+            </div> -->
+
         </div> 
     </div>
 

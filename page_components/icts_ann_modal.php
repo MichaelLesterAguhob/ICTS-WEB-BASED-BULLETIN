@@ -87,19 +87,19 @@
                             <tr>
                                 <th>Description: </th>
                                 <td>
-                                    <input type="text" name="training_name1" id="training_name" class="form-control">
+                                    <input type="text" name="training_name1" id="training_name1" class="form-control">
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-left">Date: </th>
+                                <th class="text-left text-secondary">Date: </th>
                                 <td class="text-left">
-                                    <input type="date" name="training_date1" class="form-control">
+                                    <input type="date" name="training_date1" id="training_date1" class="form-control">
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-left">Time: </th>
+                                <th class="text-left text-secondary">Time: </th>
                                 <td class="text-left">
-                                    <input type="time" name="training_time1" class="form-control">
+                                    <input type="time" name="training_time1" id="training_time1" class="form-control">
                                 </td>
                             </tr>
                         </tbody>
@@ -124,3 +124,57 @@
         </div>
     </div>
 </div>
+
+<!-- EDTING -->
+<div class="modal" id="icts_edit_ann_modal">
+  <div class="modal-dialog icts_edit_ann_dialog">
+    <div class="modal-content icts_edit_ann_content">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit ICTS Announcement</h3>
+            <button 
+            type="button" 
+            class="close" 
+            data-bs-dismiss="modal" >
+            <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body icts_add_ann_body">
+            <table>
+                <tr>
+                    <th></th>
+                    <td><input type="text" name="edit_icts_ann_title"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+  </div>
+</div>
+    
+
+
+
+<!-- EDTING -->
+<!-- <div class="modal" id="icts_edit_ann_modal">
+  <div class="modal-dialog icts_edit_ann_dialog">
+    <div class="modal-content icts_edit_ann_content">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit ICTS Announcement</h3>
+            <button 
+            type="button" 
+            class="close" 
+            data-bs-dismiss="modal" >
+            <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body icts_add_ann_body">
+
+
+        </div>
+    </div>
+  </div>
+</div> -->
+    
+        
+           
+            
