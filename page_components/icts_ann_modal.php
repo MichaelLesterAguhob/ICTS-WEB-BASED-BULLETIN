@@ -42,6 +42,7 @@
                         <tbody id="team_name_list">
                             <tr>
                                 <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td>
+                                
                             </tr>
                             <tr style="line-height: 50px;"> 
                                 <th class="text-center">Team Name: </th>
@@ -50,7 +51,7 @@
                                 </th>
                             </tr>
                             <tr>
-                                <th class="text-center text-secondary">Names: </th>
+                                <th class="text-center text-secondary">Members: </th>
                                 <th class="text-center">
                                     <textarea name="name_list_txt1" id="name_list_txt1" class="form-control icts_ann_input" rows="3"></textarea>
                                 </th>
@@ -125,7 +126,7 @@
     </div>
 </div>
 
-<!-- EDTING -->
+<!-- EDITING ICTS ANNOUNCEMENT-->
 <div class="modal" id="icts_edit_ann_modal">
   <div class="modal-dialog icts_edit_ann_dialog">
     <div class="modal-content icts_edit_ann_content">
@@ -138,14 +139,48 @@
             <i class="fa-regular fa-circle-xmark"></i>
             </button>
         </div>
-        <div class="modal-body icts_add_ann_body">
-            <table>
-                <tr>
-                    <th></th>
-                    <td><input type="text" name="edit_icts_ann_title"></td>
-                </tr>
-            </table>
-
+        <div class="modal-body icts_edit_ann_body"> 
+            <form id="edit_icts_details" method="post" enctype="multipart/form-data">  
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <input type="hidden" id="edit_icts_cont_id" name="edit_icts_cont_id">
+                            <th>Announcement Title:</th>
+                            <td>
+                                <input type="text" 
+                                        name="edit_icts_ann_title" 
+                                        id="edit_icts_ann_title" 
+                                        class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td>
+                            <!-- <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success edit_add_new">Add New </button></td> -->
+                        </tr>
+                        <!-- team num holder -->
+                        <input type="hidden" name="edit_team_num" id="edit_team_num">
+                        <input type="hidden" name="edit_training_num" id="edit_training_num">
+                    </thead>
+                    <tbody id="edit_icts_ann_data"> 
+                        
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button 
+                id="save_edited_icts_ann" 
+                type="button" 
+                class="btn btn-primary"
+                onclick="update_edited_icts_ann();">
+                Update
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-secondary" 
+                data-bs-dismiss="modal">
+                Cancel
+            </button>
         </div>
     </div>
   </div>

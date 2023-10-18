@@ -43,7 +43,7 @@
     width: 20%;
     font-size: 18px;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
 /* DATA CONTAINER*/
 .nav-tabs li a{

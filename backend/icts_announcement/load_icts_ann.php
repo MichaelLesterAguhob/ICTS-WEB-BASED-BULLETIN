@@ -160,7 +160,7 @@ try
             while($rows_9 = mysqli_fetch_assoc($query_9)) {
                 $data .= '
                         <tr>
-                            <td class="text-left">' . $rows_9['title'] . '</td>
+                            <td class="text-left">' . $rows_9['desc'] . '</td>
                             <td class="multiline text-left p-2">' . $rows_9['date'] . ' - ' . $rows_9['time'] . '</td>
                         </tr>
                     ';

@@ -1,7 +1,7 @@
-.icts_add_ann_dialog{
+.icts_add_ann_dialog, .icts_edit_ann_dialog{
     margin-top: 5%;
 }
-.icts_add_ann_content, .icts_add_ann_body{
+.icts_add_ann_content, .icts_add_ann_body, .icts_edit_ann_content, .icts_edit_ann_body{
     max-height: 500px;
     overflow: auto;
 }
@@ -17,3 +17,6 @@
     height: fit-content;
 }
 
+#icts_edit_ann_modal table td, th, #icts_add_ann_modal table td, th{
+    padding: 5px;
+}

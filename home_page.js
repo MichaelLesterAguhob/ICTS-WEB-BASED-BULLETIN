@@ -962,12 +962,110 @@ function load_icts_ann()
             }
         })
 }
-load_icts_ann();
+load_icts_ann(); 
 
+// Pop up modal when edit button is clicked
+let cont_type_4_edit = "";
 $(document).on('click','.edit_icts_ann_btn', function()
 {
-    $('#icts_edit_ann_modal').modal('toggle');
+    let cont_id = $(this).attr('data-id');
+    $('#edit_icts_cont_id').val(cont_id);
+    let cont_type = $(this).attr('data-cont-type');
+    cont_type_4_edit = $(this).attr('data-cont-type');
+    $.ajax({
+        url:'backend/icts_announcement/load_to_edit.php',
+        method:'post',
+        data:{cont_id:cont_id, cont_type:cont_type},
+        success:function(data)
+        {
+            if(cont_type == "Emergency Response Team")
+            {
+                data = $.parseJSON(data);
+                if(data.stat == 'success')
+                {
+                    $('#edit_icts_ann_title').val(data.title);
+                    $('#edit_team_num').val(data.ert_team_num);
+                    $('#edit_icts_ann_data').html(data.html);
+                    $('#icts_edit_ann_modal').modal('toggle');
+                }
+            }
+            else if(cont_type == "QR/Form")
+            {
+                data = $.parseJSON(data);
+                if(data.stat == 'success')
+                {
+                    $('#edit_icts_ann_title').val(data.title);
+                    $('#edit_icts_ann_data').html(data.html);
+                    $('#icts_edit_ann_modal').modal('toggle');
+                }
+            }
+            else if(cont_type == "Training")
+            {
+                data = $.parseJSON(data);
+                if(data.stat == 'success')
+                {
+                    $('#edit_icts_ann_title').val(data.title);
+                    $('#edit_training_num').val(data.training_num);
+                    $('#edit_icts_ann_data').html(data.html);
+                    $('#icts_edit_ann_modal').modal('toggle');
+                }
+            }
+        }
+    })
 })
+
+// Updating edited icts announcement details
+function update_edited_icts_ann()
+{
+    if(cont_type_4_edit == "Emergency Response Team")
+    {
+        let team_num = $('#edit_team_num').val();
+        let counter = 1;
+        let is_blank = "no";
+        
+        while(counter <= team_num)
+        {
+            let team_name = $('#edit_ert_team_name'+counter).val();
+            let name_list = $('#edit_ert_name_list'+counter).val();
+            if(team_name == "" || name_list == "")
+            {
+                is_blank = "yes";
+            }
+            counter ++;
+        }
+    
+        let title = $('#edit_icts_ann_title').val();
+        if(is_blank == "no" && title != "")
+        {
+            let edit_icts_details = $('#edit_icts_details')[0];
+            let formData = new FormData(edit_icts_details);
+            $.ajax(
+                {
+                    url:'backend/icts_announcement/update_ert.php',
+                    method:'post',
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success:function(data)
+                    {
+                        $('#edit_icts_details').trigger('reset');
+                        $('#icts_edit_ann_modal').modal('toggle');
+                        load_icts_ann();
+                    }
+                })
+        }
+        else
+        {
+            alert("Fill in all fields");
+        }
+    }
+    else if(cont_type_4_edit == "Emergency Response Team")
+    {
+
+    }
+}
+
+
 $(document).on('click','.delete_icts_ann_btn', function()
 {
     alert($(this).attr('data-cont-type'));
