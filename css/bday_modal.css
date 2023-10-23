@@ -32,17 +32,4 @@
     max-width: 150px;
 }
 
-/* confirmation modal */
-.confirmation_modal_content{ 
-    min-height: 100px;
-    color: black;
-}
-.confirmation_modal_dialog{
-    margin-top: 20%;
-}
-.confirmation_modal_header{
-    border-bottom: none;
-}
-.confirmation_modal_footer{
-    border-top: none;
-}
+

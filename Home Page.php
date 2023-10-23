@@ -151,6 +151,8 @@
     <link rel="stylesheet" href="css/home_page.css">
     <link rel="stylesheet" href="css/cmes_modal.css">
     <link rel="stylesheet" href="css/icts_ann_modal.css">
+
+    
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -433,14 +435,54 @@
   </div>
 </div>
 
+<!-- deleting icts announcement -->
+<div class="modal" id="icts_del_ann_modal">
+  <div class="modal-dialog confirmation_modal_dialog">
+    <div class="modal-content confirmation_modal_content">
+        <div class="modal-header confirmation_modal_header">
+            <h3 class="modal-title" style="color:red;">Are you sure you want to delete this?</h3>
+            <button 
+            type="button"  
+            class="close" 
+            data-bs-dismiss="modal" >
+            <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-footer">
+            <button id="del_icts_ann" type="button" class="btn btn-danger" onclick="delete_icts_ann();">Delete</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- deleting single icts announcement content -->
+<div class="modal" id="icts_singdel_ann_modal">
+  <div class="modal-dialog confirmation_modal_dialog">
+    <div class="modal-content confirmation_modal_content">
+        <div class="modal-header">
+            <h3 class="modal-title" style="color:red;">Are you sure you want to delete this?</h3>
+            <button 
+            type="button"  
+            class="close" 
+            data-bs-dismiss="modal" >
+            <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-footer">
+            <button id="del_icts_ann" type="button" class="btn btn-danger" onclick="delete_icts_ann_single();">Delete</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+  </div>
+</div>
+
 <!-- MODALS -->
+<?php include_once 'page_components/icts_ann_modal.php'; ?>
 <?php include_once 'page_components/bday_modal.php'; ?>
 <?php include_once 'page_components/quote_modal.php'; ?>
 <?php include_once 'page_components/cmes_modal.php'; ?>
 <?php include_once 'page_components/hrep_act_modal.php'; ?>
-<?php include_once 'page_components/icts_ann_modal.php'; ?>
-
-<!-- FOOTER -->
 
 <!-- JAVASCRIPT -->
 <script src="home_page.js"></script>

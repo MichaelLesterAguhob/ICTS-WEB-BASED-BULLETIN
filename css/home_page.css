@@ -190,6 +190,27 @@
 #icts_annncmnts .delete_btn{
     color: rgba(255, 0, 0, 0.625);
 }
+#icts_annncmnts .single_del_btn{
+    color: rgba(249, 116, 116, 0.883);
+    background-color: transparent;
+    border: none;
+    font-size: small;
+}
 #icts_annncmnts .edit_btn{
     color: rgba(255, 140, 0, 0.605);
+}
+
+/* confirmation modal */
+.confirmation_modal_content{ 
+    min-height: 100px;
+    color: black;
+}
+.confirmation_modal_dialog{
+    margin-top: 20%;
+}
+.confirmation_modal_header{
+    border-bottom: none;
+}
+.confirmation_modal_footer{
+    border-top: none;
 }

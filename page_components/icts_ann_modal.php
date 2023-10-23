@@ -44,14 +44,14 @@
                                 <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td>
                                 
                             </tr>
-                            <tr style="line-height: 50px;"> 
-                                <th class="text-center">Team Name: </th>
+                            <tr style="line-height: 50px; border-top:1px solid gray;"> 
+                                <th class="text-left">Team Name: </th>
                                 <th class="text-center">
                                     <input type="text" name="team_name_txt1" id="team_name_txt1" class="form-control icts_ann_input">
                                 </th>
                             </tr>
                             <tr>
-                                <th class="text-center text-secondary">Members: </th>
+                                <th class="text-left text-secondary">Members: </th>
                                 <th class="text-center">
                                     <textarea name="name_list_txt1" id="name_list_txt1" class="form-control icts_ann_input" rows="3"></textarea>
                                 </th>
@@ -144,7 +144,9 @@
                 <table style="width: 100%;">
                     <thead>
                         <tr>
-                            <input type="hidden" id="edit_icts_cont_id" name="edit_icts_cont_id">
+                            <input type="hidden" 
+                                    id="edit_icts_cont_id" 
+                                    name="edit_icts_cont_id">
                             <th>Announcement Title:</th>
                             <td>
                                 <input type="text" 
@@ -154,12 +156,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_team_list">Add New Team </button></td>
-                            <!-- <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success edit_add_new">Add New </button></td> -->
+                            <td colspan="2" class="text-left">
+                                <button type="button" class="btn btn-sm btn-success new_team_name_edit">Add New Team </button>
+                                <button type="button" class="btn btn-sm btn-success new_training_edit">Add New </button>
+                            </td>
                         </tr>
                         <!-- team num holder -->
-                        <input type="hidden" name="edit_team_num" id="edit_team_num">
+                        <input type="text" name="edit_team_num" id="edit_team_num">
+                        <input type="text" name="edit_added_new_team" id="edit_added_new_team">
+
+                        <!-- training num holder -->
                         <input type="hidden" name="edit_training_num" id="edit_training_num">
+                        <input type="hidden" name="edit_added_new_training" id="edit_added_new_training">
                     </thead>
                     <tbody id="edit_icts_ann_data"> 
                         
@@ -186,7 +194,6 @@
   </div>
 </div>
     
-
 
 
 <!-- EDTING -->

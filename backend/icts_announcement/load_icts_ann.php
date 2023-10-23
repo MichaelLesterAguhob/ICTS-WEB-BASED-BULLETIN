@@ -16,7 +16,7 @@ try
             $ert_cont_type = $rows_2['cont_type'];
             $data .= '
                     <tr class="icts_ann_title">
-                        <th>' . $ert_title . '</th>
+                        <th colspan="2">' . $ert_title . '</th>
                         <td class="text-right">
                             <button 
                                 data-id="'.$ert_id.'" 
@@ -38,16 +38,29 @@ try
             $data .= '
                     <tr>
                         <th>Teams</th>
-                        <th>Members</th>
+                        <th colspan="2">Members</th>
                     </tr>
                 ';
             $ert_cont_id = $rows_2['cont_id'];
             $query_3 = mysqli_query($con, "SELECT * FROM icts_ert_teams WHERE cont_id='$ert_cont_id'");
-            while($rows_3 = mysqli_fetch_assoc($query_3)) {
+            while($rows_3 = mysqli_fetch_assoc($query_3)) 
+            {
+                $team_id = $rows_3['id'];
+                $table_name = 'icts_ert_teams';
                 $data .= '
                         <tr>
                             <td class="text-left">' . $rows_3['team_name'] . '</td>
                             <td class="multiline text-left">' . $rows_3['name_list'] . '</td>
+
+                            <td class="text-right">
+                                <button 
+                                    data-id="'.$team_id.'" 
+                                    data-table-name="icts_ert_teams" 
+                                    class="single_del_btn icts_ann_single_del"
+                                    title="Delete">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </td>
                         </tr>
                     ';
             }
@@ -60,7 +73,7 @@ try
     {
         $data .= '
                 <tr style="height: 20px; border-color:white;">
-                    <td colspan="2"></td>
+                    <td colspan="3"></td>
                 </tr>
             ';
         $query_5 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
@@ -69,11 +82,11 @@ try
             $qrform_id = $rows_5['cont_id'];
             $qrform_cont_type = $rows_5['cont_type'];
             $data .= '
-                    <tr style="height: 30px; border-color:white;">
-                        <td colspan="2"></td>
+                    <tr style="height: 30px; border-color:  white;">
+                        <td colspan="3"></td>
                     </tr>
                     <tr class="icts_ann_title">
-                        <th>' . $qrform_title . '</th>
+                        <th colspan="2">' . $qrform_title . '</th>
                         <td class="text-right">
                             <button 
                                 data-id="'.$qrform_id.'" 
@@ -95,16 +108,19 @@ try
             $data .= '
                     <tr>
                         <th>QR</th>
-                        <th>Date</th>
+                        <th colspan="2">Date</th>
                     </tr>
                 ';
             $qrform_cont_id = $rows_5['cont_id'];
             $query_6 = mysqli_query($con, "SELECT * FROM icts_img_date WHERE cont_id='$qrform_cont_id'");
-            while($rows_6 = mysqli_fetch_assoc($query_6)) {
+            while($rows_6 = mysqli_fetch_assoc($query_6)) 
+            {
+                $qrform_id = $rows_6['id'];
                 $data .= '
                         <tr>
-                            <td class="text-left">' . $rows_6['img'] . '</td>
-                            <td class="multiline text-left p-2">' . $rows_6['date'] . '</td>
+                            <td class="text-left">'.$rows_6['img'].'</td>
+                            <td class="multiline text-left p-2" colspan="2">'.$rows_6['date'].'</td>
+                         
                         </tr>
                     ';
             }
@@ -117,7 +133,7 @@ try
     {
         $data .= '
                 <tr style="height: 20px; border-color:white;">
-                    <td colspan="2"></td>
+                    <td colspan="3"></td>
                 </tr>
             ';
         $query_8 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Training'");
@@ -127,16 +143,16 @@ try
             $training_cont_type = $rows_8['cont_type'];
             $data .= '
                     <tr style="height: 30px; border-color:white;">
-                        <td colspan="2"></td>
-                    </tr>
+                        <td colspan="3"></td>
+                    </tr> 
                     <tr class="icts_ann_title">
                         <th>'.$training_title.'</th>
-                        <td class="text-right">
+                        <td class="text-right" colspan="2">
                             <button 
                                 data-id="'.$training_id.'" 
                                 data-cont-type="'.$training_cont_type.'" 
                                 class="edit_btn edit_icts_ann_btn"
-                                title="Edit">
+                                title="Edit">   
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </button>&nbsp;&nbsp;
                             <button 
@@ -148,7 +164,7 @@ try
                             </button>
                         </td>
                     </tr>
-                ';
+                ';  
             $data .= '
                     <tr>
                         <th>Description</th>
@@ -158,12 +174,23 @@ try
             $training_cont_id = $rows_8['cont_id'];
             $query_9 = mysqli_query($con, "SELECT * FROM icts_training WHERE cont_id='$training_cont_id'");
             while($rows_9 = mysqli_fetch_assoc($query_9)) {
+                $icts_training_id = $rows_9['id'];
                 $data .= '
-                        <tr>
-                            <td class="text-left">' . $rows_9['desc'] . '</td>
-                            <td class="multiline text-left p-2">' . $rows_9['date'] . ' - ' . $rows_9['time'] . '</td>
-                        </tr>
-                    ';
+                    <tr>
+                        <td class="text-left">' . $rows_9['desc'] . '</td>
+                        <td class="multiline text-left p-2">' . $rows_9['date'] . ' | ' . $rows_9['time'] . '</td>
+                        
+                        <td class="text-right">
+                                <button 
+                                    data-id="'.$icts_training_id.'" 
+                                    data-table-name="icts_training" 
+                                    class="single_del_btn icts_ann_single_del"
+                                    title="Delete">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                        </td>
+                    </tr>
+                ';
             }
         }
     }

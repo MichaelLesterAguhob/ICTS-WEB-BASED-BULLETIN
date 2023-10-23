@@ -3,7 +3,6 @@ include_once('connection.php');
 $team_num = $_POST['edit_team_num'];
 $cont_id = $_POST['edit_icts_cont_id'];
 $team_name_list = 1;
-$team_id = 1;
 $respo = "";
 try
 {
@@ -20,7 +19,19 @@ try
         $query3 = mysqli_query($con, "UPDATE `icts_ert_teams` SET `team_name`='$team_name', `name_list`='$name_list' WHERE `id`='$id'");
         $team_name_list++;
     }
-    $team_id ++;
+
+    $added_new_team = $_POST['edit_added_new_team'];
+    while($team_num != $added_new_team)
+    {
+        $team_num ++;
+        $new_team_name = $_POST['edit_ert_team_name'.$team_num];
+        $new_name_list = $_POST['edit_ert_name_list'.$team_num];
+
+        // if($new_team_name != "" && $new_name_list != "")
+        // {
+            $insert_qry = mysqli_query($con, "INSERT INTO icts_ert_teams VALUES ('', '$cont_id', '$new_team_name', '$new_name_list')");
+        // }
+    }
 }
 catch(Exception $ex)
 {

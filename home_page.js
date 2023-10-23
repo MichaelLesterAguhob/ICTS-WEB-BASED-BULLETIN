@@ -806,7 +806,7 @@ $(document).on('click','.add_team_list',function()
 {
     team_name_num ++;
     $('#team_num').val(team_name_num);
-    $('#team_name_list').append('<tr style="line-height: 50px;"><th class="text-center">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-center text-secondary">Names: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+    $('#team_name_list').append('<tr style="line-height: 50px; border-top:1px solid gray;""><th class="text-left">Team Name: </th><th class="text-center"><input type="text" name="team_name_txt'+team_name_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-left text-secondary">Members: </th><th class="text-center"><textarea name="name_list_txt'+team_name_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
 })
 
 // for switching
@@ -839,7 +839,7 @@ $(document).on('click','.add_desc_date', function()
 {
     desc_date ++;
     $('#desc_date_num').val(desc_date);
-    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time"name="training_time'+desc_date+'"class="form-control"></td></tr>');
+    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="training_time'+desc_date+'"class="form-control"></td></tr>');
 })
 
 // saving ICTS Announcement
@@ -985,8 +985,11 @@ $(document).on('click','.edit_icts_ann_btn', function()
                 {
                     $('#edit_icts_ann_title').val(data.title);
                     $('#edit_team_num').val(data.ert_team_num);
+                    $('#edit_added_new_team').val(data.ert_team_num);
                     $('#edit_icts_ann_data').html(data.html);
                     $('#icts_edit_ann_modal').modal('toggle');
+                    $('.new_team_name_edit').css('display','flex');
+                    $('.new_training_edit').css('display','none');
                 }
             }
             else if(cont_type == "QR/Form")
@@ -997,6 +1000,8 @@ $(document).on('click','.edit_icts_ann_btn', function()
                     $('#edit_icts_ann_title').val(data.title);
                     $('#edit_icts_ann_data').html(data.html);
                     $('#icts_edit_ann_modal').modal('toggle');
+                    $('.new_team_name_edit').css('display','none');
+                    $('.new_training_edit').css('display','none');
                 }
             }
             else if(cont_type == "Training")
@@ -1008,21 +1013,39 @@ $(document).on('click','.edit_icts_ann_btn', function()
                     $('#edit_training_num').val(data.training_num);
                     $('#edit_icts_ann_data').html(data.html);
                     $('#icts_edit_ann_modal').modal('toggle');
+                    $('.new_team_name_edit').css('display','none');
+                    $('.new_training_edit').css('display','flex');
                 }
             }
         }
     })
 })
 
+
+let edit_added_new_team = 0;
+// add new team&names | training in edit mode modal
+$(document).on('click','.new_team_name_edit',function()
+{   
+    edit_new_team_num = $('#edit_added_new_team').val();
+    edit_new_team_num ++;
+    // holder of newly added team and name in edit mode
+    $('#edit_added_new_team').val(edit_new_team_num);
+
+    $('#edit_icts_ann_data').append('<tr style="line-height: 50px; border-top:1px solid gray;""><th class="text-left">Team Name: </th><th class="text-center"><input type="text" name="edit_ert_team_name'+edit_new_team_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-left text-secondary">Members: </th><th class="text-center"><textarea name="edit_ert_name_list'+edit_new_team_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+})
+
+
 // Updating edited icts announcement details
 function update_edited_icts_ann()
 {
     if(cont_type_4_edit == "Emergency Response Team")
     {
+        //use loop to know if all fields have values
+        let title = $('#edit_icts_ann_title').val();
         let team_num = $('#edit_team_num').val();
         let counter = 1;
         let is_blank = "no";
-        
+
         while(counter <= team_num)
         {
             let team_name = $('#edit_ert_team_name'+counter).val();
@@ -1033,8 +1056,6 @@ function update_edited_icts_ann()
             }
             counter ++;
         }
-    
-        let title = $('#edit_icts_ann_title').val();
         if(is_blank == "no" && title != "")
         {
             let edit_icts_details = $('#edit_icts_details')[0];
@@ -1059,14 +1080,141 @@ function update_edited_icts_ann()
             alert("Fill in all fields");
         }
     }
-    else if(cont_type_4_edit == "Emergency Response Team")
+    else if(cont_type_4_edit == "QR/Form")
     {
-
+        if($('#edit_qrform_date').val() != "" && $('#edit_icts_ann_title').val() != "")
+        {
+            let edit_icts_details = $('#edit_icts_details')[0];
+            let formData = new FormData(edit_icts_details);
+            $.ajax(
+                {
+                    url:'backend/icts_announcement/update_qrform.php',
+                    method:'post',
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success:function(data)
+                    {
+                        $('#edit_icts_details').trigger('reset');
+                        $('#icts_edit_ann_modal').modal('toggle');
+                        load_icts_ann();
+                    }
+                })
+        }
+        else
+        {
+            alert("Fill in all fields");
+        }
+    }
+    else if(cont_type_4_edit == "Training")
+    {
+        //use loop to know if all fields have values
+        let title = $('#edit_icts_ann_title').val();
+        let training_num = $('#edit_training_num').val();
+        let counter = 1;
+        let is_blank = "no";
+        
+        while(counter <= training_num)
+        {
+            let edit_training_desc = $('#edit_training_desc'+counter).val();
+            let edit_training_date = $('#edit_training_date'+counter).val();
+            let edit_training_time = $('#edit_training_time'+counter).val();
+            if(edit_training_desc == "" || edit_training_date == "" || edit_training_time == "")
+            {
+                is_blank = "yes";
+            }
+            counter ++;
+        }
+        if(is_blank == "no" && title != "")
+        {
+            let edit_icts_details = $('#edit_icts_details')[0];
+            let formData = new FormData(edit_icts_details);
+            $.ajax(
+                {
+                    url:'backend/icts_announcement/update_training.php',
+                    method:'post',
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success:function(data)
+                    {
+                        $('#edit_icts_details').trigger('reset');
+                        $('#icts_edit_ann_modal').modal('toggle');
+                        load_icts_ann();
+                        alert(data);
+                    }
+                })
+        }
+        else
+        {
+            alert("Fill in all fields");
+        }
     }
 }
 
+//FOR IMAGE PREVIEW
+function qr_form_editURL(input)
+{
+if(input.files && input.files[0])
+{
+    var reader = new FileReader();
+    reader.onload = function(e)
+    {
+        $("#edit_qrform_img_preview").attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+}
 
+// DELETE CONFIRMATION POP UP
+let cont_type2 = "";
+let id = 0;
 $(document).on('click','.delete_icts_ann_btn', function()
 {
-    alert($(this).attr('data-cont-type'));
+    cont_type2 = $(this).attr('data-cont-type')
+    id = $(this).attr('data-id')
+    $('#icts_del_ann_modal').modal('toggle');
 })
+
+// DELETING ANNOUNCEMENT
+function delete_icts_ann()
+{
+    $.ajax(
+        {
+            url:'backend/icts_announcement/delete_icts_ann.php',
+            method:'post',
+            data:{id:id, cont_type2:cont_type2},
+            success: function(data)
+            {
+                $('#icts_del_ann_modal').modal('toggle');
+                load_icts_ann();
+            }
+        })
+}
+
+let icts_ann_content_id = 0;
+let table_name = "";
+//SINGLE DELETION POPUP MODAL 
+$(document).on('click', '.icts_ann_single_del',function()
+{
+    icts_ann_content_id = $(this).attr('data-id');
+    table_name = $(this).attr('data-table-name');
+    $('#icts_singdel_ann_modal').modal('toggle');
+})
+// DELETE SINGLE ICTS ANNOUNCEMENT CONTENT
+function delete_icts_ann_single()
+{
+    $.ajax(
+    {
+        url:'backend/icts_announcement/single_del.php',
+        method:'post',
+        data:{icts_ann_content_id:icts_ann_content_id, table_name:table_name},
+        success: function(data)
+        {
+            $('#icts_singdel_ann_modal').modal('toggle');
+            load_icts_ann();
+        }
+
+    })
+    
+}

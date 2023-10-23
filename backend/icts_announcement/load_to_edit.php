@@ -20,18 +20,16 @@ try
         {
             $ert_team_num ++;
             $data .= '
-            <tr>
+            <tr style="border-top:1px solid gray;">
             <th>Team Name:</th>
             <td>
             <input type="text" name="edit_ert_team_name'.$ert_team_num.'" id="edit_ert_team_name'.$ert_team_num.'" class="form-control" value="'.$rows['team_name'].'"></td>
             </tr>
             <tr>
-            <td class="text-secondary">Name:</td>
+            <td class="text-secondary">Members:</td>
             <td><textarea type="text" name="edit_ert_name_list'.$ert_team_num.'" id="edit_ert_name_list'.$ert_team_num.'" class="form-control" rows="4">'.$rows['name_list'].'</textarea></td>
             </tr>
             ';
-            
-            
         }
         $respo = json_encode(['stat'=>'success', 'title'=>$title[0],'html'=>$data, 'ert_team_num'=>$ert_team_num]);
     }
@@ -50,19 +48,21 @@ try
                 <td>
                     <input type="date" 
                             name="edit_qrform_date" 
+                            id="edit_qrform_date" 
                             class="form-control" 
                             value="'.$rows['date'].'">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <img alt="QR Code" src="backend/icts_announcement/icts_img/'.$rows['img'].'" id="edit_qrform_img_preview">
+                    <img alt="QR Code" src="backend/icts_announcement/icts_img/'.$rows['img'].'" id="edit_qrform_img_preview" style="width: 122px; height: 127px;">
                 </td>
                 <td>
+                    <input type="hidden" name="edit_qrform_img_holder" value="'.$rows['img'].'">
                     <input type="file" 
                             name="edit_qr_form_img" 
                             id="edit_qr_form_img" 
-                            onchange="readQREditURL(this);" 
+                            onchange="qr_form_editURL(this);" 
                             class="form-control" 
                             accept="image/jpg, image/jpeg">
                 </td>
@@ -84,15 +84,15 @@ try
             $data .= '
             <tr>
                 <th>Description: </th>
-                <td><input type="text" name="edit_training_desc'.$training_num.'" class="form-control" value="'.$rows['desc'].'"></td>
+                <td><input type="text" name="edit_training_desc'.$training_num.'" id="edit_training_desc'.$training_num.'" class="form-control" value="'.$rows['desc'].'"></td>
             </tr>
             <tr>
                 <th>Date: </th>
-                <td><input type="date" name="edit_training_date'.$training_num.'" class="form-control" value="'.$rows['date'].'"></td>
+                <td><input type="date" name="edit_training_date'.$training_num.'" id="edit_training_date'.$training_num.'" class="form-control" value="'.$rows['date'].'"></td>
             </tr>
             <tr>
                 <th>time: </th>
-                <td><input type="time" name="edit_training_time'.$training_num.'" class="form-control" value="'.date("H:i:s",strtotime($rows['time'])).'"></td>
+                <td><input type="time" name="edit_training_time'.$training_num.'" id="edit_training_time'.$training_num.'" class="form-control" value="'.date("H:i:s",strtotime($rows['time'])).'"></td>
             </tr>
             
             ';
