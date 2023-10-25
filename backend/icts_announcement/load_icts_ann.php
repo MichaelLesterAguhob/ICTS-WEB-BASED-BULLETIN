@@ -199,7 +199,7 @@ try
     {
         $data .= '
         <tr style="height: 20px; border-color:white;">
-            <td colspan="2">No Data Found....</td>
+            <td colspan="2">No Announcements Found....</td>
         </tr>
         ';
     }

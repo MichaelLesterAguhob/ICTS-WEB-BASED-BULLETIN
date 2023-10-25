@@ -162,7 +162,7 @@
 <div class="home_container container-fluid">
 
 <!-- TAB NAVIGATION --> 
-    <ul class="nav nav-tabs mb-2 mt-1">
+    <ul class="nav nav-tabs mb-2 mt-1 nav_tab">
         <!-- SHOW ONLY THE ACCESS SET BY ADMIN -->
         <?php echo $icts_announcement ?>
         <?php echo $hrep_announcement ?>

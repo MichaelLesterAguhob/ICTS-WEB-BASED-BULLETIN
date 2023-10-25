@@ -27,10 +27,10 @@ try
         $new_team_name = $_POST['edit_ert_team_name'.$team_num];
         $new_name_list = $_POST['edit_ert_name_list'.$team_num];
 
-        // if($new_team_name != "" && $new_name_list != "")
-        // {
+        if($new_team_name != "" && $new_name_list != "")
+        {
             $insert_qry = mysqli_query($con, "INSERT INTO icts_ert_teams VALUES ('', '$cont_id', '$new_team_name', '$new_name_list')");
-        // }
+        }
     }
 }
 catch(Exception $ex)

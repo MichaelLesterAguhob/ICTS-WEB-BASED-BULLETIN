@@ -82,7 +82,7 @@ try
         {
             $training_num ++;
             $data .= '
-            <tr>
+            <tr style="border-top:1px solid gray;">
                 <th>Description: </th>
                 <td><input type="text" name="edit_training_desc'.$training_num.'" id="edit_training_desc'.$training_num.'" class="form-control" value="'.$rows['desc'].'"></td>
             </tr>

@@ -10,7 +10,7 @@ try
     $has_data = mysqli_num_rows($result);
     if($has_data <= 0)
     {
-        $response = json_encode(['status'=>'no_data', 'msg'=>"No data found!"]);
+        $response = json_encode(['status'=>'no_data', 'msg'=>"No Quote found....."]);
     }
     else 
     {

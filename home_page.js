@@ -1011,6 +1011,7 @@ $(document).on('click','.edit_icts_ann_btn', function()
                 {
                     $('#edit_icts_ann_title').val(data.title);
                     $('#edit_training_num').val(data.training_num);
+                    $('#edit_added_new_training').val(data.training_num);
                     $('#edit_icts_ann_data').html(data.html);
                     $('#icts_edit_ann_modal').modal('toggle');
                     $('.new_team_name_edit').css('display','none');
@@ -1021,8 +1022,6 @@ $(document).on('click','.edit_icts_ann_btn', function()
     })
 })
 
-
-let edit_added_new_team = 0;
 // add new team&names | training in edit mode modal
 $(document).on('click','.new_team_name_edit',function()
 {   
@@ -1032,6 +1031,15 @@ $(document).on('click','.new_team_name_edit',function()
     $('#edit_added_new_team').val(edit_new_team_num);
 
     $('#edit_icts_ann_data').append('<tr style="line-height: 50px; border-top:1px solid gray;""><th class="text-left">Team Name: </th><th class="text-center"><input type="text" name="edit_ert_team_name'+edit_new_team_num+'" class="form-control icts_ann_input"> </th></tr><tr><th class="text-left text-secondary">Members: </th><th class="text-center"><textarea name="edit_ert_name_list'+edit_new_team_num+'" class="form-control icts_ann_input" rows="3"></textarea></th></tr>');
+})
+
+$(document).on('click','.new_training_edit',function()
+{   
+    edit_new_training_num = $('#edit_added_new_training').val();
+    edit_new_training_num ++;
+    // holder of newly added team and name in edit mode
+    $('#edit_added_new_training').val(edit_new_training_num);
+    $('#edit_icts_ann_data').append('<tr style="border-top:1px solid gray;"><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="edit_training_desc'+edit_new_training_num+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="edit_training_date'+edit_new_training_num+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="edit_training_time'+edit_new_training_num+'"class="form-control"></td></tr>');
 })
 
 
@@ -1141,7 +1149,6 @@ function update_edited_icts_ann()
                         $('#edit_icts_details').trigger('reset');
                         $('#icts_edit_ann_modal').modal('toggle');
                         load_icts_ann();
-                        alert(data);
                     }
                 })
         }

@@ -1,5 +1,7 @@
 .navbar{
     background-color: rgba(213, 198, 198, 0.444);
+    background-image: linear-gradient(to right, #10499f, #0060ab, #0074af, #0087af, #1198ac);
+    background-image: linear-gradient(to right, #0e346f, #154a88, #1d60a0, #2578b9, #2e90d1);
 }
 .navbar h1{
     margin: auto;
@@ -11,13 +13,16 @@
 }
 #navbarNav .navbar-nav .nav-link{
     margin-right: 50px;
-    color: black;
+    color: white;
 }
 .nav-link:hover{
     background-color: rgba(195, 192, 192, 0.556);
+    text-decoration: none;
 }
 #navbarNav .navbar-nav .logout{
     color: red;
+    color: maroon;
+    color: white;
 }
 .logout{
     position: absolute;

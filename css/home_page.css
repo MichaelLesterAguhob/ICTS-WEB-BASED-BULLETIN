@@ -159,6 +159,10 @@
     background-color: rgba(195, 192, 192, 0.556);
 }
 
+.nav_tab{
+    background-color: rgba(97, 159, 210, 0.504);
+}
+
 /*  */ 
 #hrep_act_img_prev{
     max-width: 100%; 

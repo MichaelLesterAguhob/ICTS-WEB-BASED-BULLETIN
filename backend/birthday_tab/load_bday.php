@@ -10,7 +10,7 @@ $result = mysqli_query($con, $query);
 
 if(mysqli_num_rows($result) <= 0) 
 {
-    $response = json_encode(['status' => 'no_data', 'html' => "No record found"]);
+    $response = json_encode(['status' => 'no_data', 'html' => "No Birthday found...."]);
 } 
 else 
 {

@@ -35,7 +35,7 @@ try
     }
     else
     {
-        $respo = "No data found";
+        $respo = "No Committee Meeting and Event Schedule found.....";
     }
     
     $respo = $data;

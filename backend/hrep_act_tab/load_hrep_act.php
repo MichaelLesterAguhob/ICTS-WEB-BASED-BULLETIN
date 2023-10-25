@@ -38,7 +38,7 @@ try
     }
     else
     {
-        $respo = '<td colspan="3" class="text-center">No Data Found</td>';
+        $respo = '<td colspan="3" class="text-left p-3">No Hrep Activity found.....</td>';
     }
 }
 catch(Exception $ex)

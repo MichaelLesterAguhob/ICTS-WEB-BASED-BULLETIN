@@ -162,8 +162,8 @@
                             </td>
                         </tr>
                         <!-- team num holder -->
-                        <input type="text" name="edit_team_num" id="edit_team_num">
-                        <input type="text" name="edit_added_new_team" id="edit_added_new_team">
+                        <input type="hidden" name="edit_team_num" id="edit_team_num">
+                        <input type="hidden" name="edit_added_new_team" id="edit_added_new_team">
 
                         <!-- training num holder -->
                         <input type="hidden" name="edit_training_num" id="edit_training_num">
