@@ -258,7 +258,7 @@ $(document).on('click','.delete_bday_btn',function()
     $('#delete_bday').css('display','unset');    
     $('#delete_quote').css('display','none');
     to_delete_bday = $(this).attr('data-id');
-    $(".confirmation_modal_title").html("Are you sure you want to DELETE this?")
+    $(".confirmation_modal_title").html("Are you sure you want to delete?")
     $(".confirmation_modal_title").css("color","red")
     $("#confirmation_modal").modal('toggle');
 })
@@ -379,7 +379,7 @@ $(document).on('click','.delete_quote_btn',function()
     to_delete_quote = $(this).attr('data-id');
     $('#delete_bday').css('display','none');    
     $('#delete_quote').css('display','unset');
-    $(".confirmation_modal_title").html("Are you sure you want to DELETE this?")
+    $(".confirmation_modal_title").html("Are you sure you want to delete?")
     $(".confirmation_modal_title").css("color","red")
     $("#confirmation_modal").modal('toggle');
 })
@@ -635,7 +635,7 @@ $(document).on('click','.cmes_del', function()
 {
     cmes_id = $(this).attr('data-id');
     $('.cmes_confirm_modal_title').css('color','red');
-    $('.cmes_confirm_modal_title').html('Please confirm to delete');
+    $('.cmes_confirm_modal_title').html('Are you sure you want to delete?');
     $('#cmes_confirm_modal').modal('toggle');
 })
 
@@ -1225,3 +1225,87 @@ function delete_icts_ann_single()
     })
     
 }
+
+// HREP ANNOUNCEMENTS
+$(document).on('click','.add_hrep_ann', function()
+{
+    $('#hrep_ann_modal').modal('toggle');
+})
+
+// ADDING HREP ANNOUNCEMENTS
+function add_hrep_ann()
+{
+    let subj = $('#subject').val();
+    let date_release = $('#hrep_ann_date').val();
+    let office = $('#hrep_ann_office').val();
+    let qr = $('#hrep_ann_image').val();
+
+    if(subj == "" || date_release == "" || office == "" || qr == "")
+    {
+        alert("No input. Fill in the blank(s)")
+    }
+    else
+    {
+        let add_hrep_ann_form = $('#add_hrep_ann_form')[0];
+        let formData = new FormData(add_hrep_ann_form);
+        $.ajax(
+            {
+                url:'backend/hrep_ann_tab/add_hrep_ann.php',
+                method:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success: function(data)
+                {
+                    $('.add_hrep_ann_form_msg').html(data);
+                    load_hrep_ann();
+                    $('#add_hrep_ann_form').trigger('reset');
+                }
+            })
+        alert("working");
+    }
+}
+
+let hrep_ann_id = 0;
+let hrep_ann_subj = "";
+let hrep_ann_date_rel = "";
+let hrep_ann_office = "";
+let hrep_ann_img = "";
+
+// EDITING AND UPDATING HREP ANNOUNCEMENT
+$(document).on('click', '.hrep_ann_edit', function()
+{
+    hrep_ann_id = $(this).attr('data-id');
+    hrep_ann_subj = $(this).attr('data-subj');
+    hrep_ann_date_rel = $(this).attr('data-date');
+    hrep_ann_office = $(this).attr('data-office');
+    hrep_ann_img = $(this).attr('data-qr');
+
+    $('#edit_hrep_ann_id').val(hrep_ann_id);
+    $('#edit_subject').val(hrep_ann_subj);
+    $('#edit_hrep_ann_date').val(hrep_ann_date_rel);
+    $('#edit_hrep_ann_office').val(hrep_ann_office);
+    $('#edit_hrep_ann_image_preview').attr('src', 'backend/hrep_ann_tab/img/'+hrep_ann_img);
+
+    $('#edit_hrep_ann_modal').modal('toggle');
+})
+
+function update_hrep_ann()
+{
+
+}
+
+// LOAD HREP ANNOUNCEMENTS
+function load_hrep_ann()
+{
+    $.ajax(
+        {
+            url:'backend/hrep_ann_tab/load_hrep_ann.php',
+            method:'post',
+            success: function(data)
+            {
+                $('#hrep_ann_data').html(data);
+            }
+        })
+}
+load_hrep_ann();

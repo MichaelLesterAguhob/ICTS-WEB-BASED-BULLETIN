@@ -16,3 +16,11 @@
     background-color: transparent;
     border: 1px solid rgba(128, 128, 128, 0.226);;
 }
+
+.modal-header{
+    background-color: rgba(97, 159, 210, 0.504);
+}
+
+#icts_del_ann_modal .modal-header, #icts_singdel_ann_modal .modal-header,#confirmation_modal .modal-header, #cmes_confirm_modal .modal-header, #del_hrep_act_modal .modal-header{
+    background-color: unset;
+}

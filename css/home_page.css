@@ -218,3 +218,17 @@
 .confirmation_modal_footer{
     border-top: none;
 }
+
+
+/* HREP ANNOUNCEMENT */
+#hrep_annncmnts .hrep_ann_btn{
+    background-color: transparent;
+    border: none;
+    font-size: larger;
+}
+#hrep_annncmnts .hrep_ann_del{
+    color: rgba(255, 0, 0, 0.625);
+}
+#hrep_annncmnts .hrep_ann_edit{
+    color: rgba(255, 140, 0, 0.605);
+}

@@ -233,20 +233,24 @@
                 <h3><i class="fa-solid fa-bullhorn"></i>&nbsp; HREP Announcements</h3>
             </div>
             <div class="col-lg-5 tab_button">
-                <button class="btn btn-primary btn_add">
+                <button class="btn btn-primary btn_add add_hrep_ann">
                     <i class="fa-solid fa-plus"></i> 
                 </button>
             </div>
         </div> 
 
         <div class="event_table_cont">
-            <table >
+            <table class="table">
                 <thead>
                     <tr>
-                        
+                        <th>Subject</th>
+                        <th>Date Release</th>
+                        <th>Office</th>
+                        <th>QR</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="hrep_ann_data">
                     <tr>
 
                     </tr>
@@ -461,7 +465,7 @@
   <div class="modal-dialog confirmation_modal_dialog">
     <div class="modal-content confirmation_modal_content">
         <div class="modal-header">
-            <h3 class="modal-title" style="color:red;">Are you sure you want to delete this?</h3>
+            <h3 class="modal-title" style="color:red;">Are you sure you want to delete?</h3>
             <button 
             type="button"  
             class="close" 
@@ -483,6 +487,7 @@
 <?php include_once 'page_components/quote_modal.php'; ?>
 <?php include_once 'page_components/cmes_modal.php'; ?>
 <?php include_once 'page_components/hrep_act_modal.php'; ?>
+<?php include_once 'page_components/hrep_ann_modal.php'; ?>
 
 <!-- JAVASCRIPT -->
 <script src="home_page.js"></script>

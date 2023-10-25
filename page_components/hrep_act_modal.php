@@ -100,7 +100,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title hrep_act_del_msg">Delete Hrep Activity?</h3>
+        <h3 class="modal-title hrep_act_del_msg">Are you sure you want to delete?</h3>
         <button type="button" class="close" data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
         </button>

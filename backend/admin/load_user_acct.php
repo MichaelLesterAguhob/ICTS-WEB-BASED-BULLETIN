@@ -27,12 +27,12 @@ try
             }
             $data .= '
                 <tr>
-                    <td style="width:10%;">'.$rows['account_id'].'</td>
-                    <td style="width:45%;">'.$rows['username'].'</td>
-                    <td class="user_pass" style="width:35%;">
+                    <td style="width:10%; text-align:center;">'.$rows['account_id'].'</td>
+                    <td style="width:90%; text-align:center;">'.$rows['username'].'</td>
+                    <td class="user_pass" style="width:35%; display:none;">
                     <input type="text" id="'.$rows['account_id'].'" value="'.$rows['password'].'" class="user_password" disabled>
                     </td>
-                    <td style="width:10%;">'.$view_btn.'</td>
+                    <td style="width:10%; display:none;">'.$view_btn.'</td>
                 </tr>
             ';
         }

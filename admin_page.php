@@ -40,15 +40,14 @@
        
             <!-- TAB NAVIGATION -->
         <ul class="nav nav-tabs">
-            <!-- <li class="active"><a data-toggle="tab" href="#user_accounts">Accounts</a></li> -->
-            <li class="active"><a data-toggle="tab" href="#activities">Activity Logs</a></li>
-            <!-- <li><a data-toggle="tab" href="#logs">Logs</a></li> -->
+            <li class="active"><a data-toggle="tab" href="#user_accounts">Accounts</a></li>
+            <li><a data-toggle="tab" href="#activities">Activity Logs</a></li>
             <li><a data-toggle="tab" href="#access_role">Set Access Role</a></li>
         </ul>
 
         <div class="tab-content">
             <!-- USER ACCOUNTS TAB -->
-            <!-- <div id="user_accounts" class="tab-pane fade in active">
+            <div id="user_accounts" class="tab-pane fade in active">
                 <div class="row tab_header">
                     <div class="col-lg-6 tab_title">
                         <h3><i class="fa-solid fa-users-gear"></i>&nbsp; Accounts</h3>
@@ -62,21 +61,21 @@
                     <table class="table">
                         <thead>
                             <tr> 
-                                <th style="width:10%;">User ID</th>
-                                <th style="width:45%;">Username</th>
-                                <th style="width:35%;" style="display: none;">Password</th>
-                                <th style="width:10%;" style="display: none;">Forgot Pass</th>
+                                <th style="width:10%; text-align:center;">User ID</th>
+                                <th style="width:90%; text-align:center;">Username</th>
+                                <!-- <th style="width:35%;" style="display: none;">Password</th>
+                                <th style="width:10%;" style="display: none;">Forgot Pass</th> -->
                             </tr>
                         </thead>
-                        <tbody id="user_acct_data"> -->
+                        <tbody id="user_acct_data">
                             <!-- user accounts data here -->
-                        <!-- </tbody>
+                        </tbody>
                     </table>
                 </div>
-            </div> -->
+            </div>
 
             <!-- ACTIVITIES TAB -->
-            <div id="activities" class="tab-pane fade in active">
+            <div id="activities" class="tab-pane fade">
                 <div class="tab_header2">
                     <div class="tab_title2">
                         <h3><i class="fa-solid fa-person-running"></i>&nbsp; Activity Logs</h3>
