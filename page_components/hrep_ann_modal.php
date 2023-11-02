@@ -117,13 +117,14 @@
                   id="edit_hrep_ann_image_preview" 
                   class="mt-1">
                 <br>
+                <input type="hidden" id="edit_hrep_ann_img_holder" name="edit_hrep_ann_img_holder">
                   <input 
                   type="file" 
                   name="edit_hrep_ann_image"
                   id="edit_hrep_ann_image"
                   class="btn btn-success mt-1"
                   accept="image/jpg, image/jpeg" 
-                  onchange="">
+                  onchange="image_change(this);">
                 </td>
             </tr>
         </form>
@@ -135,7 +136,7 @@
           type="button" 
           class="btn btn-primary"
           onclick="update_hrep_ann();">
-          Save
+          Update
         </button>
         <button 
           type="button" 
@@ -143,6 +144,25 @@
           data-bs-dismiss="modal">
           Cancel
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- HREP ANNOUNCEMENT CONFIRMATION MODAL -->
+<div class="modal" id="hrep_ann_del_modal">
+  <div class="modal-dialog confirmation_modal_dialog">
+    <div class="modal-content confirmation_modal_content">
+      <div class="modal-header confirmation_modal_header">
+        <button type="button" class="close" data-bs-dismiss="modal" >
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <h3 class="modal-title hrep_ann_confirm_modal_title"></h3>
+      </div>
+      <div class="modal-footer confirmation_modal_footer">
+        <button type="button" class="btn btn-danger" onclick="delete_hrep_ann();">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

@@ -70,7 +70,7 @@
     margin: auto;
 }
 .action_th, .action_td{
-    text-align: center;
+    text-align: right;
 }
 .btn_activate{
     min-width: 50px;

@@ -21,7 +21,7 @@ try
                      alt="Image"
                      style="width: 50px; height: 50px;">
                 </td>
-                <td>
+                <td style="text-align: right;">
                     <button class="hrept_act_edit" data-img="'.$rows['img'].'" data-id="'.$rows['id'].'">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>

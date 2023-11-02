@@ -20,7 +20,7 @@ try
                     <td style="width: 5%;">'.$rows['fb_live'].'</td>
                     <td style="width: 5%;">'.$rows['ppab_cam'].'</td> 
                     <td style="width: 20%;" class="multiline">'.$rows['remarks'].'</td>
-                    <td style="width: 10%;">
+                    <td style="width: 10%; text-align: right;">
                         <button class="cmes_btn cmes_edit" data-id="'.$rows['id'].'" title="Edit">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>

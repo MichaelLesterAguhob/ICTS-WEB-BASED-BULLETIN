@@ -839,7 +839,7 @@ $(document).on('click','.add_desc_date', function()
 {
     desc_date ++;
     $('#desc_date_num').val(desc_date);
-    $('#training').append('<tr><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="training_time'+desc_date+'"class="form-control"></td></tr>');
+    $('#training').append('<tr style="border-top:1px solid gray;"><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="training_time'+desc_date+'"class="form-control"></td></tr>');
 })
 
 // saving ICTS Announcement
@@ -1262,7 +1262,6 @@ function add_hrep_ann()
                     $('#add_hrep_ann_form').trigger('reset');
                 }
             })
-        alert("working");
     }
 }
 
@@ -1285,14 +1284,66 @@ $(document).on('click', '.hrep_ann_edit', function()
     $('#edit_subject').val(hrep_ann_subj);
     $('#edit_hrep_ann_date').val(hrep_ann_date_rel);
     $('#edit_hrep_ann_office').val(hrep_ann_office);
+    $('#edit_hrep_ann_img_holder').val(hrep_ann_img);
     $('#edit_hrep_ann_image_preview').attr('src', 'backend/hrep_ann_tab/img/'+hrep_ann_img);
 
     $('#edit_hrep_ann_modal').modal('toggle');
 })
 
+//FOR HREP ANN EDIT IMAGE PREVIEW
+function image_change(input)
+{
+if(input.files && input.files[0])
+{
+    var reader = new FileReader();
+    reader.onload = function(e)
+    {
+        $("#edit_hrep_ann_img_holder").val("new_image");
+        $("#edit_hrep_ann_image_preview").attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+    
+}
+else
+{
+    $("#edit_hrep_ann_img_holder").val('old_image');
+    $("#edit_hrep_ann_image_preview").attr('src', 'img/default2.png');
+}
+}
+
+// SAVE EDITED HREP ANNOUNCEMENT
 function update_hrep_ann()
 {
+    let subj = $('#edit_subject').val();
+    let date_release = $('#edit_hrep_ann_date').val();
+    let office = $('#edit_hrep_ann_office').val();
+    let qr = $('#edit_hrep_ann_img_holder').val();
 
+    if(subj == "" || date_release == "" || office == "" || qr == "")
+    {
+        alert("No input. Fill in the blank(s)");
+    }
+    else
+    {
+        let edit_hrep_ann_form = $('#edit_hrep_ann_form')[0];
+        let formData = new FormData(edit_hrep_ann_form);
+        $.ajax(
+            {
+                url:'backend/hrep_ann_tab/update_hrep_ann.php',
+                method:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success: function(data)
+                {
+                    // $('.add_hrep_ann_form_msg').html(data);
+                    load_hrep_ann();
+                    $('#edit_hrep_ann_form').trigger('reset');
+                    $('#edit_hrep_ann_modal').modal('toggle');
+                    // alert(data);
+                }
+            })
+    }
 }
 
 // LOAD HREP ANNOUNCEMENTS
@@ -1309,3 +1360,29 @@ function load_hrep_ann()
         })
 }
 load_hrep_ann();
+
+// DELETING HREP ANNOUNCEMENT
+let delete_hrep_ann_id = 0;
+$(document).on('click','.hrep_ann_del', function()
+{
+    delete_hrep_ann_id = $(this).attr('data-id');
+    $('#hrep_ann_del_modal').modal('toggle');
+    $('.hrep_ann_confirm_modal_title').html("Are you sure you want to delete?");
+    $('.hrep_ann_confirm_modal_title').css('color','red');
+})
+
+function delete_hrep_ann()
+{
+    $.ajax(
+        {
+            url:'backend/hrep_ann_tab/del_hrep_ann.php',
+            method:'post',
+            data:{delete_hrep_ann_id:delete_hrep_ann_id},
+            success: function(data)
+            {
+                load_hrep_ann();
+                $('#hrep_ann_del_modal').modal('toggle');
+                // alert(data);
+            }
+        })
+}

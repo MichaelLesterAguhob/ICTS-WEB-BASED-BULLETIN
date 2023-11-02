@@ -19,10 +19,10 @@ else
     while($row = mysqli_fetch_assoc($result2)) {
     $data .= '
         <tr>
-            <td>'.$row['name'].'</td>
-            <td>'.$row['birth_date'].'</td>
-            <td>'.$row['image'].'</td>
-            <td class="action_td">
+            <td style="width: 60%;" >'.$row['name'].'</td>
+            <td style="width: 15%;" >'.$row['birth_date'].'</td>
+            <td style="width: 10%;" >'.$row['image'].'</td>
+            <td style="width: 15%; text-align: right;">
                 <button 
                     data-id="'.$row['id'].'" 
                     class="edit_btn edit_bday_btn"

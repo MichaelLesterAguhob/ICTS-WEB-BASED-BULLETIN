@@ -52,7 +52,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">Edit Hrep Activity?</h3>
+        <h3 class="modal-title">Edit Hrep Activity</h3>
         <button type="button" class="close" data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
@@ -99,14 +99,14 @@
 <div class="modal" id="del_hrep_act_modal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header confirmation_modal_header">
         <h3 class="modal-title hrep_act_del_msg">Are you sure you want to delete?</h3>
         <button type="button" class="close" data-bs-dismiss="modal" >
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
       <div class="modal-body">
-      <button 
+      <button  
           id="del_hrep_act" 
           type="button" 
           class="btn btn-danger"
@@ -115,7 +115,7 @@
         </button>
         <button 
           type="button" 
-          class="btn btn-warning" 
+          class="btn btn-secondary" 
           data-bs-dismiss="modal">
           Cancel
         </button>

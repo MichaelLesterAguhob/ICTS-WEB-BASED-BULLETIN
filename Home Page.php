@@ -247,7 +247,7 @@
                         <th>Date Release</th>
                         <th>Office</th>
                         <th>QR</th>
-                        <th>Actions</th>
+                        <th style="text-align: right;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="hrep_ann_data">
@@ -279,10 +279,10 @@
             <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Birth Date</th>
-                    <th>Image</th>
-                    <th class="action_th">Action</th>
+                    <th style="width: 60%;">Name</th>
+                    <th style="width: 15%;">Birth Date</th>
+                    <th style="width: 10%;">Image</th>
+                    <th style="width: 15%; text-align: right;">Action</th>
                 </tr>
             </thead>
             <tbody id="bday_data">
@@ -315,14 +315,14 @@
             <table class="table"> 
                 <thead>  
                     <tr>
-                        <th style="width: 25%;">Committee/Office</th>
+                        <th style="width: 20%;">Committee/Office</th>
                         <th style="width: 10%;">Date</th>
                         <th style="width: 10%;">Time</th>
                         <th style="width: 20%;">Host</th>
                         <th style="width: 5%;">FB Live</th>
                         <th style="width: 5%;">PPAB CAM</th>
                         <th style="width: 20%;">Remarks</th>
-                        <th style="width: 5%;">Actions</th>
+                        <th style="width: 10%; text-align: right;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="cmes_data">
@@ -353,7 +353,7 @@
                     <tr>
                         <th>#</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th style="text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody id="hrep_act_data">
@@ -386,7 +386,7 @@
                     <th style="width: 50%;">Quotes</th>
                     <th style="width: 20%;">Author</th>
                     <th style="width: 10%;" class="action_th">Use</th>
-                    <th style="width: 20%;" class="action_th">Action</th>
+                    <th style="width: 20%; text-align: right;" class="action_th">Action</th>
                 </tr>
             </thead>
             <tbody id="quote_data">
@@ -452,7 +452,7 @@
             <i class="fa-regular fa-circle-xmark"></i>
             </button>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer confirmation_modal_footer">
             <button id="del_icts_ann" type="button" class="btn btn-danger" onclick="delete_icts_ann();">Delete</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
@@ -464,7 +464,7 @@
 <div class="modal" id="icts_singdel_ann_modal">
   <div class="modal-dialog confirmation_modal_dialog">
     <div class="modal-content confirmation_modal_content">
-        <div class="modal-header">
+        <div class="modal-header confirmation_modal_header">
             <h3 class="modal-title" style="color:red;">Are you sure you want to delete?</h3>
             <button 
             type="button"  
@@ -473,7 +473,7 @@
             <i class="fa-regular fa-circle-xmark"></i>
             </button>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer confirmation_modal_footer">
             <button id="del_icts_ann" type="button" class="btn btn-danger" onclick="delete_icts_ann_single();">Delete</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>

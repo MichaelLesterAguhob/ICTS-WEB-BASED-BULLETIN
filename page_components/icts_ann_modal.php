@@ -1,4 +1,5 @@
 
+<!-- add -->
 <div class="modal" id="icts_add_ann_modal">
     <div class="modal-dialog icts_add_ann_dialog">
         <div class="modal-content icts_add_ann_content">
@@ -85,7 +86,7 @@
                                 <td colspan="2" class="text-left"><button type="button" class="btn btn-sm btn-success add_desc_date">Add New</button></td>
                             </tr>
                             <input type="hidden" name="desc_date_num" id="desc_date_num" value="1">
-                            <tr>
+                            <tr style="border-top:1px solid gray;">
                                 <th>Description: </th>
                                 <td>
                                     <input type="text" name="training_name1" id="training_name1" class="form-control">

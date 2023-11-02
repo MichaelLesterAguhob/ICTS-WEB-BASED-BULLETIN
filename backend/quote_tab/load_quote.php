@@ -35,7 +35,7 @@ try
                     <td style="width: 10%;" class="action_td">
                         '.$button.'
                     </td>    
-                    <td style="width: 20%;" class="action_td">
+                    <td style="width: 20%; text-align: right;" class="action_td">
                         <button 
                             data-id="'.$row['id'].'" 
                             class="edit_quote_btn"
