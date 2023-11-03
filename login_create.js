@@ -18,7 +18,8 @@ function create_account()
 
     if(c_username == "" || c_password == "")
     {
-        alert('Please fill in the blank(s)');
+        $('.invalid_login').attr('class','alert invalid_login alert-primary').fadeIn(100).fadeOut(5000);
+        $('.invalid_login').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
     }
     else
     {
@@ -48,7 +49,8 @@ function login()
 
     if(username == "" || password == "")
     {
-        alert('Please fill in the blank(s)');
+        $('.invalid_login').attr('class','alert invalid_login alert-primary').fadeIn(100).fadeOut(5000);
+        $('.invalid_login').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
     }
     else
     {
@@ -62,11 +64,15 @@ function login()
                     data = $.parseJSON(data);
                     if(data.status == "success")
                     {
-                        window.location.href = data.location;
+                        $('.invalid_login').attr('class','alert invalid_login alert-success').fadeIn(100).fadeOut(3000);
+                        $('.invalid_login').html('<strong>Login Successfully!</strong>');
+                        $('.inputs').val("");
+                        setTimeout(function(){window.location.href = data.location}, 2000);
                     }
                     else if(data.status == "failed")
                     {
-                        alert(data.msg);
+                        $('.invalid_login').attr('class','alert invalid_login alert-danger').fadeIn(100).fadeOut(3000);
+                        $('.invalid_login').html('<strong>Invalid!</strong>' + " " + data.msg);
                     }
                 }
             })
@@ -94,3 +100,18 @@ function forgot_pass()
         alert('Fill in the username!');
     }
 }
+
+$(document).on('click','.see',function()
+{
+    $('.see').css('display','none');
+    $('.unsee').css('display','inline');
+    $('#password').attr('type','text');
+})
+
+$(document).on('click','.unsee',function()
+{
+    $('.see').css('display','inline');
+    $('.unsee').css('display','none');
+    $('#password').attr('type','password');
+
+})

@@ -20,20 +20,28 @@
         <div class="input_fields_cont">
             <h2>Login</h2>
             <br>
+                <!-- <div class="alert invalid_login">
+                    
+                </div> -->
             <table class="input_fields_table">
-                <!-- <tr>
-                    <td colspan="2"><img src="img/logo icts.png" alt="ICTS LOGO" class="icts_logo"></td>
-                </tr>       -->
-<tr><td colspan="2" style="height: 50px;"></td></tr>     
+                <tr>
+                    <td colspan="2" style="line-height:20px;">
+                        <div class="alert invalid_login">
+                        
+                        </div>
+                    </td>
+                </tr>
                 <tr>
                     <td class="input_fields" colspan="2">
-                        <input id="username" type="text" class="form-control" placeholder="Enter Username">
+                        <input id="username" type="text" class="form-control inputs" placeholder="Enter Username">
                     </td>
                 </tr>
 <tr><td colspan="2" style="height: 20px;"></td></tr> 
-                <tr>
-                    <td class="input_fields" colspan="2">
-                        <input id="password" type="password" class="form-control" placeholder="Enter Password">
+                <tr class="pass">
+                    <td class="input_fields pass_td" colspan="2">
+                        <input id="password" type="password" class="form-control inputs" placeholder="Enter Password" >
+                        <i class="fa-solid fa-eye-slash unsee" title="Hide password"></i>
+                        <i class="fa-solid fa-eye see" title="Show password"></i>
                     </td>
                 </tr>   
                 <tr>
@@ -43,8 +51,7 @@
                 </tr>   
 <tr><td colspan="2" style="height: 20px;"></td></tr>       
                 <tr>
-                    <td class="fields"><button id="login_btn" class="btn btn-success" onclick="login();">Login</button></td>
-                    <td class="fields"><button class="btn btn-warning">Cancel</button></td>
+                    <td class="fields" colspan="2"><button id="login_btn" class="btn btn-success" onclick="login();">Login</button></td>
                 </tr>    
                 <tr>
                     <td class="text-secondary mt-2" colspan="2">

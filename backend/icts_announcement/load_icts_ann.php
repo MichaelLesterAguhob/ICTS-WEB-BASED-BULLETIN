@@ -145,7 +145,7 @@ try
                     <tr style="height: 30px; border-color:white;">
                         <td colspan="3"></td>
                     </tr> 
-                    <tr class="icts_ann_title">
+                    <tr class="icts_ann_title"> 
                         <th>'.$training_title.'</th>
                         <td class="text-right" colspan="2">
                             <button 
