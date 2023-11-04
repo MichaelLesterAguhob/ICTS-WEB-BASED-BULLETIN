@@ -12,8 +12,8 @@
         $('#email').val("");
     })
 
-
 // VERIFYING EMAIL BEFORE CREATING ACCOUNT
+let verification_code = 0;
 function verify_email()
 {
     let c_username = $('#create_username').val();
@@ -34,47 +34,57 @@ function verify_email()
                 data:{email:email},
                 success: function(data)
                 {
-                    $('.create_account_failed').attr('class','alert create_account_failed alert-info').fadeIn(100).fadeOut(10000);
+                    $('.create_account_failed').attr('class','alert create_account_failed alert-info').fadeIn(100).fadeOut(15000);
                     $('.create_account_failed').html('<strong> We&apos;ve Sent a Verification Code to '+email+'.</strong>' + " " + "Please Check your Email Account Inbox or Spam.");
                     $('#verify').css('display','none');
                     $('.v_code').css('display','unset');
                     $('#create').css('display','unset');
-                    // load_access_role();
+                    verification_code = data;
                 }
             })
     }
     }
 
+    // create account
 function create_account()
-{
+{   
     let c_username = $('#create_username').val();
     let c_password = $('#create_password').val();
     let email = $('#email').val();
+    let verification_code_input = $('#verification_code').val();
 
     if(c_username == "" || c_password == "" || email == "")
     {
         $('.create_account_failed').attr('class','alert create_account_failed alert-primary').fadeIn(100).fadeOut(5000);
         $('.create_account_failed').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
     }
-    else
+    else if( verification_code_input == verification_code && email != "" && c_username != "" && c_password != "")
     {
         $.ajax( 
             {
                 url:'backend/login_create/create_account.php',
                 type:'post',
-                data:{c_username:c_username, c_password:c_password},
+                data:{c_username:c_username, email:email, verification_code:verification_code, c_password:c_password},
                 success: function(data)
                 {
-                    alert(data);
+                    $('.create_account_failed').attr('class','alert create_account_failed alert-success').fadeIn(100).fadeOut(5000);
+                    $('.create_account_failed').html('<strong>Successfully Created Account</strong>');
                     $('#create_username').val("");
                     $('#create_password').val("");
+                    $('#email').val("");
                     load_user_account();
                     load_access_role();
                 }
             })
     }
+    else
+    {
+        $('.create_account_failed').attr('class','alert create_account_failed alert-warning').fadeIn(100).fadeOut(10000);
+        $('.create_account_failed').html('<strong>Incorrect Verification Code!</strong>');
+    }
 }
 
+// login account
 function login()
 {
     let username = $('#username').val();

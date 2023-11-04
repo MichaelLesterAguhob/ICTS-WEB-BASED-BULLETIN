@@ -62,7 +62,8 @@
                         <thead>
                             <tr> 
                                 <th style="width:10%; text-align:center;">User ID</th>
-                                <th style="width:90%; text-align:center;">Username</th>
+                                <th style="width:40%; text-align:left;">Username</th>
+                                <th style="width:50%; text-align:left;">Email</th>
                                 <!-- <th style="width:35%;" style="display: none;">Password</th>
                                 <th style="width:10%;" style="display: none;">Forgot Pass</th> -->
                             </tr>
