@@ -33,13 +33,13 @@
                 </tr>
                 <tr>
                     <td class="input_fields" colspan="2">
-                        <input id="username" type="text" class="form-control inputs" placeholder="Enter Username">
+                        <input id="username" type="text" class="form-control inputs" placeholder="Enter Username" required>
                     </td>
                 </tr>
 <tr><td colspan="2" style="height: 20px;"></td></tr> 
                 <tr class="pass">
-                    <td class="input_fields pass_td" colspan="2">
-                        <input id="password" type="password" class="form-control inputs" placeholder="Enter Password" >
+                    <td class="input_fields pass_td" colspan="2"> 
+                        <input id="password" type="password" class="form-control inputs" placeholder="Enter Password" required>
                         <i class="fa-solid fa-eye-slash unsee" title="Hide password"></i>
                         <i class="fa-solid fa-eye see" title="Show password"></i>
                     </td>

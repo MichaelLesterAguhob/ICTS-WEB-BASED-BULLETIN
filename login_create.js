@@ -3,23 +3,58 @@
     {
         $('#create_username').val("");
         $('#create_password').val("");
+        $('#email').val("");
     })
     $(document).on('click', '.close', function()
     {
         $('#create_username').val("");
         $('#create_password').val("");
+        $('#email').val("");
     })
 
+
+// VERIFYING EMAIL BEFORE CREATING ACCOUNT
+function verify_email()
+{
+    let c_username = $('#create_username').val();
+    let c_password = $('#create_password').val();
+    let email = $('#email').val();
+
+    if(c_username == "" || c_password == "" || email == "")
+    {
+        $('.create_account_failed').attr('class','alert create_account_failed alert-primary').fadeIn(100).fadeOut(5000);
+        $('.create_account_failed').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
+    }
+    else
+    {
+        $.ajax( 
+            {
+                url:'backend/login_create/verify_email.php',
+                type:'post',
+                data:{email:email},
+                success: function(data)
+                {
+                    $('.create_account_failed').attr('class','alert create_account_failed alert-info').fadeIn(100).fadeOut(10000);
+                    $('.create_account_failed').html('<strong> We&apos;ve Sent a Verification Code to '+email+'.</strong>' + " " + "Please Check your Email Account Inbox or Spam.");
+                    $('#verify').css('display','none');
+                    $('.v_code').css('display','unset');
+                    $('#create').css('display','unset');
+                    // load_access_role();
+                }
+            })
+    }
+    }
 
 function create_account()
 {
     let c_username = $('#create_username').val();
     let c_password = $('#create_password').val();
+    let email = $('#email').val();
 
-    if(c_username == "" || c_password == "")
+    if(c_username == "" || c_password == "" || email == "")
     {
-        $('.invalid_login').attr('class','alert invalid_login alert-primary').fadeIn(100).fadeOut(5000);
-        $('.invalid_login').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
+        $('.create_account_failed').attr('class','alert create_account_failed alert-primary').fadeIn(100).fadeOut(5000);
+        $('.create_account_failed').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
     }
     else
     {
@@ -40,8 +75,6 @@ function create_account()
     }
 }
 
-
-
 function login()
 {
     let username = $('#username').val();
@@ -49,7 +82,7 @@ function login()
 
     if(username == "" || password == "")
     {
-        $('.invalid_login').attr('class','alert invalid_login alert-primary').fadeIn(100).fadeOut(5000);
+        $('.invalid_login').attr('class','alert create_account_failed alert-primary').fadeIn(100).fadeOut(5000);
         $('.invalid_login').html('<strong>No Input!</strong>' + " " + "Please Fill in the blanks.");
     }
     else
@@ -79,6 +112,23 @@ function login()
     }
 }
 
+$(document).on('click','.see',function()
+{
+    $('.see').css('display','none');
+    $('.unsee').css('display','inline');
+    $('#password').attr('type','text');
+})
+
+$(document).on('click','.unsee',function()
+{
+    $('.see').css('display','inline');
+    $('.unsee').css('display','none');
+    $('#password').attr('type','password');
+
+})
+
+
+// 
 function forgot_pass()
 {
     let username = $('#username').val();
@@ -97,21 +147,6 @@ function forgot_pass()
     }
     else
     {
-        alert('Fill in the username!');
+        alert('Fill in the username!'); 
     }
 }
-
-$(document).on('click','.see',function()
-{
-    $('.see').css('display','none');
-    $('.unsee').css('display','inline');
-    $('#password').attr('type','text');
-})
-
-$(document).on('click','.unsee',function()
-{
-    $('.see').css('display','inline');
-    $('.unsee').css('display','none');
-    $('#password').attr('type','password');
-
-})

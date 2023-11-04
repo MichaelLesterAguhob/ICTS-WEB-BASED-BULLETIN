@@ -1,4 +1,12 @@
 <?php 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/PHPMailer.php';
+
 include_once('connection.php');
 $c_username = trim($_POST['c_username']);
 $c_password = trim($_POST['c_password']);

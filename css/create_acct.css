@@ -52,7 +52,7 @@
     width: 90%;
     color: black;
 }
-#create_username, #create_password{
+#create_username, #create_password, #email{
     border: none;
     border-bottom: 1px solid blue;
     border-radius: 0%;
