@@ -1,12 +1,4 @@
 <?php 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/PHPMailer.php';
-
 include_once('connection.php');
 $c_username = trim($_POST['c_username']);
 $c_password = trim($_POST['c_password']);
@@ -17,11 +9,11 @@ $response = "";
 
 try
 {
-    $result1 = mysqli_query($con, "SELECT username, email_account FROM user_account WHERE `username`='$c_username'");
+    $result1 = mysqli_query($con, "SELECT username FROM user_account WHERE `username`='$c_username'");
 
     if(mysqli_num_rows($result1) > 0)
     {
-        $response = "Username or Email Already Exist!";
+        $response = json_encode(['stat'=>'invalid', 'msg'=>'Username Already Exist!']);
     }
     else
     {
@@ -29,14 +21,14 @@ try
 
         if(mysqli_num_rows($result2) > 0)
         {
-            $response = "Username or Email Already Exist!";
+            $response = json_encode(['stat'=>'invalid', 'msg'=>'Username Already Exist!']);
         }
         else
         {
             $result3 = mysqli_query($con, "INSERT INTO user_account VALUES('','$c_username','$email',$v_code,'$encrypted','NO','NO','NO','NO','NO','NO')");
             if($result3)
             {
-                $response = "Account Created Successfully.";
+                $response = json_encode(['stat'=>'success', 'msg'=>'Account Created Successfully.']);
             }
         }
     }

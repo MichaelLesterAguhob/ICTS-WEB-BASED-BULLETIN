@@ -14,14 +14,26 @@
 <body>
     <div class="container-fluid">
         <!--  -->
-        <!-- <div class="icts_announcement displays" style="display: none;">
-
-        </div> -->
+        <div class="icts_announcement displays">
+            <h1>ICTS Announcements</h1>
+            <div class="icts_ann_display">
+                <!-- <div class="card">
+                    <div class="card-header">
+                        <h3>ERT</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>Evacuation Team</h4>
+                        <h4>FF Team</h4>
+                        <h4>M Team</h4>
+                    </div>
+                </div> -->
+            </div>
+        </div>
         
         <!--  -->
-        <!-- <div class="hrep_announcement displays" style="display: none;">
+        <div class="hrep_announcement displays">
 
-        </div> -->
+        </div>
         
         <!--  -->
         <div class="hrep_act displays" >
@@ -57,7 +69,7 @@
         <div class="birthday displays" >
             <h1 class="text-center">Happy Birthday!</h1>
             <div class="bday_display">
-                <!-- birthday data load here -->
+                <!-- birthday data load here --> 
             </div>
         </div>
 

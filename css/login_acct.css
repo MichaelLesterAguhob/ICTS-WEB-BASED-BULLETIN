@@ -7,16 +7,19 @@ body{
     justify-content:center;
     align-items: center;
 }
-.input_fields_cont{
+.input_fields_cont, .input_fields_cont2{
     width: 50%;
     margin: auto;
     text-align: center;
-    min-height: 70%; 
-    margin-top: 9%;
+    min-height: 70vh; 
+    margin-top: 20px;
     margin-bottom: 10%;
     background-color: #f3f2f2e6;
     border-radius: 10px;
     box-shadow: 1px 1px 2px 2px;
+}
+.input_fields_cont .alert{
+    width: 100%;
 }
 .input_fields_cont h2{
     margin: auto;
@@ -25,14 +28,7 @@ body{
     font-size: 40px;
     color: black;
 }
-.icts_logo{
-    width: 200px;
-    height: 90px;
-}
-.icts_logo:hover{
-    transform: rotate(-20deg);
-}
-.input_fields_table, img{
+.input_fields_table, .acct_recovery{
     margin: auto;
     line-height: 60px;
     width: 90%;
@@ -97,4 +93,31 @@ body{
     text-align: left;
     width: 80%;
     margin: auto;
+}
+
+/* Account recovery */
+.input_fields_cont2 h2{
+    padding: 20px;
+}
+.input_fields_cont2 .alert, input{
+    width: 90%;
+}
+.acct_recovery{
+    line-height: unset;
+}
+.go_to_login{
+    border: none;
+    background-color: transparent;
+    color: blue;
+}
+.acct_recovery_msg_td{
+    line-height: 20px;
+}
+.acct_recovery_msg{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.input_fields_cont2 button{
+    width: 100%;
 }

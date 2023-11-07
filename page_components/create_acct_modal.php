@@ -1,4 +1,4 @@
-<!-- Add Birthday Modal -->
+<!-- create account Modal -->
 <div class="modal" id="create_acct_modal">
   <div class="modal-dialog c_modal_dialog">
     <div class="modal-content">
@@ -52,7 +52,7 @@
         <!-- BUTTONS -->
         <tr><td colspan="2" style="height: 30px;"></td></tr>       
                 <tr>
-                    <td class="fields">
+                    <td class="fields"> 
                       <button id="verify" class="btn btn-success c_btn" onclick="verify_email();" >Get Code</button>
                       <button id="create" class="btn btn-primary text-light c_btn" onclick="create_account();" style="display: none;">Verify & Create</button>
                     </td>

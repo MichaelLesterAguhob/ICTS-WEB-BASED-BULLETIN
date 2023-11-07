@@ -269,7 +269,7 @@
                 Committee Meeting and Event Schedule
                 &nbsp;&nbsp;
                 <p class="cmes_msg"></p>
-                </h3>
+                </h3> 
             </div>
             <div class="col-lg-5 tab_button">
                 <button class="btn btn-primary btn_add cmes" data-bs-toggle="modal" data-bs-target="#cmes_modal"> 

@@ -83,3 +83,33 @@
     width: 100%;
     height: 100%;
 }
+
+/* ICTS ANNOUNCEMENT DISPLAY */
+.icts_announcement .icts_ann_display{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    width: 40%;
+    height: 90vh;
+}
+
+.icts_ann_display .card{
+    margin-right: 15px;
+}
+
+.icts_ann_display .card-header{
+    background-color: rgb(3, 3, 71);
+    color: white;
+}
+
+.icts_ann_display .card-body{
+    text-align: center;
+    overflow: auto;
+    background-color: rgb(10, 10, 62);
+    color: white;
+}
+
+.icts_ann_display .card_body_title{
+    background-color: rgb(121, 225, 161);
+    color: black;
+}
