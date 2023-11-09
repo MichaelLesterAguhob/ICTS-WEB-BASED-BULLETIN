@@ -1,9 +1,9 @@
 <?php 
 include_once('connection.php');
 $respo = "";
-$subj = $_POST['subject'];
+$subj = strtoupper(trim($_POST['subject']));
 $date = $_POST['hrep_ann_date'];
-$office = $_POST['hrep_ann_office'];
+$office = strtoupper(trim($_POST['hrep_ann_office']));
 
 try
 {

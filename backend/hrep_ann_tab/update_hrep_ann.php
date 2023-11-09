@@ -1,9 +1,9 @@
 <?php 
 include_once('connection.php');
 $respo = "";
-$subject = $_POST['edit_subject'];
+$subject = strtoupper(trim($_POST['edit_subject']));
 $date_rel = $_POST['edit_hrep_ann_date'];
-$office = $_POST['edit_hrep_ann_office'];
+$office = strtoupper(trim($_POST['edit_hrep_ann_office']));
 $id = $_POST['edit_hrep_ann_id'];
 $image_changed = $_POST['edit_hrep_ann_img_holder'];
 

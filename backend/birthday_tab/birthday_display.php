@@ -2,7 +2,7 @@
 include_once('connection.php');
 $respo = "";
 $month = date('F');
-$data = '<div><h2>'.$month.'</h2></div> 
+$data = '<div><h2 class="mnth">'.$month.'</h2></div> 
         <div class="bday">
         ';
 try
@@ -13,11 +13,11 @@ try
         $day = date("d",strtotime($row['birth_date']));
         $data .= 
         '
-        <div class="card mb-3 text-dark text-center bday_card m-3">
+        <div class="card text-dark text-center bday_card">
         <div class="card-body bday_card_body">
 
             <img src="backend/birthday_tab/bday_images/'.$row['image'].'" alt="Image" class="birthday_image">
-            <h3>'.$row['name'].'</h3>
+            <h3 class="bday_name">'.$row['name'].'</h3>
         </div>
 
         <div class="bday_card_foot">
