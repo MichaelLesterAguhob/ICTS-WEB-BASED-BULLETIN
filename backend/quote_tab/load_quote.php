@@ -32,7 +32,7 @@ try
                 <tr>
                     <td style="width: 50%;">'.$row['quote'].'</td>    
                     <td style="width: 20%;">'.$row['author'].'</td>    
-                    <td style="width: 10%;" class="action_td">
+                    <td style="width: 10%;" class="action_td text-center">
                         '.$button.'
                     </td>    
                     <td style="width: 20%; text-align: right;" class="action_td">

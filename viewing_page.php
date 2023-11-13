@@ -57,17 +57,17 @@
         
         <!--  -->
         <div class="cmes displays" >
-            <h1>Committee Meeting and Event Schedule </h1>
+            <h1 class="text-center mb-4">Committee Meeting and Event Schedule </h1>
             <div class="cmes_display">
             <table class="cmes_disp_table">
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Committee/Office</th>
-                        <th style="width: 10%;">Time</th>
-                        <th style="width: 20%;">Host</th>
-                        <th style="width: 10%;">FB Live</th>
-                        <th style="width: 10%;">PPAB CAM</th>
-                        <th style="width: 25%;">Remarks</th>
+                        <th style="width: 25%; font-size: 20px;">Committee/Office</th>
+                        <th style="width: 10%; font-size: 20px;">Time</th>
+                        <th style="width: 20%; font-size: 20px;">Host</th>
+                        <th style="width: 10%; font-size: 20px;">FB Live</th>
+                        <th style="width: 10%; font-size: 20px;">PPAB CAM</th>
+                        <th style="width: 25%; font-size: 20px;">Remarks</th>
                     </tr>
                 </thead>
                 <tbody id="cmes_data">

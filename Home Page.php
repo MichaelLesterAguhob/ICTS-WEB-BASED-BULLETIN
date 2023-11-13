@@ -352,7 +352,7 @@
                 <tr>
                     <th style="width: 50%;">Quotes</th>
                     <th style="width: 20%;">Author</th>
-                    <th style="width: 10%;" class="action_th">Use</th>
+                    <th style="width: 10%;" class="action_th text-center">Use</th>
                     <th style="width: 20%; text-align: right;" class="action_th">Action</th>
                 </tr>
             </thead>
