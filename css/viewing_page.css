@@ -3,13 +3,13 @@
     background-color: none;
 } */
 .displays{
-    border: 1px solid black;
     overflow: hidden;
 }
 
 /* birthday displays */
 .bday_display{
     height: 100vh;
+    width: 100%;
 }
 
 .bday_display .mnth{
