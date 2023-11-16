@@ -14,7 +14,7 @@ if(mysqli_num_rows($result) <= 0)
 } 
 else 
 {
-    $query2 = "SELECT * FROM birthday_tbl";
+    $query2 = "SELECT * FROM birthday_tbl ORDER BY `birth_date` ASC";
     $result2 = mysqli_query($con, $query2);
     while($row = mysqli_fetch_assoc($result2)) {
     $data .= '

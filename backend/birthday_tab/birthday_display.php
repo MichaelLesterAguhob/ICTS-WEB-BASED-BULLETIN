@@ -3,12 +3,13 @@ include_once('connection.php');
 $bday_card = 0;
 $respo = "";
 $month = date('F');
+$day = date('d');
 $data = '<div><h2 class="mnth">'.$month.'</h2></div> 
         <div class="bday" id="bday">
         ';
 try
 {
-    $query1 = mysqli_query($con, "SELECT * FROM birthday_tbl WHERE birth_date LIKE '$month%'");
+    $query1 = mysqli_query($con, "SELECT * FROM birthday_tbl WHERE birth_date LIKE '$month%' ORDER BY `birth_date` ASC");
     while($row = mysqli_fetch_assoc($query1))
     {
         $bday_card ++;

@@ -1,5 +1,9 @@
-
-
+// $('.icts_announcement').hide(); 
+// $('.hrep_announcement').hide();
+// $('.hrep_act').hide(); 
+// $('.cmes').hide();
+// $('.birthday').hide();
+// $('.quote').hide();
 
 function display_icts_ann()
 {
@@ -98,14 +102,10 @@ function display_cmes()
 }
 display_cmes();
 
-// $('.icts_announcement').hide(); 
-// $('.hrep_announcement').hide();
-// $('.hrep_act').hide(); 
-// $('.cmes').hide();
-// $('.birthday').hide();
-// $('.quote').hide();
 
+// =============================LOOP DISPLAY ==============================================
 var myIndex = 0;
+var loop_display_time_interval = 3000;
 loop_display();
 function loop_display() 
 {
@@ -120,41 +120,41 @@ function loop_display()
   $(x[myIndex-1]).fadeIn(); 
  
   console.log(myIndex);
+  console.log("interval = " + loop_display_time_interval);
   if(myIndex == 5)
     {
+        loop_cnt = 1;
+        showed_bday = 0;
+        scroll_to = 0;
+        change_time_interval(5);
         scroll_bday();
     }
+  if(myIndex == 6)
+    {
+        change_time_interval(6);
+    }
     
-    setTimeout(loop_display,  8000); 
+    setTimeout(loop_display,  loop_display_time_interval); 
     display_hrep_activity();
     display_cmes();
     display_birthday();
     display_quote();
 }
-
+// ===========================================================================
 
 // BIRTHDAY SCROLLING WHEN CONTENT OVERFLOW
-// function clear_bday_var()
-// {
-//     scroll_birthday = false;
-//     bday_card_count = 0;
-//     loop_cnt = 1;
-//     showed_bday = 0;
-//     scroll_to = 0;
-// }
 function scroll_bday_code()
 {
     let scrollableCont = document.getElementById('bday');
     scroll_to = (showed_bday + 4)-3;
     showed_bday += 4;
-    console.log("scroll to: "  + scroll_to);
-    console.log("schowed: " + showed_bday);
+    console.log("scroll to: "+scroll_to);
     var content = document.getElementById('bday_card'+scroll_to);
-    scrollableCont.scrollTo({
+    scrollableCont.scrollTo(
+    {
         left: content.offsetLeft,
         behavior: 'smooth'
     });
-    
 }
 
 function scroll_bday()
@@ -163,12 +163,21 @@ function scroll_bday()
     if(loop_cnt <= scroll_cnt)
     {
         scroll_bday_code();
+        loop_cnt ++; 
+        setTimeout(scroll_bday, 4000);
     }
-    loop_cnt ++; 
-    setTimeout(scroll_bday, 2000);
 }
 
-// $(document).on('click','.mnth',function()
-// {
-//     scroll_bday();
-// })
+function change_time_interval(display)
+{
+    if(display == 5)
+    {
+        loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
+        console.log("new interval = " + loop_display_time_interval);
+    }
+    else if(display == 6)
+    {
+        loop_display_time_interval = 3000;
+        console.log("new interval = " + loop_display_time_interval);
+    }
+}
