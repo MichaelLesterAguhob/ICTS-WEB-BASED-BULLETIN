@@ -1,7 +1,7 @@
 <?php 
 include_once('connection.php');
 $respo = "";
-$data = '<h1 class="text-center mt-4">Quote of the Week</h1>';
+$data = '';
 try
 {
     $query = mysqli_query($con, "SELECT * FROM quote_of_the_week WHERE use_quote = 'Active'");
@@ -9,9 +9,10 @@ try
     $data .= 
     '
     <div class="quote_display">
-        <h1>'.$row['quote'].' </h1>
+        <h1 class="quote_week mt-5">Quote of the Week</h1>
+        <h1 class="quote_text">'.$row['quote'].' </h1>
         <br>
-        <h4>&hyphen; '.$row['author'].'</h4>
+        <h4 class="quote_auth mt-5">&hyphen; '.$row['author'].'</h4>
     </div>
     ';
     $respo = $data;

@@ -104,80 +104,80 @@ display_cmes();
 
 
 // =============================LOOP DISPLAY ==============================================
-var myIndex = 0;
-var loop_display_time_interval = 3000;
-loop_display();
-function loop_display() 
-{
-  var i;
-  var x = document.getElementsByClassName("displays");
-  for (i = 0; i < x.length; i++) 
-  { 
-    $(x[i]).hide();  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}  
-  $(x[myIndex-1]).fadeIn(); 
+// var myIndex = 0;
+// var loop_display_time_interval = 3000;
+// loop_display();
+// function loop_display() 
+// {
+//   var i;
+//   var x = document.getElementsByClassName("displays");
+//   for (i = 0; i < x.length; i++) 
+//   { 
+//     $(x[i]).hide();  
+//   }
+//   myIndex++;
+//   if (myIndex > x.length) {myIndex = 1}  
+//   $(x[myIndex-1]).fadeIn(); 
  
-  console.log(myIndex);
-  console.log("interval = " + loop_display_time_interval);
-  if(myIndex == 5)
-    {
-        loop_cnt = 1;
-        showed_bday = 0;
-        scroll_to = 0;
-        change_time_interval(5);
-        scroll_bday();
-    }
-  if(myIndex == 6)
-    {
-        change_time_interval(6);
-    }
+//   console.log(myIndex);
+//   console.log("interval = " + loop_display_time_interval);
+//   if(myIndex == 5)
+//     {
+//         loop_cnt = 1;
+//         showed_bday = 0;
+//         scroll_to = 0;
+//         change_time_interval(5);
+//         scroll_bday();
+//     }
+//   if(myIndex == 6)
+//     {
+//         change_time_interval(6);
+//     }
     
-    setTimeout(loop_display,  loop_display_time_interval); 
-    display_hrep_activity();
-    display_cmes();
-    display_birthday();
-    display_quote();
-}
+//     setTimeout(loop_display,  loop_display_time_interval); 
+//     display_hrep_activity();
+//     display_cmes();
+//     display_birthday();
+//     display_quote();
+// }
 // ===========================================================================
 
 // BIRTHDAY SCROLLING WHEN CONTENT OVERFLOW
-function scroll_bday_code()
-{
-    let scrollableCont = document.getElementById('bday');
-    scroll_to = (showed_bday + 4)-3;
-    showed_bday += 4;
-    console.log("scroll to: "+scroll_to);
-    var content = document.getElementById('bday_card'+scroll_to);
-    scrollableCont.scrollTo(
-    {
-        left: content.offsetLeft,
-        behavior: 'smooth'
-    });
-}
+// function scroll_bday_code()
+// {
+//     let scrollableCont = document.getElementById('bday');
+//     scroll_to = (showed_bday + 4)-3;
+//     showed_bday += 4;
+//     console.log("scroll to: "+scroll_to);
+//     var content = document.getElementById('bday_card'+scroll_to);
+//     scrollableCont.scrollTo(
+//     {
+//         left: content.offsetLeft,
+//         behavior: 'smooth'
+//     });
+// }
 
-function scroll_bday()
-{
-    scroll_cnt = Math.ceil((bday_card_count/4)); 
-    if(loop_cnt <= scroll_cnt)
-    {
-        scroll_bday_code();
-        loop_cnt ++; 
-        setTimeout(scroll_bday, 4000);
-    }
-}
+// function scroll_bday()
+// {
+//     scroll_cnt = Math.ceil((bday_card_count/4)); 
+//     if(loop_cnt <= scroll_cnt)
+//     {
+//         scroll_bday_code();
+//         loop_cnt ++; 
+//         setTimeout(scroll_bday, 4000);
+//     }
+// }
 
-function change_time_interval(display)
-{
-    if(display == 5)
-    {
-        loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
-        console.log("new interval = " + loop_display_time_interval);
-    }
-    else if(display == 6)
-    {
-        loop_display_time_interval = 3000;
-        console.log("new interval = " + loop_display_time_interval);
-    }
-}
+// function change_time_interval(display)
+// {
+//     if(display == 5)
+//     {
+//         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
+//         console.log("new interval = " + loop_display_time_interval);
+//     }
+//     else if(display == 6)
+//     {
+//         loop_display_time_interval = 3000;
+//         console.log("new interval = " + loop_display_time_interval);
+//     }
+// }
