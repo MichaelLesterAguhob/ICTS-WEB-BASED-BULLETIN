@@ -35,14 +35,14 @@
 }
 
 .bday_card{
-    min-width: 18rem;
-    max-width: 19rem;
+    min-width: 19.5rem;
+    max-width: 20rem;
     min-height: 60%;
     max-height: 70%;
     border: 2px solid blue;
     background-color: white;
     margin-top: 5%;
-    margin-left: 1.5%;
+    /* margin-left: 1.5%; */
     margin-right: 1.5%;
 }
 .bday_card_body{
@@ -137,22 +137,29 @@
 }
 
 /* Hrep Act */
+.hrep_act{
+    padding: 0;
+}
 .hrep_activity{
-    height: 90vh;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    text-align: center;
+    display:flex; 
     overflow: auto;
+    height: 90vh;
+    width: 100%;
+    padding-left: 10px;
 }
 .hrep_act_card{
-    width: 30%;
-    height: 70vh;
+    min-width: 19.4rem;
+    max-width: 19.4rem;
+    min-height: 60%;
+    max-height: 70%;
+    margin-top: 5%;
+    margin-right: 1.5%;
 }
 .hrep_act_card_body{
     padding: 0;
     width: 100%;
     height: 100%;
+    border: 1px solid black;
 }
 .hrep_act_img{
     width: 100%;
@@ -235,15 +242,15 @@
 
 /* HREP ANNOUNCEMENT */
 .hrep_ann_display{
+    width: 100%;
     display: flex;
     align-items: center;
-    width: 100vw;
     overflow: auto;
 }
 
 .hrep_ann_card{
-    min-width: 300px;
-    max-width: 25%;
+    min-width: 20rem;
+    max-width: 20rem;
     height: 85vh;
     margin-right: 1%;
     background-color: rgba(128, 128, 128, 0.32);
