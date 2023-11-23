@@ -25,6 +25,7 @@ try
         ';
         }
     }
+    $data .= '';
     $respo = $data;
 }
 catch(Exception $ex)

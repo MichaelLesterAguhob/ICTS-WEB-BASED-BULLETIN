@@ -57,9 +57,9 @@
         
         <!--  -->
         <div class="cmes displays" >
-            <h1 class="text-center mb-4">Committee Meeting and Event Schedule </h1>
-            <div class="cmes_display">
-            <table class="cmes_disp_table">
+            <h1 class="text-center mb-4 cmes_btn">Committee Meeting and Event Schedule </h1>
+            <div class="cmes_display" id="cmes_display">
+            <table class="cmes_disp_table mb-3">
                 <thead>
                     <tr>
                         <th style="width: 25%; font-size: 20px;">Committee/Office</th>
@@ -74,6 +74,7 @@
                    <!-- DATA HERE -->
                 </tbody>
             </table>
+            <p class="end_of_cmes text-info" id="end_of_cmes">End</p>
             </div>
         </div>
 

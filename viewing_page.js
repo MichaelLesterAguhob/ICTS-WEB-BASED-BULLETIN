@@ -18,6 +18,7 @@ function display_icts_ann()
         })
 }
 display_icts_ann();
+// ----------------------------------------------------------
 
 let hrep_ann_count = 0;
 let hrep_ann_scroll_cnt = 0;
@@ -46,6 +47,7 @@ function display_hrep_ann()
         })
 }
 display_hrep_ann();
+// ----------------------------------------------------------
 
 // BIRTHDAY DISPLAYING CODE
 let bday_card_count = 0;
@@ -71,7 +73,7 @@ function display_birthday()
         })
 }
 display_birthday();
-
+// ----------------------------------------------------------
 
 function display_quote()
 {
@@ -86,7 +88,7 @@ function display_quote()
         })
 }
 display_quote();
-
+// ----------------------------------------------------------
 
 let hrep_act_card_count = 0;
 let hrep_act_scroll_cnt = 0;
@@ -111,7 +113,12 @@ function display_hrep_activity()
         })
 }
 display_hrep_activity();
+// ----------------------------------------------------------
 
+var cmes = document.getElementById('cmes_display');
+let cmes_height = 0;
+let scrolled = 0;
+let cntdwn = 0;
 function display_cmes()
 {
     $.ajax(
@@ -125,6 +132,7 @@ function display_cmes()
         })
 }
 display_cmes();
+// ----------------------------------------------------------
 
 
 // =============================LOOP DISPLAY ==============================================
@@ -172,7 +180,12 @@ function loop_display()
     // committee meeting and event schedule displayed
   if(myIndex == 4)
     {
+
+        scrolled = 0;
+        cmes.scrollTop = 1;
+        cntdwn = 3000;
         change_time_interval(4);
+        scroll_cmes();
     }
     // birthday displayed
   if(myIndex == 5)
@@ -190,6 +203,8 @@ function loop_display()
     }
     
     setTimeout(loop_display,  loop_display_time_interval); 
+    display_icts_ann();
+    display_hrep_ann();
     display_hrep_activity();
     display_cmes();
     display_birthday();
@@ -275,39 +290,88 @@ function scroll_hrep_act()
     }
 }
 // --------------------------------------------------------------
+const scroll_speed = 1;
+// SCROLL CMES
+function scroll_cmes()
+{
+    var targetElement = document.getElementById("end_of_cmes");
+    // Check if the target element is visible
+    if (isElementVisible(targetElement)) 
+    {    
+        // setTimeout(function()
+        // {
+            cmes.scrollTop = 1;
+            cntdwn = 3000;
+            scrolled = cmes_height;
+            loop_display_time_interval = 3000;
+            myIndex = 4;
+            loop_display();      
+        // },5000)
+    } 
+    else
+    {
+        var div = document.getElementById('cmes_display');
+        setTimeout(function()
+        {
+            if(scrolled != cmes_height)
+            {
+                div.scrollTop += scroll_speed;
+                scrolled += scroll_speed;
+                // console.log(scrolled);
+                setTimeout(scroll_cmes, 50);   
+            }
+        },cntdwn)
+        cntdwn = 0;
+    }
+}
+function isElementVisible(element) {
+    var rect = element.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+// --------------------------------------------------------------
 
 // changing time interval of every screen displayed
 function change_time_interval(display)
 {
+    //icts ann 
     if(display == 1)
     {
         // loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
         loop_display_time_interval = 3000;
         console.log("new interval = " + loop_display_time_interval);
     }
+    // hrep ann
     if(display == 2)
     {
         loop_display_time_interval = ((Math.ceil(hrep_ann_count/4)) * 4) * 1000;
         console.log("new interval = " + loop_display_time_interval);
     }
+    // hrep act
     if(display == 3)
     {
         loop_display_time_interval = ((Math.ceil(hrep_act_card_count/4)*4)*1000);
         console.log("new interval = " + loop_display_time_interval);
     }
+    // cmes     
     if(display == 4)
     {
-        loop_display_time_interval = 3000;
+        cmes_height = cmes.scrollHeight;
+        console.log(cmes_height);
+        loop_display_time_interval = ((cmes_height * 50) + cntdwn + 10000);
         console.log("new interval = " + loop_display_time_interval);
     }
+    // bday
     if(display == 5)
     {
         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
         console.log("new interval = " + loop_display_time_interval);
     }
+    // quote
     else if(display == 6)
     {
-        loop_display_time_interval = 3000;
+        loop_display_time_interval = 10000;
         console.log("new interval = " + loop_display_time_interval);
     }
 }
