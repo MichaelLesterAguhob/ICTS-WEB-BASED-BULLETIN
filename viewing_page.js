@@ -118,7 +118,7 @@ display_hrep_activity();
 var cmes = document.getElementById('cmes_display');
 let cmes_height = 0;
 let scrolled = 0;
-let cntdwn = 0;
+let cntdwn = 3000;
 function display_cmes()
 {
     $.ajax(
@@ -152,7 +152,7 @@ function loop_display()
   $(x[myIndex-1]).fadeIn(); 
  
   console.log(myIndex);
-  console.log("interval = " + loop_display_time_interval);
+//   console.log("interval = " + loop_display_time_interval);
 
     //   icts announcement displayed
   if(myIndex == 1)
@@ -180,12 +180,12 @@ function loop_display()
     // committee meeting and event schedule displayed
   if(myIndex == 4)
     {
-
-        scrolled = 0;
         cmes.scrollTop = 1;
         cntdwn = 3000;
+        scrolled = 0;
         change_time_interval(4);
         scroll_cmes();
+        
     }
     // birthday displayed
   if(myIndex == 5)
@@ -212,6 +212,43 @@ function loop_display()
 }
 // ===========================================================================
 
+// SCROLL CMES
+let cmes_scroll_time = 0;
+function scroll_cmes()
+{
+    var div = document.getElementById('cmes_display');
+    setTimeout(function()
+    {
+       
+        // var targetElement = document.getElementById("end_of_cmes");
+        // if (isElementVisible(targetElement)) 
+        // {   
+        //     scrolled = cmes_height;  
+        // }
+        
+        if(scrolled < cmes_scroll_time)
+        {
+            div.scrollTop += 1;
+            console.log("scrolled Num");
+            scrolled += 123;
+            setTimeout(scroll_cmes, 75);
+        }  
+        // else
+        // {
+        //     loop_display();
+        // }
+
+         
+    },cntdwn)
+    cntdwn = 0;   
+}
+function isElementVisible(element) {
+    var rect = element.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+// -------------------------------------------------------------
 
 // BIRTHDAY SCROLLING WHEN CONTENT OVERFLOW
 function scroll_bday_code()
@@ -237,7 +274,7 @@ function scroll_bday()
         setTimeout(scroll_bday, 4000);
     }
 }
-// ---------------------------------------------------
+// -------------------------------------------------------------
 
 // HREP ANNOUNCEMENT SCROLLING WHEN CONTENT OVERFLOW
 function scroll_ha_code()
@@ -290,46 +327,7 @@ function scroll_hrep_act()
     }
 }
 // --------------------------------------------------------------
-const scroll_speed = 1;
-// SCROLL CMES
-function scroll_cmes()
-{
-    var targetElement = document.getElementById("end_of_cmes");
-    // Check if the target element is visible
-    if (isElementVisible(targetElement)) 
-    {    
-        // setTimeout(function()
-        // {
-            cmes.scrollTop = 1;
-            cntdwn = 3000;
-            scrolled = cmes_height;
-            loop_display_time_interval = 3000;
-            myIndex = 4;
-            loop_display();      
-        // },5000)
-    } 
-    else
-    {
-        var div = document.getElementById('cmes_display');
-        setTimeout(function()
-        {
-            if(scrolled != cmes_height)
-            {
-                div.scrollTop += scroll_speed;
-                scrolled += scroll_speed;
-                // console.log(scrolled);
-                setTimeout(scroll_cmes, 50);   
-            }
-        },cntdwn)
-        cntdwn = 0;
-    }
-}
-function isElementVisible(element) {
-    var rect = element.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
 
-    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-}
 // --------------------------------------------------------------
 
 // changing time interval of every screen displayed
@@ -340,38 +338,39 @@ function change_time_interval(display)
     {
         // loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
         loop_display_time_interval = 3000;
-        console.log("new interval = " + loop_display_time_interval);
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
     // hrep ann
     if(display == 2)
     {
         loop_display_time_interval = ((Math.ceil(hrep_ann_count/4)) * 4) * 1000;
-        console.log("new interval = " + loop_display_time_interval);
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
     // hrep act
     if(display == 3)
     {
         loop_display_time_interval = ((Math.ceil(hrep_act_card_count/4)*4)*1000);
-        console.log("new interval = " + loop_display_time_interval);
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
     // cmes     
     if(display == 4)
     {
         cmes_height = cmes.scrollHeight;
         console.log(cmes_height);
-        loop_display_time_interval = ((cmes_height * 50) + cntdwn + 10000);
-        console.log("new interval = " + loop_display_time_interval);
+        loop_display_time_interval = (((cmes_height * 1000)/10)/2) + cntdwn;
+        cmes_scroll_time = loop_display_time_interval;
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
     // bday
     if(display == 5)
     {
         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
-        console.log("new interval = " + loop_display_time_interval);
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
     // quote
     else if(display == 6)
     {
         loop_display_time_interval = 10000;
-        console.log("new interval = " + loop_display_time_interval);
+        console.log("INTERVAL = " + loop_display_time_interval);
     }
 }

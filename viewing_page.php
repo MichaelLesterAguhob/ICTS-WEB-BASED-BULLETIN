@@ -74,7 +74,7 @@
                    <!-- DATA HERE -->
                 </tbody>
             </table>
-            <p class="end_of_cmes text-info" id="end_of_cmes">End</p>
+            <!-- <p class="end_of_cmes text-info" id="end_of_cmes">End</p> -->
             </div>
         </div>
 
