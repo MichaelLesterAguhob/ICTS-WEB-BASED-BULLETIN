@@ -125,10 +125,10 @@
     border: 1px solid black;
     border-collapse: collapse;
 }
-.cmes_display table{
+.cmes_display .cmes_disp_table{
     border-top: 0px solid black;
-    border-left: 0px solid black;
-    border-right: 0px solid black;
+    /* border-left: 0px solid black;
+    border-right: 0px solid black; */
 }
 .cmes_disp_table thead th{
     position: sticky; 

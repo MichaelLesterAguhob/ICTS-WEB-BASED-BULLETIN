@@ -152,8 +152,6 @@ function loop_display()
   $(x[myIndex-1]).fadeIn(); 
  
   console.log(myIndex);
-//   console.log("interval = " + loop_display_time_interval);
-
     //   icts announcement displayed
   if(myIndex == 1)
     {
@@ -213,32 +211,21 @@ function loop_display()
 // ===========================================================================
 
 // SCROLL CMES
-let cmes_scroll_time = 0;
+let total_seconds = 0;
+let scroll_step = 0;
+let cmes_to_scroll = 0;
 function scroll_cmes()
 {
     var div = document.getElementById('cmes_display');
     setTimeout(function()
     {
-       
-        // var targetElement = document.getElementById("end_of_cmes");
-        // if (isElementVisible(targetElement)) 
-        // {   
-        //     scrolled = cmes_height;  
-        // }
-        
-        if(scrolled < cmes_scroll_time)
+        if(scrolled < cmes_to_scroll)
         {
-            div.scrollTop += 1;
+            div.scrollTop += scroll_step;
             console.log("scrolled Num");
-            scrolled += 123;
-            setTimeout(scroll_cmes, 75);
-        }  
-        // else
-        // {
-        //     loop_display();
-        // }
-
-         
+            scrolled += scroll_step;
+            setTimeout(scroll_cmes, 1000);
+        }    
     },cntdwn)
     cntdwn = 0;   
 }
@@ -355,10 +342,18 @@ function change_time_interval(display)
     // cmes     
     if(display == 4)
     {
-        cmes_height = cmes.scrollHeight;
-        console.log(cmes_height);
-        loop_display_time_interval = (((cmes_height * 1000)/10)/2) + cntdwn;
-        cmes_scroll_time = loop_display_time_interval;
+        let cont_height = $('#cmes_display').height();//getting the total height of data's container
+
+        cmes_height = cmes.scrollHeight; // getting the total height of element that needs to be scr
+
+        cmes_to_scroll = cmes_height - cont_height; //subtracting the already visible data to total scroll height
+        
+        total_seconds = (cmes_to_scroll * 50) / 1000; // compute for total seconds need to complete scrolling up
+
+        scroll_step = (cmes_to_scroll / total_seconds);//scroll step need to finish scrolling along with the total time
+
+        //multiplying the cmes to scroll(the not visible data height) by 50 milliseconds and adding the countdown plus additional 3 seconds 
+        loop_display_time_interval = (cmes_to_scroll * 50) + cntdwn + 3000;
         console.log("INTERVAL = " + loop_display_time_interval);
     }
     // bday
