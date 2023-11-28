@@ -80,7 +80,7 @@
 
         <!--  -->
         <div class="birthday displays" >
-            <h1 class="text-center">Happy Birthday!</h1>
+            <h1 class="text-center">🎉🎁Happy Birthday!🎁🎉</h1>
             <div class="bday_display">
                 <!-- birthday data load here --> 
             </div>

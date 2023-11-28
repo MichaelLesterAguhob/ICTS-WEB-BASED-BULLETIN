@@ -4,7 +4,7 @@ $bday_card = 0;
 $respo = "";
 $month = date('F');
 $day = date('d');
-$data = '<div><h2 class="mnth">'.$month.'</h2></div> 
+$data = '<div><h2 class="mnth">🎈'.$month.'🎊</h2></div> 
         <div class="bday" id="bday">
         ';
 try

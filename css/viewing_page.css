@@ -85,6 +85,9 @@
     font-family: Brush Script MT, Brush Script Std, cursive;
 }
 
+#ert_card_body{
+    overflow: auto;
+}
 
 /* quote */
 .quote_display{
@@ -150,10 +153,11 @@
 
 /* Hrep Act */
 .hrep_act{
-    padding: 0;
+    padding: 0; 
 }
 .hrep_activity{
     display:flex; 
+    justify-content: center;
     overflow: auto;
     height: 90vh;
     width: 100%;

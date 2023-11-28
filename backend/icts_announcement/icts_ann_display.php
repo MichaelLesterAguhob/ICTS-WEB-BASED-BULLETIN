@@ -23,9 +23,9 @@ try
                 <div class="card-header">
                     <h4 class="card_title text-center">'.$icts_ann_rows['title'].'</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="ert_card_body">
                 ';
-
+ 
                 // selecting all teams and names 
                 $ert_cont_id = $icts_ann_rows['cont_id'];
                 $icts_ert_qry = mysqli_query($con, "SELECT * FROM icts_ert_teams WHERE cont_id = '$ert_cont_id' ");
@@ -85,7 +85,7 @@ try
                  <div class="card-header">
                      <h4 class="card_title text-center">'.$icts_ann_rows['title'].'!</h4>
                  </div>
-                 <div class="card-body">
+                 <div class="card-body" id="training_card_body">
                  ';
  
                  // selecting all content of icts training
