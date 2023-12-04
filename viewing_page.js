@@ -2,9 +2,19 @@
 let ert_body = 0;
 let ert_body_hght = 0;
 let ert_body_scroll_hght = 0;
+let ert_to_scroll = 0;
 let ert_scroll_step = 0;
-let ert_cntdwn = 5000;
 let ert_scrolled = 0;
+
+let icts_cntdwn = 5000;
+
+// training
+let training_body = 0;
+let training_body_hght = 0;
+let training_body_scroll_hght = 0;
+let training_to_scroll = 0;
+let training_scroll_step = 0;
+let training_scrolled = 0;
 function display_icts_ann()
 {
     $.ajax(
@@ -14,38 +24,12 @@ function display_icts_ann()
             success: function(data) 
             {
                 $('.icts_ann_display').html(data);
-
+               
             }
         })
 }
 display_icts_ann();
 get_icts_height();
-function get_icts_height()
-{
-    document.addEventListener('DOMContentLoaded',function()
-    {
-        ert_body = document.getElementById('ert_card_body');
-        ert_body_hght = $('#ert_card_body').height();  
-        console.log(ert_body_hght);
-        
-        ert_body_scroll_hght =  ert_body.scrollHeight;
-        console.log(ert_body_scroll_hght);
-    });
-}
-
-// 'if(display == 1)
-//     {
-//         let ert_to_scroll = ert_body_scroll_hght - ert_body_hght;
-//         console.log(ert_to_scroll);
-//         let total_seconds = (ert_to_scroll * 50) / 1000;
-//         console.log(total_seconds);
-//         ert_scroll_step = ert_to_scroll / total_seconds;
-//         console.log(ert_scroll_step);
-//         // loop_display_time_interval = () * 1000;
-//         loop_display_time_interval = 3000;
-//         // console.log("INTERVAL = " + loop_display_time_interval);
-//     }'
-// ----------------------------------------------------------
 
 let hrep_ann_count = 0;
 let hrep_ann_scroll_cnt = 0;
@@ -165,9 +149,14 @@ display_cmes();
 // =============================LOOP DISPLAY ==============================================
 var myIndex = 0;
 var loop_display_time_interval = 3000;
-loop_display();
-function loop_display() 
+
+document.addEventListener('DOMContentLoaded',function()
 {
+    loop_display();
+});
+
+function loop_display() 
+{  
   var i;
   var x = document.getElementsByClassName("displays");
   for (i = 0; i < x.length; i++) 
@@ -182,8 +171,16 @@ function loop_display()
     //   icts announcement displayed
   if(myIndex == 1)
     {
-        // get_icts_height();
-        change_time_interval(1);
+        // document.addEventListener('DOMContentLoaded',function()
+        // {
+            ert_body.scrollTop = 1;
+            ert_scrolled = 0;
+            training_body.scrollTop = 1;
+            training_scrolled = 0;
+            icts_cntdwn = 5000;
+            change_time_interval(1);
+            scroll_ert();
+        // });
     }
     // hrep announcement displayed
   if(myIndex == 2)
@@ -239,9 +236,55 @@ function loop_display()
 // ===========================================================================
 
 // Scroll icts announcement cards when overflow
+function scroll_ert()
+{
+    var div = document.getElementById('ert_card_body');
+    var div2 = document.getElementById('training_card_body');
+    setTimeout(function()
+    {
+        if(ert_scrolled < ert_to_scroll)
+        {
+            div.scrollTop += ert_scroll_step;
+            // console.log("scrolled ert");
+            ert_scrolled += ert_scroll_step;
+            
+        }    
+        if(training_scrolled < training_to_scroll)
+        {
+            div2.scrollTop += training_scroll_step;
+            // console.log("scrolled training");
+            training_scrolled += training_scroll_step;
+            
+        }    
 
+        if(ert_scrolled < ert_to_scroll || training_scrolled < training_to_scroll)
+        {
+            setTimeout(scroll_ert, 1000);
+        }
+    },icts_cntdwn)
+    
+    icts_cntdwn = 0;   
+}
+function get_icts_height()
+{
+        document.addEventListener('DOMContentLoaded',function()
+        {
+            ert_body = document.getElementById('ert_card_body');
+            ert_body_hght = $('#ert_card_body').height();  
+            // console.log("ert body height = " + ert_body_hght);
+            
+            ert_body_scroll_hght =  ert_body.scrollHeight;
+            // console.log("ert scroll height = " + ert_body_scroll_hght);
 
-
+            // training
+            training_body = document.getElementById('training_card_body');
+            training_body_hght = $('#training_card_body').height();  
+            // console.log("t body height = " + training_body_hght);
+            
+            training_body_scroll_hght =  training_body.scrollHeight;
+            // console.log("t scroll height = " + training_body_scroll_hght);
+        });
+}
 
 // SCROLL CMES
 let total_seconds = 0;
@@ -262,12 +305,6 @@ function scroll_cmes()
     },cntdwn)
     cntdwn = 0;   
 }
-// function isElementVisible(element) {
-//     var rect = element.getBoundingClientRect();
-//     var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-
-//     return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-// }
 // -------------------------------------------------------------
 
 // BIRTHDAY SCROLLING WHEN CONTENT OVERFLOW
@@ -336,6 +373,7 @@ function scroll_hrep_act_code()
         behavior: 'smooth'
     });
 }
+let hrep_act_t_out = 4000;
 function scroll_hrep_act()
 {
     hrep_act_scroll_cnt = Math.ceil((hrep_act_card_count/4)); 
@@ -343,39 +381,72 @@ function scroll_hrep_act()
     {
         scroll_hrep_act_code();
         hrep_act_cntr ++; 
-        setTimeout(scroll_hrep_act, 4000);
+        setTimeout(scroll_hrep_act, hrep_act_t_out);
     }
 }
 // --------------------------------------------------------------
 
 // --------------------------------------------------------------
-
 // changing time interval of every screen displayed
 function change_time_interval(display)
 {
     //icts ann 
     if(display == 1)
     {
-        let ert_to_scroll = ert_body_scroll_hght - ert_body_hght;
-        console.log(ert_to_scroll);
+        ert_to_scroll = (ert_body_scroll_hght - ert_body_hght) + 20;
+        // console.log("ert_to_scroll = " + ert_to_scroll);
         let total_seconds = (ert_to_scroll * 50) / 1000;
-        console.log(total_seconds);
+        // console.log("Total secs = " + total_seconds);
         ert_scroll_step = ert_to_scroll / total_seconds;
-        console.log(ert_scroll_step);
-        // loop_display_time_interval = () * 1000;
-        loop_display_time_interval = 3000;
+        // console.log("ert scroll step = " + ert_scroll_step);
+
+        let ert_time = (ert_to_scroll * 50);
         // console.log("INTERVAL = " + loop_display_time_interval);
+
+        // training
+        training_to_scroll = (training_body_scroll_hght - training_body_hght) + 20;
+        // console.log("t_to_scroll = " + training_to_scroll);
+        let total_seconds_training = (training_to_scroll * 50) / 1000;
+        // console.log("t Total secs = " + total_seconds_training);
+        training_scroll_step = training_to_scroll / total_seconds_training;
+        // console.log("t scroll step = " + training_scroll_step);
+
+        let t_time = (training_to_scroll * 50);
+        // console.log("INTERVAL = " + loop_display_time_interval);
+
+        if(ert_time < t_time)
+        {
+            loop_display_time_interval = t_time + icts_cntdwn + icts_cntdwn;
+        }
+        else
+        {
+            loop_display_time_interval = ert_time + icts_cntdwn + icts_cntdwn;
+        }
+
+        if(loop_display_time_interval < 30000)
+        {
+            loop_display_time_interval = 30000;
+        }
+        console.log(loop_display_time_interval);
     }
     // hrep ann
     if(display == 2)
     {
         loop_display_time_interval = ((Math.ceil(hrep_ann_count/4)) * 4) * 1000;
+        if(loop_display_time_interval < 30000)
+        {
+            loop_display_time_interval = 30000;
+        }
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
     // hrep act
     if(display == 3)
     {
         loop_display_time_interval = ((Math.ceil(hrep_act_card_count/4)*4)*1000);
+        if(loop_display_time_interval < 30000)
+        {
+            loop_display_time_interval = 30000;
+        }
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
     // cmes     
@@ -406,6 +477,10 @@ function change_time_interval(display)
     if(display == 5)
     {
         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
+        if(loop_display_time_interval < 30000)
+        {
+            loop_display_time_interval = 30000;
+        }
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
     // quote
