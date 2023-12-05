@@ -1,22 +1,76 @@
 
+// ICTS ANNOUNCEMENT
 let ert_body = 0;
 let ert_body_hght = 0;
 let ert_body_scroll_hght = 0;
 let ert_to_scroll = 0;
 let ert_scroll_step = 0;
 let ert_scrolled = 0;
-
 let icts_cntdwn = 5000;
-
-// training
 let training_body = 0;
 let training_body_hght = 0;
 let training_body_scroll_hght = 0;
 let training_to_scroll = 0;
 let training_scroll_step = 0;
 let training_scrolled = 0;
+
+// HREP ACTIVITIES
+let hrep_act_card_count = 0;
+let hrep_act_scroll_cnt = 0;
+let hrep_act_cntr = 1;
+let showed_hrep_act = 0;
+let hrep_act_scroll_to = 0;
+
+// HREP ANOUNCEMENT
+let hrep_ann_count = 0;
+let hrep_ann_scroll_cnt = 0;
+let hrep_ann_cntr = 1;
+let hrep_ann_scroll_to = 0;
+let showed_ha = 0;
+
+// COMMITTEE MEETING AND EVENT SCHED
+var cmes = document.getElementById('cmes_display');
+let cmes_height = 0;
+let scrolled = 0;
+let cntdwn = 6000;
+let total_seconds = 0;
+let scroll_step = 0;
+let cmes_to_scroll = 0;
+
+// BIRTHDAY
+let bday_card_count = 0;
+let scroll_cnt = 0;
+let loop_cnt = 1;
+let showed_bday = 0;
+let scroll_to = 0;
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Use Promise.all to wait for all AJAX calls to complete
+    Promise.all([
+        display_birthday(),
+        display_icts_ann(),
+        display_hrep_ann(),
+        display_hrep_activity(),
+        display_cmes(),
+        display_quote()
+    ]).then(() => {
+        get_icts_height();
+        loop_display();
+    });
+    // Other functions or code that doesn't depend on the heights or loop can go here
+});
+
+// display_icts_ann();
+// display_hrep_ann();
+// display_hrep_activity();
+// display_cmes();
+// display_birthday();
+// display_quote();
+// ===============================================================
 function display_icts_ann()
 {
+    return new Promise((resolve) => {
     $.ajax(
         { 
             url:'backend/icts_announcement/icts_ann_display.php',
@@ -24,20 +78,16 @@ function display_icts_ann()
             success: function(data) 
             {
                 $('.icts_ann_display').html(data);
-               
+                resolve();
             }
         })
+    });
 }
-display_icts_ann();
-get_icts_height();
 
-let hrep_ann_count = 0;
-let hrep_ann_scroll_cnt = 0;
-let hrep_ann_cntr = 1;
-let hrep_ann_scroll_to = 0;
-let showed_ha = 0;
+// ================================================================
 function display_hrep_ann()
 {
+    return new Promise((resolve) => {
     $.ajax(
         { 
             url:'backend/hrep_ann_tab/hrep_ann_display.php',
@@ -49,25 +99,22 @@ function display_hrep_ann()
                 {
                     $('.hrep_ann_display').html(data.respo);
                     hrep_ann_count = data.hrep_ann_cnt;
+                    resolve();
                 }
                 else
                 {
                     $('.hrep_ann_display').html(data.respo);
+                    resolve();
                 }
             }
         })
+    });
 }
-display_hrep_ann();
-// ----------------------------------------------------------
 
-// BIRTHDAY DISPLAYING CODE
-let bday_card_count = 0;
-let scroll_cnt = 0;
-let loop_cnt = 1;
-let showed_bday = 0;
-let scroll_to = 0;
+// ================================================================
 function display_birthday()
 {
+    return new Promise((resolve) => {
     $.ajax(
         { 
             url:'backend/birthday_tab/birthday_display.php',
@@ -79,15 +126,21 @@ function display_birthday()
                 {
                     $('.bday_display').html(data.html);
                     bday_card_count = data.bday_card_count;
+                    if (bday_card_count < 4)
+                    {
+                        $('#bday').css('justify-content','center');
+                    }
+                    resolve();
                 }
             }
         })
+    });
 }
-display_birthday();
-// ----------------------------------------------------------
 
+// ================================================================
 function display_quote()
 {
+    return new Promise((resolve) => {
     $.ajax(
         { 
             url:'backend/quote_tab/quote_display.php',
@@ -95,19 +148,16 @@ function display_quote()
             success: function(data)
             {
                 $('.quote').html(data);
+                resolve();
             }
         })
+    });
 }
-display_quote();
-// ----------------------------------------------------------
 
-let hrep_act_card_count = 0;
-let hrep_act_scroll_cnt = 0;
-let hrep_act_cntr = 1;
-let showed_hrep_act = 0;
-let hrep_act_scroll_to = 0;
+// ================================================================
 function display_hrep_activity()
 {
+    return new Promise((resolve) => {
     $.ajax(
         {
             url:'backend/hrep_act_tab/hrep_act_display.php',
@@ -119,19 +169,17 @@ function display_hrep_activity()
                 {
                     $('.hrep_activity').html(data.respo);
                     hrep_act_card_count = data.hrep_act_card_count;
+                    resolve();
                 }
             }
         })
+    });
 }
-display_hrep_activity();
-// ----------------------------------------------------------
 
-var cmes = document.getElementById('cmes_display');
-let cmes_height = 0;
-let scrolled = 0;
-let cntdwn = 6000;
+// ================================================================
 function display_cmes()
 {
+    return new Promise((resolve) => {
     $.ajax(
         {
             url:'backend/cmes_tab/cmes_display.php',
@@ -139,21 +187,22 @@ function display_cmes()
             success: function(data)
             {
                 $('#cmes_data').html(data);
+                resolve();
             }
         })
+    });
 }
-display_cmes();
-// ----------------------------------------------------------
 
+// ================================================================
 
+// document.addEventListener('DOMContentLoaded',function()
+// {
+//     // get_icts_height();
+//     // loop_display();
+// });
 // =============================LOOP DISPLAY ==============================================
 var myIndex = 0;
 var loop_display_time_interval = 3000;
-
-document.addEventListener('DOMContentLoaded',function()
-{
-    loop_display();
-});
 
 function loop_display() 
 {  
@@ -167,20 +216,16 @@ function loop_display()
   if (myIndex > x.length) {myIndex = 1}  
   $(x[myIndex-1]).fadeIn(); 
  
-//   console.log(myIndex);
     //   icts announcement displayed
   if(myIndex == 1)
     {
-        // document.addEventListener('DOMContentLoaded',function()
-        // {
-            ert_body.scrollTop = 1;
-            ert_scrolled = 0;
-            training_body.scrollTop = 1;
-            training_scrolled = 0;
-            icts_cntdwn = 5000;
-            change_time_interval(1);
-            scroll_ert();
-        // });
+        ert_body.scrollTop = 1;
+        ert_scrolled = 0;
+        training_body.scrollTop = 1;
+        training_scrolled = 0;
+        icts_cntdwn = 5000;
+        change_time_interval(1);
+        scroll_ert();
     }
     // hrep announcement displayed
   if(myIndex == 2)
@@ -208,7 +253,6 @@ function loop_display()
         scrolled = 0;
         change_time_interval(4);
         scroll_cmes();
-        
     }
     // birthday displayed
   if(myIndex == 5)
@@ -254,7 +298,6 @@ function scroll_ert()
             div2.scrollTop += training_scroll_step;
             // console.log("scrolled training");
             training_scrolled += training_scroll_step;
-            
         }    
 
         if(ert_scrolled < ert_to_scroll || training_scrolled < training_to_scroll)
@@ -262,34 +305,28 @@ function scroll_ert()
             setTimeout(scroll_ert, 1000);
         }
     },icts_cntdwn)
-    
     icts_cntdwn = 0;   
 }
-function get_icts_height()
-{
-        document.addEventListener('DOMContentLoaded',function()
-        {
-            ert_body = document.getElementById('ert_card_body');
-            ert_body_hght = $('#ert_card_body').height();  
-            // console.log("ert body height = " + ert_body_hght);
-            
-            ert_body_scroll_hght =  ert_body.scrollHeight;
-            // console.log("ert scroll height = " + ert_body_scroll_hght);
 
-            // training
-            training_body = document.getElementById('training_card_body');
-            training_body_hght = $('#training_card_body').height();  
-            // console.log("t body height = " + training_body_hght);
-            
-            training_body_scroll_hght =  training_body.scrollHeight;
-            // console.log("t scroll height = " + training_body_scroll_hght);
-        });
+function get_icts_height()
+{ 
+    ert_body = document.getElementById('ert_card_body');
+    ert_body_hght = $('#ert_card_body').height();  
+    // console.log("ert body height = " + ert_body_hght);
+    
+    ert_body_scroll_hght =  ert_body.scrollHeight;
+    // console.log("ert scroll height = " + ert_body_scroll_hght);
+
+    // training
+    training_body = document.getElementById('training_card_body');
+    training_body_hght = $('#training_card_body').height();  
+    // console.log("t body height = " + training_body_hght);
+    
+    training_body_scroll_hght =  training_body.scrollHeight;
+    // console.log("t scroll height = " + training_body_scroll_hght);
 }
 
 // SCROLL CMES
-let total_seconds = 0;
-let scroll_step = 0;
-let cmes_to_scroll = 0;
 function scroll_cmes()
 {
     var div = document.getElementById('cmes_display');
@@ -426,8 +463,7 @@ function change_time_interval(display)
         if(loop_display_time_interval < 30000)
         {
             loop_display_time_interval = 30000;
-        }
-        console.log(loop_display_time_interval);
+        } 
     }
     // hrep ann
     if(display == 2)
@@ -447,7 +483,7 @@ function change_time_interval(display)
         {
             loop_display_time_interval = 30000;
         }
-        // console.log("INTERVAL = " + loop_display_time_interval);
+        // console.log("INTERVAL = " + loop_display_time_interval);   
     }
     // cmes     
     if(display == 4)
@@ -477,16 +513,20 @@ function change_time_interval(display)
     if(display == 5)
     {
         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
-        if(loop_display_time_interval < 30000)
+        if(loop_display_time_interval < 30000 && bday_card_count > 0)
         {
             loop_display_time_interval = 30000;
+        }
+        else
+        {
+            loop_display_time_interval = 0;
         }
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
     // quote
     else if(display == 6)
     {
-        loop_display_time_interval = 10000;
+        loop_display_time_interval = 10000;       
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
 }
