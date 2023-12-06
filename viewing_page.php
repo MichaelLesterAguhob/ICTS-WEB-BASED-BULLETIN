@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="css/viewing_page.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="">
         <!--  -->
         <div class="icts_announcement displays">
-            <h1 class="text-center">ICTS Announcements</h1>
-            <div class="icts_ann_display">
+            <h1 class="text-center">ICTS ANNOUNCEMENTS</h1>
+            <div class="container-fluid icts_ann_display">
                 <!-- <div class="card">
                     <div class="card-header">
                         <h3>ERT</h3>
@@ -32,8 +32,8 @@
         
         <!--  -->
         <div class="hrep_announcement displays">
-            <h1 class="text-center ha_t">HREP Announcements</h1>
-            <div class="hrep_ann_display" id="hrep_ann_display">
+            <h1 class="text-center ha_t">HREP ANNOUNCEMENT</h1>
+            <div class="container-fluid hrep_ann_display" id="hrep_ann_display">
                 <!-- <div class="card">
                     <div class="card-header">
                         <h3>ERT</h3>
@@ -49,7 +49,7 @@
             
         <!--  -->
         <div class="hrep_act displays" >
-            <h1 class="text-center">HRep Activities</h1>
+            <h1 class="text-center mt-3">HREP ACTIVITIES</h1>
             <div class="hrep_activity" id="hrep_activity">
 
             </div>
@@ -58,7 +58,7 @@
         <!--  -->
         <div class="cmes displays" >
             <h1 class="text-center mb-4 cmes_btn">Committee Meeting and Event Schedule </h1>
-            <div class="cmes_display" id="cmes_display">
+            <div class="container-fluid cmes_display" id="cmes_display">
             <table class="cmes_disp_table mb-3">
                 <thead>
                     <tr>
@@ -80,7 +80,7 @@
 
         <!--  -->
         <div class="birthday displays" >
-            <h1 class="text-center">🎉🎁Happy Birthday!🎁🎉</h1>
+            <h1 class="text-center mt-2">🎉🎁Happy Birthday!🎁🎉</h1>
             <div class="bday_display">
                 <!-- birthday data load here --> 
             </div>

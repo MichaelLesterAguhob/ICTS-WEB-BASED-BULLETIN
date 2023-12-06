@@ -66,7 +66,7 @@ try
                     $data .= '
                     <img src="backend/icts_announcement/icts_img/'.$icts_qrform_rows['img'].'" class="qr_form_img">
                     <p class="multiline qrform_date">'.$date.'</p>
-                    <h3>ICTS</h3>
+                    <h3 class="icts">ICTS</h3>
                     ';
                 }
 
@@ -97,7 +97,7 @@ try
                     $date = date('F d', strtotime($icts_training_rows['date']));
                      $data .= '
                      <h5 class="training_title">'.$icts_training_rows['desc'].'</h5>
-                    <p class="traing_d_t">'.$date.' - '.$icts_training_rows['time'].'</p>
+                    <p class="training_d_t">'.$date.' - '.$icts_training_rows['time'].'</p>
                      ';
                  }
  

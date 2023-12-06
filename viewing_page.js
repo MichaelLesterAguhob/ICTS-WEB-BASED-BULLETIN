@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         display_cmes(),
         display_quote()
     ]).then(() => {
-        get_icts_height();
-        loop_display();
+        // get_icts_height();
+        // loop_display();
     });
     // Other functions or code that doesn't depend on the heights or loop can go here
 });

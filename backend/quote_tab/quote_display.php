@@ -12,7 +12,7 @@ try
         <h1 class="quote_week mt-5">Quote of the Week</h1>
         <h1 class="quote_text">'.$row['quote'].' </h1>
         <br>
-        <h4 class="quote_auth mt-5">&hyphen; '.$row['author'].'</h4>
+        <h4 class="quote_auth mt-2">&hyphen; '.$row['author'].'</h4>
     </div>
     ';
     $respo = $data;
