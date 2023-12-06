@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         display_cmes(),
         display_quote()
     ]).then(() => {
-        // get_icts_height();
-        // loop_display();
+        get_icts_height();
+        loop_display();
     });
     // Other functions or code that doesn't depend on the heights or loop can go here
 });
@@ -352,11 +352,13 @@ function scroll_bday_code()
     showed_bday += 4;
     // console.log("scroll to: "+scroll_to);
     var content = document.getElementById('bday_card'+scroll_to);
+    var leftOffset = content.offsetLeft;
+    var scrollPosition = leftOffset - scrollableCont.clientWidth / 2;
     scrollableCont.scrollTo(
-    {
-        left: content.offsetLeft,
-        behavior: 'smooth'
-    });
+        {
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
 }
 function scroll_bday()
 {
@@ -376,13 +378,17 @@ function scroll_ha_code()
     let scrollableCont = document.getElementById('hrep_ann_display');
     hrep_ann_scroll_to = (showed_ha + 4)-3;
     showed_ha += 4;
-    // console.log("scroll to: "+hrep_ann_scroll_to);
+
     var content = document.getElementById('hrep_ann_card'+hrep_ann_scroll_to);
+   
+    var leftOffset = content.offsetLeft;
+    var scrollPosition = leftOffset - scrollableCont.clientWidth / 2;
     scrollableCont.scrollTo(
-    {
-        left: content.offsetLeft,
-        behavior: 'smooth'
-    });
+        {
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+
 }
 function scroll_hrep_ann()
 {
@@ -391,7 +397,7 @@ function scroll_hrep_ann()
     {
         scroll_ha_code();
         hrep_ann_cntr ++; 
-        setTimeout(scroll_hrep_ann, 4000);
+        setTimeout(scroll_hrep_ann, 8000);
     }
 }
 // --------------------------------------------------------------
@@ -402,15 +408,17 @@ function scroll_hrep_act_code()
     let scrollableCont = document.getElementById('hrep_activity');
     hrep_act_scroll_to = (showed_hrep_act + 4)-3;
     showed_hrep_act += 4;
-    // console.log("scroll to: "+hrep_act_scroll_to);
+
     var content = document.getElementById('hrep_act_card'+hrep_act_scroll_to);
+    var leftOffset = content.offsetLeft;
+    var scrollPosition = leftOffset - scrollableCont.clientWidth / 2;
     scrollableCont.scrollTo(
-    {
-        left: content.offsetLeft,
-        behavior: 'smooth'
-    });
+        {
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
 }
-let hrep_act_t_out = 4000;
+
 function scroll_hrep_act()
 {
     hrep_act_scroll_cnt = Math.ceil((hrep_act_card_count/4)); 
@@ -418,7 +426,7 @@ function scroll_hrep_act()
     {
         scroll_hrep_act_code();
         hrep_act_cntr ++; 
-        setTimeout(scroll_hrep_act, hrep_act_t_out);
+        setTimeout(scroll_hrep_act, 8000);
     }
 }
 // --------------------------------------------------------------
@@ -464,26 +472,29 @@ function change_time_interval(display)
         {
             loop_display_time_interval = 30000;
         } 
+        loop_display_time_interval = 1000;    
     }
     // hrep ann
     if(display == 2)
     {
-        loop_display_time_interval = ((Math.ceil(hrep_ann_count/4)) * 4) * 1000;
+        loop_display_time_interval = ((Math.ceil(hrep_ann_count/4)) * 8) * 1000;
         if(loop_display_time_interval < 30000)
         {
             loop_display_time_interval = 30000;
         }
         // console.log("INTERVAL = " + loop_display_time_interval);
+        loop_display_time_interval = 1000;    
     }
     // hrep act
     if(display == 3)
     {
-        loop_display_time_interval = ((Math.ceil(hrep_act_card_count/4)*4)*1000);
+        loop_display_time_interval = ((Math.ceil(hrep_act_card_count/4)*8)*1000);
         if(loop_display_time_interval < 30000)
         {
             loop_display_time_interval = 30000;
         }
-        // console.log("INTERVAL = " + loop_display_time_interval);   
+        // console.log("INTERVAL = " + loop_display_time_interval); 
+        // loop_display_time_interval = 7000;    
     }
     // cmes     
     if(display == 4)
@@ -508,25 +519,28 @@ function change_time_interval(display)
             loop_display_time_interval = 30000 - cntdwn;
         }
         // console.log("INTERVAL = " + loop_display_time_interval);
+        loop_display_time_interval = 1000;    
     }
     // bday
     if(display == 5)
     {
         loop_display_time_interval = ((Math.ceil(bday_card_count/4)) * 4) * 1000;
-        if(loop_display_time_interval < 30000 && bday_card_count > 0)
+        if(loop_display_time_interval < 20000 && bday_card_count > 0)
         {
-            loop_display_time_interval = 30000;
+            loop_display_time_interval = 20000;
         }
         else
         {
             loop_display_time_interval = 0;
         }
+        loop_display_time_interval = 1000;    
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
     // quote
     else if(display == 6)
     {
         loop_display_time_interval = 10000;       
+        loop_display_time_interval = 1000;       
         // console.log("INTERVAL = " + loop_display_time_interval);
     }
 }

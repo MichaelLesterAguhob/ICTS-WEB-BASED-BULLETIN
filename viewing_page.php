@@ -50,7 +50,7 @@
         <!--  -->
         <div class="hrep_act displays" >
             <h1 class="text-center mt-3">HREP ACTIVITIES</h1>
-            <div class="hrep_activity" id="hrep_activity">
+            <div class="container-fluid hrep_activity" id="hrep_activity">
 
             </div>
         </div>
@@ -81,7 +81,7 @@
         <!--  -->
         <div class="birthday displays" >
             <h1 class="text-center mt-2">🎉🎁Happy Birthday!🎁🎉</h1>
-            <div class="bday_display">
+            <div class="container-fluid bday_display">
                 <!-- birthday data load here --> 
             </div>
         </div>
