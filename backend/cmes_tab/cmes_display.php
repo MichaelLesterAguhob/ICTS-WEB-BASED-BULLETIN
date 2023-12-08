@@ -14,13 +14,13 @@ try
         while($rows2 = mysqli_fetch_assoc($query2))
         {
             $data .= '
-            <tr>
+            <tr> 
                 <td style="width: 25%;">'.$rows2['committee_office'].'</td>
                 <td style="width: 10%;">'.$rows2['time'].'</td>
-                <td style="width: 20%;" class="multiline">'.$rows2['host'].'</td>
-                <td style="width: 10%;">'.$rows2['fb_live'].'</td>
-                <td style="width: 10%;">'.$rows2['ppab_cam'].'</td> 
-                <td style="width: 25%;" class="multiline">'.$rows2['remarks'].'</td>
+                <td style="width: 25%;" class="multiline">'.$rows2['host'].'</td>
+                <td style="width: 5%;">'.$rows2['fb_live'].'</td>
+                <td style="width: 5%;">'.$rows2['ppab_cam'].'</td> 
+                <td style="width: 30%;" class="multiline">'.$rows2['remarks'].'</td>
             </tr>
         ';
         }

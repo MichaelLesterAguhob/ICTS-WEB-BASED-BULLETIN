@@ -5,6 +5,14 @@ $data = '<table class="table mt-5">';
 
 try 
 {
+    // checking the cont type number
+    $cont_type_qry1 = mysqli_query($con, "SELECT cont_type FROM icts_ann_cont WHERE `cont_type`='Emergency Response Team'");
+    $cont_type_qry2 = mysqli_query($con, "SELECT cont_type FROM icts_ann_cont WHERE `cont_type`='QR/Form'");
+    $cont_type_qry3 = mysqli_query($con, "SELECT cont_type FROM icts_ann_cont WHERE `cont_type`='Training'");
+    $cont_type_num1 = mysqli_num_rows($cont_type_qry1);
+    $cont_type_num2 = mysqli_num_rows($cont_type_qry2);
+    $cont_type_num3 = mysqli_num_rows($cont_type_qry3);
+  
     // checking if ert data exist
     $query_1 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='Emergency Response Team'");
     if(mysqli_num_rows($query_1) > 0) 
@@ -77,9 +85,9 @@ try
                 </tr>
             ';
         $query_5 = mysqli_query($con, "SELECT * FROM icts_ann_cont WHERE cont_type='QR/Form'");
-        while($rows_5 = mysqli_fetch_assoc($query_5)) {
+        while($rows_5 = mysqli_fetch_assoc($query_5)) { 
             $qrform_title = $rows_5['title'];
-            $qrform_id = $rows_5['cont_id'];
+            $qrform_id = $rows_5['cont_id']; 
             $qrform_cont_type = $rows_5['cont_type'];
             $data .= '
                     <tr style="height: 30px; border-color:  white;">
@@ -206,11 +214,11 @@ try
     $data .= '
         </table>
     ';
-    $respo = $data;
+    $respo = json_encode(['stat'=>'success','html'=>$data,'ctn1'=>$cont_type_num1,'ctn2'=>$cont_type_num2,'ctn3'=>$cont_type_num3]);
 }
 catch (Exception $ex) 
 {
-    $respo = "Error Occurred" . $ex;
+    $respo = json_encode(['stat'=>'exc','respo'=>"Error Occurred" . $ex]);;
 }
 
 echo $respo;

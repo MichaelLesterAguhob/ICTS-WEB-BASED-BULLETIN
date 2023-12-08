@@ -10,9 +10,18 @@
     <link rel="stylesheet" href="jquery_bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
     <link rel="stylesheet" href="css/viewing_page.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
     <div class="">
+        <!--  -->
+        <div class="intro displays">
+            <!-- <div class="intro_gif"> </div> -->
+            <video class="intro_icts" id="intro_icts" muted>
+                <source src="css/icts_intro.mp4" type="video/mp4">
+            </video>
+        </div>
         <!--  -->
         <div class="icts_announcement displays">
             <h1 class="text-center">ICTS ANNOUNCEMENTS</h1>

@@ -605,6 +605,7 @@ $(document).on('click','.cmes_edit', function()
     
 })
 
+
 // save edited
 $(document).on('click','#save_edited_cmes',function()
 {
@@ -841,6 +842,10 @@ $(document).on('click','.add_desc_date', function()
     $('#training').append('<tr style="border-top:1px solid gray;"><td colspan="2" style="height:15px;"></td></tr><tr><th>Description: </th><td><input type="text" name="training_name'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Date: </th><td class="text-left"><input type="date" name="training_date'+desc_date+'" class="form-control"></td></tr><tr><th class="text-left text-secondary">Time: </th><td class="text-left"><input type="time" name="training_time'+desc_date+'"class="form-control"></td></tr>');
 })
 
+let icts_cont_rec = 0;
+let icts_cont_ert = 0;
+let icts_cont_qr = 0;
+let icts_cont_trn = 0;
 // saving ICTS Announcement
 $(document).on('click', '#save_icts_ann', function()
 {
@@ -854,7 +859,11 @@ $(document).on('click', '#save_icts_ann', function()
 
     if(cont_type == "Emergency Response Team")
     {
-        if(ann_title_txt == "" || team_name_txt1 == "" || name_list_txt1 == "")
+        if(icts_cont_ert == 1)
+        {
+            alert("Emergency response team already exists. Just edit the existing one or Delete to create new.")
+        }
+        else if(ann_title_txt == "" || team_name_txt1 == "" || name_list_txt1 == "")
         {
             alert("No input(s)");
         }
@@ -881,7 +890,11 @@ $(document).on('click', '#save_icts_ann', function()
     }
     else if(cont_type == "QR/Form")
     {
-        if(ann_title_txt == "" || qr_form_date == "" || qr_form_img == "")
+        if(icts_cont_qr == 2)
+        {
+            alert("Two Qr Form already exists. Just edit the existing or Delete to create new.")
+        }
+        else if(ann_title_txt == "" || qr_form_date == "" || qr_form_img == "")
         {
             alert("No input(s)");
         }
@@ -907,7 +920,11 @@ $(document).on('click', '#save_icts_ann', function()
     }
     else if(cont_type == "Training")
     {
-        if(ann_title_txt != "" && $('#training_name1').val() != "" && $('#training_date1').val() != "" && $('#training_time1').val() != "")
+        if(icts_cont_trn == 1)
+        {
+            alert("Training already exists. Just edit the existing one or Delete to create new.")
+        }
+        else if(ann_title_txt != "" && $('#training_name1').val() != "" && $('#training_date1').val() != "" && $('#training_time1').val() != "")
         {
         $.ajax( 
             {
@@ -951,13 +968,45 @@ if(input.files && input.files[0])
 function load_icts_ann()
 {
     // icts_annncmnts_data
-    $.ajax( 
+    $.ajax(  
         {
             url:'backend/icts_announcement/load_icts_ann.php',
             method:'post',
             success: function(data)
             {
-                $('#icts_annncmnts_data').html(data);
+                data = $.parseJSON(data);
+                if(data.stat == "success")
+                {
+                    $('#icts_annncmnts_data').html(data.html);
+                    
+                    if(data.ctn1 != 0)
+                    {
+                        icts_cont_ert = 1; 
+                    }
+                    else if(data.ctn1 == 0)
+                    {
+                        icts_cont_ert = 0; 
+                    }
+
+                    if(data.ctn2 > 1)
+                    {   
+                        icts_cont_qr = 2;
+                    }
+                    else if(data.ctn2 == 1)
+                    {   
+                        icts_cont_qr = 1;
+                    }
+
+                    if(data.ctn3 != 0)
+                    {
+                        icts_cont_trn = 1;
+                    }
+                    else if(data.ctn3 == 0)
+                    {
+                        icts_cont_trn = 0;
+                    }
+                    // alert("num = "+icts_cont_ert + icts_cont_qr + icts_cont_trn );
+                }   
             }
         })
 }

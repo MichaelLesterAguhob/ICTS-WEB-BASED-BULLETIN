@@ -9,7 +9,7 @@ try
    {
         // if has data
         // getting all data from icts cont
-        $icts_ann_qry = mysqli_query($con, "SELECT * FROM icts_ann_cont");
+        $icts_ann_qry = mysqli_query($con, "SELECT * FROM icts_ann_cont ORDER BY FIELD(cont_type,'Emergency Response Team','QR/Form','Training' )");
 
         // while fetching data
         while($icts_ann_rows = mysqli_fetch_assoc($icts_ann_qry))

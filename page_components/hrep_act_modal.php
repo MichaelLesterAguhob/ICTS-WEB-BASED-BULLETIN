@@ -13,7 +13,7 @@
         <span class="add_hrep_act_form_msg text-success text-center"></span>
         <table class="hrep_act_input_table">
         <!-- Hrep Act Form --> 
-        <form id="add_hrep_act_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="add_hrep_act_form" method="post" enctype="multipart/form-data">
        
         <tr>
             <th style="width: 30%;">Image:</th>
@@ -60,7 +60,7 @@
       <div class="modal-body">
       <table class="hrep_act_input_table">
         <!-- edit Hrep Act Form --> 
-        <form id="edit_hrep_act_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="edit_hrep_act_form" method="post" enctype="multipart/form-data">
         <input type="hidden" id="edit_hrep_act_id" name="edit_hrep_act_id">
         <input type="hidden" id="edit_hrep_act_img_old" name="edit_hrep_act_img_old">
         <tr>

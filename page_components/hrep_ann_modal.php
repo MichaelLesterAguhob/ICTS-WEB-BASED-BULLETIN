@@ -12,7 +12,7 @@
         <table class="hrep_ann_input_table">
           
         <!-- Add hrep_ann Form -->
-        <form id="add_hrep_ann_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="add_hrep_ann_form" method="post" enctype="multipart/form-data">
             <tr>
                 <th>Subject: &nbsp;</th>
                 <td class="p-2">
@@ -87,7 +87,7 @@
         <table class="hrep_ann_input_table">
           
         <!-- edit hrep_ann Form -->
-        <form id="edit_hrep_ann_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="edit_hrep_ann_form" method="post" enctype="multipart/form-data">
           <input type="hidden" name="edit_hrep_ann_id" id="edit_hrep_ann_id">
             <tr>
                 <th>Subject: &nbsp;</th>

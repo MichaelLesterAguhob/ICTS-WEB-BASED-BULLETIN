@@ -14,7 +14,7 @@
         <table class="bday_input_table">
           
         <!-- Add Birthday Form -->
-        <form id="add_bday_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="add_bday_form" method="post" enctype="multipart/form-data">
             <tr>
                 <td>Name: &nbsp;</td>
                 <td>
@@ -85,7 +85,7 @@
         <table class="bday_input_table">
           
           <!-- edit Birthday Form -->
-        <form id="edit_bday_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="edit_bday_form" method="post" enctype="multipart/form-data">
           <input type="hidden" id="bday_id" name="bday_id">
             <tr>
                 <td>Name: &nbsp;</td>

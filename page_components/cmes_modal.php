@@ -14,7 +14,7 @@
         <table class="cmes_input_table">
           
         <!-- Add cmes Form -->
-        <form id="add_cmes_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="add_cmes_form" method="post" enctype="multipart/form-data">
             <tr>
                 <th style="width: 20%;">Committee/Office: &nbsp;</th>
                 <td style="width:80%;">
@@ -105,7 +105,7 @@
         <table class="cmes_input_table">
           
         <!-- Edit cmes Form -->
-        <form id="edit_cmes_form" method="post" enctype="multipart/form-data">
+        <form autocomplete="off" id="edit_cmes_form" method="post" enctype="multipart/form-data">
             <tr>
               <input type="hidden" name="cmes_id" id="cmes_id">
                 <th style="width: 20%;">Committee/Office: &nbsp;</th>

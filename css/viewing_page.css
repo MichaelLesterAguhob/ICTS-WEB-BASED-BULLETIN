@@ -7,7 +7,28 @@
 .displays{
     overflow: hidden;
 }
-
+.intro{
+    width: 100vw;
+    height: 100vh;
+}
+.intro_icts{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* .intro_gif{
+    width: 100%;
+    height: 100%;
+    background-image: url('intro_icts.gif');
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility:hidden;
+} */
 /* ICTS ANNOUNCEMENT DISPLAY */
 .icts_announcement{
     padding: 0;
@@ -37,6 +58,8 @@
     color: #fff;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     border-radius: 10px;
+    padding-left: 50px; 
+    padding-right: 50px; 
 }
 .icts_ann_display .card{
     height: 80vh;
@@ -101,7 +124,7 @@
 /* HREP ANNOUNCEMENT */
 .hrep_announcement{
     padding: 0;
-    background-image: url('hrep_an_bg.jpg');
+    background-image: url('bg2.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -111,14 +134,16 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 3rem;
     width: fit-content;
-    background-color:  rgb(7, 72, 118);
+    background-color:  rgba(185, 182, 182, 0.978);
     padding: 5px;
     margin: auto;
     margin-top: 1%;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    color: #fff;
+    text-shadow: 3px 3px 5px rgb(0, 0, 0);
+    color: #f3bd0e;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    border-radius: 10px;    
+    border-radius: 10px;   
+    padding-left: 50px; 
+    padding-right: 50px; 
 }
 .hrep_ann_display{
     display: flex;
@@ -132,7 +157,7 @@
     height: 80vh;
     margin-top: 1%;
     margin-right: 1%;
-    background-color: rgba(185, 182, 182, 0.793);
+    background-color: rgba(185, 182, 182, 0.978);
 }
 .hrep_ann_card .card-header{
     height: 45%;
@@ -141,8 +166,18 @@
     font-weight: bolder;
     overflow: auto;
 }
+.hrep_ann_header{
+    position: relative;
+}
+.hrep_ann_header .hrep_ann_date_office{
+    position: absolute;
+    bottom: 0;
+}
 .hrep_ann_card .card-header h5{
     color: maroon;
+}
+.hrep_ann_card .card-header h6{
+    font-weight: bold;
 }
 .hrep_ann_card .card-body{
     height: 30%;
@@ -155,11 +190,10 @@
 }
 
 
-
 /* birthday displays */
 .birthday{
     padding: 0;
-    background-image: url('bday_bg.jpg');
+    background-image: url('bday.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -350,7 +384,7 @@
 .hrep_act{
     padding: 0; 
     padding: 0;
-    background-image: url('bg1.gif');
+    background-image: url('bg4.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -368,6 +402,8 @@
     font-family: 'Comic Sans MS', cursive, sans-serif;
     border-radius: 10px; 
     width: fit-content;
+    padding-left: 50px; 
+    padding-right: 50px; 
 }
 .hrep_activity{
     display:flex; 

@@ -15,7 +15,7 @@
             <div class="modal-body icts_add_ann_body">
             <p id="add_ann_msg"></p>
 
-                <form id="icts_add_ann" method="post" enctype="multipart/form-data">
+                <form autocomplete="off" id="icts_add_ann" method="post" enctype="multipart/form-data">
                 
                     <input type="hidden" name="cont_type_selected" id="cont_type_selected" value="Emergency Response Team" >
                     <input type="hidden" name="team_num" id="team_num" value="1">
@@ -69,7 +69,7 @@
                             </tr>
                             <tr style="line-height: 50px;">
                                 <th class="text-center" colspan="2">
-                                    <img id="qr_form_img_preview" src="img/default2.png" alt="image" style="max-width:150px; min-width:150px;" class="p-2">
+                                    <img id="qr_form_img_preview" src="img/default2.png" alt="image" style="max-width:150px; min-width:150px; height:115px;" class="p-2">
                                 </th>
                             </tr>
                             <tr>
@@ -141,7 +141,7 @@
             </button>
         </div>
         <div class="modal-body icts_edit_ann_body"> 
-            <form id="edit_icts_details" method="post" enctype="multipart/form-data">  
+            <form autocomplete="off" id="edit_icts_details" method="post" enctype="multipart/form-data">  
                 <table style="width: 100%;">
                     <thead>
                         <tr>
