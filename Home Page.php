@@ -290,7 +290,7 @@
                         <th style="width: 5%;">FB Live</th>
                         <th style="width: 5%;">PPAB CAM</th>
                         <th style="width: 20%;">Remarks</th>
-                        <th style=p"width: 10%; text-align: right;">Actions</th>
+                        <th style="width: 10%; text-align: right;">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="cmes_data">

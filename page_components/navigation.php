@@ -51,21 +51,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h4>Usename</h4>
+              <div class="change_uname">
+                <div class="in_lbl_chng">
+                  <h4>Usename</h4><button class="btn btn-sm chng_btn" id="uname_change">change</button>
+                </div>
                 <input type="hidden" id="u_name_old">
                 <input class="form-control" type="text" id="u_name_view">
 
-                <h4>Password</h4>
+                <div class="in_lbl_chng">
+                  <h4>Password</h4><button class="btn btn-sm chng_btn" id="uname_change">change</button>
+                </div>
                 <input type="hidden" id="pass_old">
                 <input class="form-control" type="password" id="pass_view">
 
-                <h4>Email</h4>
+                <div class="in_lbl_chng">
+                  <h4>Email</h4><button class="btn btn-sm chng_btn" id="uname_change">change</button>
+                </div>
                 <input type="hidden" id="email_old">
                 <input class="form-control" type="text" id="email_view">
+              </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary">Change</button>
-                <button class="btn btn-warning">Cancel</button>
+                <button class="btn btn-primary" style="visibility: hidden;">Change</button>
+                <button class="btn btn-warning" style="visibility: hidden;">Cancel</button>
             </div>
         </div>
     </div>

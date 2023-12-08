@@ -36,3 +36,18 @@
 .my_account:hover{
     cursor: pointer;
 }
+
+
+/* my account elements */
+.in_lbl_chng{
+    display: flex;
+    justify-content:space-between;
+}
+.chng_btn{
+    display: inline-flex;
+    border: none;
+    height: 40px;
+}
+.chng_btn:hover{
+    color: blue;
+}
