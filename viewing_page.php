@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
     <link rel="stylesheet" href="css/viewing_page.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-
+    <link rel="icon" type="image/x-icon" href="img/icts_logo.ico">
 </head>
 <body>
     <div class="">

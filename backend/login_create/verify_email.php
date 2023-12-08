@@ -31,7 +31,7 @@ try
             $mail->Username = 'hrep.icts.bulletin@gmail.com'; //gmail that sends email
             $mail->Password = 'wzcr lkxe ihiz ihlo'; //email app password
             $mail->SMTPSecure = 'ssl';
-            $mail->Port = 465;
+            $mail->Port = 465; 
             
             $mail->setFrom('hrep.icts.bulletin@gmail.com');
             $mail->addAddress($email);

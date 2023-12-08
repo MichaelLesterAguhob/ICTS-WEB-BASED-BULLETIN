@@ -286,21 +286,21 @@ function scroll_ert()
     var div2 = document.getElementById('training_card_body');
     setTimeout(function()
     {
-        if(ert_scrolled < ert_to_scroll)
+        if(ert_scrolled <= ert_to_scroll)
         {
             div.scrollTop += ert_scroll_step;
             // console.log("scrolled ert");
             ert_scrolled += ert_scroll_step;
             
         }    
-        if(training_scrolled < training_to_scroll)
+        if(training_scrolled <= training_to_scroll)
         {
             div2.scrollTop += training_scroll_step;
             // console.log("scrolled training");
             training_scrolled += training_scroll_step;
         }    
 
-        if(ert_scrolled < ert_to_scroll || training_scrolled < training_to_scroll)
+        if(ert_scrolled <= ert_to_scroll || training_scrolled <= training_to_scroll)
         {
             setTimeout(scroll_ert, 1000);
         }
@@ -332,7 +332,7 @@ function scroll_cmes()
     var div = document.getElementById('cmes_display');
     setTimeout(function()
     {
-        if(scrolled < cmes_to_scroll)
+        if(scrolled <= cmes_to_scroll)
         {
             div.scrollTop += scroll_step;
             // console.log("scrolled Num");

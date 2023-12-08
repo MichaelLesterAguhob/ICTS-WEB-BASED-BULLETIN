@@ -17,6 +17,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="jquery_bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
+    <link rel="icon" type="image/x-icon" href="img/icts_logo.ico">
     
     <!-- jquery ajax -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -45,7 +46,7 @@
             <li><a data-toggle="tab" href="#access_role">Set Access Role</a></li>
         </ul>
 
-        <div class="tab-content">
+        <div class="tab-content"> 
             <!-- USER ACCOUNTS TAB -->
             <div id="user_accounts" class="tab-pane fade in active">
                 <div class="row tab_header">

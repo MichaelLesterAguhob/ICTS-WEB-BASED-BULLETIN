@@ -33,3 +33,6 @@
         position: inherit;
     } 
 } 
+.my_account:hover{
+    cursor: pointer;
+}
