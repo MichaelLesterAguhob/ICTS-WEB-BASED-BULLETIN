@@ -59,3 +59,19 @@
 .change_buttons_div .btn:first-child{
     margin-right: 20px;
 }
+.bring_to_front{
+    z-index: 1051;
+}
+.ccm_dialog{
+    height: 100px;
+}
+.confirm_btn{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
+.confirm_btn .btn{
+    margin-top: 10%;
+    width: 45%;
+    height: 50px;
+}

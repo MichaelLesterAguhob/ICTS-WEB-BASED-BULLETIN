@@ -43,13 +43,17 @@
   <!-- END OF NAVIGATION  -->
 
   <div class="modal confirm_changes_modal">
-    <div class="modal-dialog">
+    <div class="modal-dialog ccm_dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-primary">
           <h3>Confirm to save changes</h3>
         </div>
-        <div class="modal-body">
+        <div class="modal-body confirm_btn">
+            <button class="btn btn-lg btn-primary" id="change_uname_btn" style="display: block;">Confirm</button>
+            <button class="btn btn-lg btn-primary" id="change_pass_btn" style="display: none;">Confirm</button>
+            <button class="btn btn-lg btn-primary" id="change_email_btn" style="display: none;">Confirm</button>
 
+            <button class="btn btn-lg btn-warning">Cancel</button>
         </div>
       </div>
     </div>

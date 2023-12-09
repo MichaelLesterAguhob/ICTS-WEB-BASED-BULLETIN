@@ -82,6 +82,10 @@ $(document).on('click','#change_email',function()
     $('.change_email_div').css('display','block');
 })
 
+function change_acct_info(to_change)
+{
+
+}
 
 $(document).on('click','#confirm_uname', function()
 {
@@ -90,14 +94,25 @@ $(document).on('click','#confirm_uname', function()
 
     if(new_uname != "" && pass_to_new_uname != "")
     {
-        if(password == pass_to_new_uname)
-        {
-            
-        }
-        else
-        {
-            alert('Incorrect Password');
-        }
+        $.ajax(
+            {
+                url:'backend/my_account/match_pass.php',
+                method:'post',
+                data:{pass:pass_to_new_uname, username:username},
+                success:function(data)
+                {
+                    data = $.parseJSON(data);
+                    if(data.stat == 'success')
+                    {
+                       $('.confirm_changes_modal').addClass('bring_to_front');
+                       $('.confirm_changes_modal').modal('show');
+                    }
+                    else
+                    {
+                        alert(data.respo);
+                    }
+                }
+            })
     }
     else
     {
