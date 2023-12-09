@@ -39,15 +39,23 @@
 
 
 /* my account elements */
-.in_lbl_chng{
+.in_lbl_chng{ 
     display: flex;
     justify-content:space-between;
 }
 .chng_btn{
     display: inline-flex;
+    align-items: end;
     border: none;
     height: 40px;
 }
 .chng_btn:hover{
     color: blue;
+}
+.change_buttons_div{
+    display: flex;
+    justify-content: right;
+}
+.change_buttons_div .btn:first-child{
+    margin-right: 20px;
 }

@@ -4,6 +4,8 @@
     {
         header('location:login_acct.php');
     }
+    $username = $_SESSION['username'];
+    $user_type = $_SESSION['user_type'];
 ?> 
  
 <!DOCTYPE html> 
@@ -34,6 +36,8 @@
 </head>
 <body>  
     <!-- navigation -->
+    <input type="hidden" id="s_uname" value="<?php echo $username ?>">
+    <input type="hidden" id="s_utype" value="<?php echo $user_type?>">
     <?php include_once('page_components/navigation.php');?>
 
     <!-- Main Content -->
@@ -140,5 +144,6 @@
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script> 
     <script src="admin.js"></script>
     <script src="login_create.js"></script>
+    <script src="my_account.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@
     $in_active6 = "";
     
     $username = $_SESSION['username'];
+    $user_type = $_SESSION['user_type'];
     $icts_announcement = '';
     $hrep_announcement = '';
     $hrep_act = '';
@@ -157,6 +158,8 @@
 </head>
 <body>
 <!-- NAVIGATION -->
+<input type="hidden" id="s_uname" value="<?php echo $username ?>">
+<input type="hidden" id="s_utype" value="<?php echo $user_type?>">
 <?php include_once('page_components/navigation.php')?>
 
 <!-- MAIN CONTENT -->

@@ -189,7 +189,7 @@
 #icts_annncmnts .edit_btn, .delete_btn{
     background-color: transparent;
     border: none;
-    font-size: larger;
+    font-size: larger; 
 }
 #icts_annncmnts .delete_btn{
     color: rgba(255, 0, 0, 0.625);

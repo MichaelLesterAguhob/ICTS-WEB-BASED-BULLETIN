@@ -5,20 +5,19 @@ $uname = "";
 $pass = "";
 $email = "";
 
-$user_type = $_SESSION['user_type'];
-$username = $_SESSION['username'];
-// $user_type = $_SESSION['user_type'];
+$user_type = $_POST['user_type'];
+$username = $_POST['username'];
 
 try
 {
-    // if( $user_type == "admin")
-    // {
+    if( $user_type == "admin")
+    {
         $accounts_qry = mysqli_query($con, "SELECT * FROM admin_account WHERE `username` = '$username'");
-    // }
-    // else
-    // {
-        // $accounts_qry = mysqli_query($con, "SELECT * FROM user_account WHERE `username` = '$user_logged_in'");
-    // }
+    }
+    else
+    {
+        $accounts_qry = mysqli_query($con, "SELECT * FROM user_account WHERE `username` = '$username'");
+    }
 
     while($data = mysqli_fetch_assoc($accounts_qry))
     {

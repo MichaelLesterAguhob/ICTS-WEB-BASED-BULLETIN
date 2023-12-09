@@ -3,7 +3,7 @@
     height: 90vh;
     color: black;
     padding: 2px;
-}
+} 
 
 .main_container .nav-tabs a{
     color: black;
@@ -83,4 +83,8 @@
 }
 .nav-tabs{
     background-color: rgba(97, 159, 210, 0.504);
+}
+
+.acct_dialog{
+    margin-top: 10%;
 }
