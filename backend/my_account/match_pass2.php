@@ -1,8 +1,8 @@
 
 <?php 
 include_once('connection.php');
-$new_uname = $_POST['new_uname'];
-$password = trim($_POST['pass']);
+
+$password = trim($_POST['old_pass']);
 $username = $_POST['username'];
 $user_type = $_POST['user_type'];
 $respo = "";

@@ -21,12 +21,13 @@ try
 
     while($data = mysqli_fetch_assoc($accounts_qry))
     {
+        $id = $data['account_id'];
         $uname = $data['username'];
         $pass = $data['password'];
         $email = $data['email_account'];
     }
 
-    $respo =json_encode(['stat'=>'success', 'uname'=>$uname, 'pass'=>$pass, 'email'=>$email]);
+    $respo =json_encode(['stat'=>'success', 'uname'=>$uname, 'pass'=>$pass, 'email'=>$email, 'id'=>$id]);
 
 }
 catch(Exception $ex)

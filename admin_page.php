@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/general_style.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/admin_page.css">
-    <link rel="stylesheet" href="css/create_acct.css">
+    <link rel="stylesheet" href="css/create_acct.css"> 
 </head>
 <body>  
     <!-- navigation -->

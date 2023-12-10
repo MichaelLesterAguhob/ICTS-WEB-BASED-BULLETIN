@@ -30,9 +30,20 @@ try
         }
         else
         {
-            $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username' AND `password`='$password'");
+            $response = json_encode(['status'=>'failed', 'msg'=>"Login Failed"]);
+        }
+    }
+    else
+    {
+        $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username'");
 
-            if(mysqli_num_rows($result2) > 0)
+        if(mysqli_num_rows($result2) > 0)
+        {
+            $verify_pass = mysqli_query($con, "SELECT `password` FROM admin_account WHERE `username`='$username' ");
+            $encrypted_pass = mysqli_fetch_array($verify_pass);
+            $is_verified = password_verify($password, $encrypted_pass[0]);
+
+            if($is_verified)
             {
                 $_SESSION['username'] = $username;
                 $_SESSION['user_type'] = 'admin';
@@ -43,18 +54,6 @@ try
             {
                 $response = json_encode(['status'=>'failed', 'msg'=>"Login Failed"]);
             }
-        }
-    }
-    else
-    {
-        $result2 = mysqli_query($con, "SELECT username FROM admin_account WHERE `username`='$username' AND `password`='$password'");
-
-        if(mysqli_num_rows($result2) > 0)
-        {
-            $_SESSION['username'] = $username;
-            $_SESSION['user_type'] = 'admin';
-
-            $response = json_encode(['status'=>'success', 'location'=>"admin_page.php"]);
         }
         else
         {
