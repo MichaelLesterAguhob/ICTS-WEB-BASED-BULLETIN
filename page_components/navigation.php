@@ -55,7 +55,7 @@
         <div class="modal-footer confirm_btn">
             <button class="btn btn-lg btn-primary" id="change_uname_btn" style="display: none;" onclick="change_acct_info('change_uname');">Confirm uname</button>
             <button class="btn btn-lg btn-primary" id="change_pass_btn" style="display: none;" onclick="change_acct_info('change_pass');">Confirm pass</button>
-            <button class="btn btn-lg btn-primary" id="change_email_btn" style="display: none;">Confirm email</button>
+            <button class="btn btn-lg btn-primary" id="change_email_btn" style="display: none;" onclick="change_acct_info('change_email');">Confirm email</button>
 
             <button class="btn btn-lg btn-warning cancel_confirm">Cancel</button>
         </div>
@@ -93,6 +93,8 @@
                 <input class="form-control" type="text" id="email_view" readOnly>
               </div>
 
+
+
             <!-- Changing account container -->
               <!-- change uname -->
               <div class="change_uname_div">
@@ -124,15 +126,25 @@
 
               <!-- change email -->
               <div class="change_email_div">
+
               <button class="btn btn-sm btn-secondary back_to_account">← Back</button>
-                <h4>Enter New Email</h4>
+                <h5 class="c_e_msg" style="display: inline-flex; margin-left:10px;"></h5>
+                <div class="in_lbl_chng">
+                  <h4>Enter New Email</h4><button class="btn btn-sm chng_btn" id="send_v_c" style="visibility:hidden;">Send Verification Code</button>
+                </div>
                 <input class="form-control" type="text" id="new_email">
+
+                <h4>Enter Verification Code</h4>
+                <input class="form-control" type="text" id="email_v_c">
+
                 <h4>Enter your Password</h4>
                 <input class="form-control" type="password" id="pass_to_new_email">
+
                 <div class="change_buttons_div mt-4 mb-2">
                   <button class="btn btn-primary btn-sm" id="confirm_email">Confirm Changes</button>
                   <button class="btn btn-warning btn-sm cancel_changes">Cancel</button>
                 </div>
+
               </div>
 
             </div>

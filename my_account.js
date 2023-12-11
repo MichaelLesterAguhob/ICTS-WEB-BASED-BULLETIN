@@ -50,11 +50,13 @@ function change_acct_info(to_change)
 {
     new_uname = $('#new_uname').val();
     new_pass = $('#new_pass').val();
+    new_email = $('#new_email').val();
+    email_v_c = $('#email_v_c').val();
     $.ajax(
         {
             url:'backend/my_account/update_account.php',
             method:'post',
-            data:{to_change:to_change,user_type:user_type, user_id:user_id, new_uname:new_uname, new_pass:new_pass},
+            data:{to_change:to_change,user_type:user_type, user_id:user_id, new_uname:new_uname, new_pass:new_pass, new_email:new_email, email_v_c:email_v_c},
             success: function(data)
             {   
                 // $('.confirm_changes_modal').modal('hide');
@@ -63,10 +65,11 @@ function change_acct_info(to_change)
                 location.reload();
             }
         })
-
 }
 
 // matching password and showing confirmation modal
+
+// for changing username
 $(document).on('click','#confirm_uname', function()
 {
         new_uname = $('#new_uname').val();
@@ -103,7 +106,6 @@ $(document).on('click','#confirm_uname', function()
         alert('No Input!');
     }
 })
-
 
 // for changing pass
 $(document).on('click','#confirm_pass', function()
@@ -149,6 +151,136 @@ $(document).on('click','#confirm_pass', function()
     {
         alert('No Input!');
     }
+})
+
+// for changing email
+let verification_code = 0;
+$(document).on('input','#new_email',function()
+{
+    let new_email_entered = $('#new_email').val();
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (new_email_entered != "") {
+        if(emailRegex.test(new_email_entered))
+        {
+            $('#new_email').css('color','black');
+            $('#new_email').css('border-color','black');
+            $('#send_v_c').css('visibility','visible');
+        }
+        else
+        {
+            $('#new_email').css('color','red');
+            $('#new_email').css('border-color','red');
+            $('#send_v_c').css('visibility','hidden');
+        }
+    } 
+    else 
+    {
+        $('#new_email').css('color','red');
+        $('#new_email').css('border-color','red');
+        $('#send_v_c').css('visibility','hidden');
+    }
+})
+// verification code
+let email_v_c = 0;
+$(document).on('input','#email_v_c',function()
+{
+     email_v_c = $('#email_v_c').val();
+    if(email_v_c != "" && email_v_c == verification_code)
+    {
+        $('#email_v_c').css('color','green')
+        $('#email_v_c').css('border-color','green')
+    }
+    else if(email_v_c != "" && email_v_c != verification_code)
+    {
+        $('#email_v_c').css('color','red')
+        $('#email_v_c').css('border-color','red')
+    }
+    else
+    {
+        $('#email_v_c').css('color','black')
+        $('#email_v_c').css('border-color','black')
+    }
+    
+})
+// sending v_c
+$(document).on('click','#send_v_c', function()
+{
+    $('#email_v_c').val('');
+    new_email = $('#new_email').val();
+
+    if(new_email != "")
+    {
+        $.ajax(
+            {
+                url:'backend/my_account/verify_new_email.php',
+                method:'post',
+                data:{new_email:new_email},
+                success: function(data)
+                {
+                    data = $.parseJSON(data);
+                    if(data.stat == "success")
+                    {
+                        verification_code = data.v_code;
+                        $('#send_v_c').prop('disabled', true);
+                        setTimeout(function()
+                        {
+                            $('#send_v_c').prop('disabled', false);
+                        },20000)
+                        $('.c_e_msg').html("Verification Code Sent!").fadeIn(100).fadeOut(2000);
+                    }
+                    else
+                    {
+                        alert(data.msg);
+                    }
+                }
+    
+            })
+    }
+})
+$(document).on('click','#confirm_email', function()
+{
+    let new_email = $('#new_email').val();
+    let email_v_c = $('#email_v_c').val();
+    let pass_to_new_email = $('#pass_to_new_email').val();
+
+   if(new_email != "" && email_v_c != "" && pass_to_new_email != "")
+   {
+        if(email_v_c == verification_code)
+        {
+            $.ajax(
+                {
+                    url:'backend/my_account/match_pass3.php',
+                    method:'post',
+                    data:{pass_to_new_email:pass_to_new_email,username:username,user_type:user_type},
+                    success:function(data) 
+                    {
+                        data = $.parseJSON(data);
+                        if(data.stat == 'success')
+                        {
+                            $('#change_uname_btn').css('display','none');
+                            $('#change_pass_btn').css('display','none');
+                            
+                            $('#change_email_btn').css('display','block');
+                           $('.confirm_changes_modal').addClass('bring_to_front');
+                           $('.confirm_changes_modal').modal('show');
+                        }
+                        else
+                        {
+                            alert(data.respo);
+                        }
+                    }
+                })
+        }
+        else
+        {
+            alert('Incorrect Verification Code');
+        }
+   }
+   else
+   {
+    alert("No Input. Please fill the blank(s)");
+   }
 })
 
 // ==============================================================================

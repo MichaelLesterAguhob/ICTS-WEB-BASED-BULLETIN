@@ -158,8 +158,8 @@
 </head>
 <body>
 <!-- NAVIGATION -->
-<input type="text" id="s_uname" value="<?php echo $username ?>">
-<input type="text" id="s_utype" value="<?php echo $user_type?>">
+<input type="hidden" id="s_uname" value="<?php echo $username ?>">
+<input type="hidden" id="s_utype" value="<?php echo $user_type?>">
 <?php include_once('page_components/navigation.php')?>
 
 <!-- MAIN CONTENT -->
