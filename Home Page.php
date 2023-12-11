@@ -22,7 +22,7 @@
     $cmes = '';
     $bday = '';
     $quote = '';
-
+ 
     // condition for showing category tab
     if($_SESSION['user_type'] == "admin")
     {
@@ -147,14 +147,13 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/general_style.css">
-    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/bday_modal.css">
     <link rel="stylesheet" href="css/home_page.css">
     <link rel="stylesheet" href="css/cmes_modal.css">
     <link rel="stylesheet" href="css/icts_ann_modal.css">
+    <link rel="stylesheet" href="css/navigation.css">
 
-    
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -427,7 +426,7 @@
             <button id="del_icts_ann" type="button" class="btn btn-danger" onclick="delete_icts_ann();">Delete</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </div>
-    </div>
+    </div> 
   </div>
 </div>
 

@@ -84,7 +84,9 @@
 .nav-tabs{
     background-color: rgba(97, 159, 210, 0.504);
 }
-
 .acct_dialog{
+    margin-top: 10%;
+}
+.ccm_dialog{
     margin-top: 10%;
 }

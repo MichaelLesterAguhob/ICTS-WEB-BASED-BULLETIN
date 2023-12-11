@@ -74,4 +74,8 @@
     margin-top: 10%;
     width: 45%;
     height: 50px;
+} 
+.confirm_changes_modal .modal-header{
+    display: flex;
+    justify-content: left;
 }

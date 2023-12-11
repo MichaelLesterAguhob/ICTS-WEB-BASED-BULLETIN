@@ -47,15 +47,15 @@
     <div class="modal-dialog ccm_dialog">
       <div class="modal-content">
         <div class="modal-header bg-warning">
-          <h3>Confirm to save changes</h3>
+          <h2>Confirm to save changes</h2>
         </div>
         <div class="modal-body">
           <h2>Are you sure you want to save your changes? There is no undo on this action.</h2>
         </div>
         <div class="modal-footer confirm_btn">
-            <button class="btn btn-lg btn-primary" id="change_uname_btn" style="display: none;" onclick="change_acct_info('change_uname');">Confirm uname</button>
-            <button class="btn btn-lg btn-primary" id="change_pass_btn" style="display: none;" onclick="change_acct_info('change_pass');">Confirm pass</button>
-            <button class="btn btn-lg btn-primary" id="change_email_btn" style="display: none;" onclick="change_acct_info('change_email');">Confirm email</button>
+            <button class="btn btn-lg btn-primary" id="change_uname_btn" style="display: none;" onclick="change_acct_info('change_uname');">Save Changes</button>
+            <button class="btn btn-lg btn-primary" id="change_pass_btn" style="display: none;" onclick="change_acct_info('change_pass');">Save Changes</button>
+            <button class="btn btn-lg btn-primary" id="change_email_btn" style="display: none;" onclick="change_acct_info('change_email');">Save Changes</button>
 
             <button class="btn btn-lg btn-warning cancel_confirm">Cancel</button>
         </div>

@@ -21,18 +21,18 @@
     <link rel="stylesheet" href="jquery_bootstrap/fontawesome/css/all.css">
     <link rel="icon" type="image/x-icon" href="img/icts_logo.ico">
     
-    <!-- jquery ajax -->
+    <!-- jquery ajax --> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="jquery_bootstrap/bootstrap/js/bootstrap.js"></script>  
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/general_style.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/admin_page.css">
     <link rel="stylesheet" href="css/create_acct.css"> 
+    <link rel="stylesheet" href="css/admin_page.css">
+    <link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>  
     <!-- navigation -->
@@ -127,7 +127,7 @@
                         </thead>
                         <tbody id="access_role_data">
                             <!-- user accounts data here -->
-                        </tbody>
+                        </tbody> 
                     </table>
                 </div>
             </div>

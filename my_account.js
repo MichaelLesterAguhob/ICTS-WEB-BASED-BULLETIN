@@ -154,7 +154,7 @@ $(document).on('click','#confirm_pass', function()
 })
 
 // for changing email
-let verification_code = 0;
+let verification_code_for_new_email = 0;
 $(document).on('input','#new_email',function()
 {
     let new_email_entered = $('#new_email').val();
@@ -186,12 +186,12 @@ let email_v_c = 0;
 $(document).on('input','#email_v_c',function()
 {
      email_v_c = $('#email_v_c').val();
-    if(email_v_c != "" && email_v_c == verification_code)
+    if(email_v_c != "" && email_v_c == verification_code_for_new_email)
     {
         $('#email_v_c').css('color','green')
         $('#email_v_c').css('border-color','green')
     }
-    else if(email_v_c != "" && email_v_c != verification_code)
+    else if(email_v_c != "" && email_v_c != verification_code_for_new_email)
     {
         $('#email_v_c').css('color','red')
         $('#email_v_c').css('border-color','red')
@@ -221,7 +221,7 @@ $(document).on('click','#send_v_c', function()
                     data = $.parseJSON(data);
                     if(data.stat == "success")
                     {
-                        verification_code = data.v_code;
+                        verification_code_for_new_email = data.v_code;
                         $('#send_v_c').prop('disabled', true);
                         setTimeout(function()
                         {
@@ -246,7 +246,7 @@ $(document).on('click','#confirm_email', function()
 
    if(new_email != "" && email_v_c != "" && pass_to_new_email != "")
    {
-        if(email_v_c == verification_code)
+        if(email_v_c == verification_code_for_new_email)
         {
             $.ajax(
                 {
