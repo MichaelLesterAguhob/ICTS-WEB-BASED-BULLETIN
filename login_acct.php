@@ -18,7 +18,9 @@
 <body>
     <div class="container">
         <div class="input_fields_cont">
-            <h2 class="login_title">Login</h2>
+
+            <h2 class="login_title mt-4">ICTS Bulletin</h2>
+            <h3 class="login_title mt-2">Login</h3>
             
             <br>
             <table class="input_fields_table" >
