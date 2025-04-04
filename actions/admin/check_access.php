@@ -1,6 +1,6 @@
 
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $account_id = $_POST['account_id'];
 $col_name = $_POST['col_name'];
 $respo = '';

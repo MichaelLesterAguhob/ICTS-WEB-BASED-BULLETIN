@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $cmes_id = $_POST['cmes_id'];
 $user_type = $_SESSION['user_type'];

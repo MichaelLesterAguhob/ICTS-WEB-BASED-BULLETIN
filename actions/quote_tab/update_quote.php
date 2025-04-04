@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $to_edit_quote =$_POST['to_edit_quote'];
 $quote = mysqli_real_escape_string($con, $_POST['quote']);
 $author = mysqli_real_escape_string($con,$_POST['author']);

@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $cmes_id = $_POST['cmes_id'];
 $com_off = mysqli_real_escape_string($con,  $_POST['edit_office']);

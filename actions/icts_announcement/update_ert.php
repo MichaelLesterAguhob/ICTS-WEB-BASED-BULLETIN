@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $team_num = $_POST['edit_team_num'];
 $cont_id = $_POST['edit_icts_cont_id'];
 $team_name_list = 1;

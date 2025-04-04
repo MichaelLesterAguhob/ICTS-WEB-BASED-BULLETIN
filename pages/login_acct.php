@@ -8,7 +8,7 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="../public/assets/jquery_bootstrap/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../public/assets/jquery_bootstrap/fontawesome/css/all.css">
-    <link rel="icon" type="image/x-icon" href="img/icts_logo.ico">
+    <link rel="icon" type="image/x-icon" href="../public/assets/img/icts_logo.ico">
     <!-- ajax jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -102,7 +102,7 @@
                     <tr><td colspan="2" style="height: 30px;"></td></tr>    
 
                 <tr>
-                    <td colspan="2"><button class="go_to_login" onclick="back_to_login()">Login</button></td>
+                    <td colspan="2"><button class="go_to_login" onclick="back_to_login()">Back to Login</button></td>
                 </tr>
 
                     <tr><td colspan="2" style="height: 20px;"></td></tr>    

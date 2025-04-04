@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $response = "";
 $quote_id = $_POST['to_delete_quote'];
 $user_type = $_SESSION['user_type'];

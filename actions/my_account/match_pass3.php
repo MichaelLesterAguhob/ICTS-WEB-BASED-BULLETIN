@@ -1,6 +1,6 @@
 
 <?php 
-include_once('connection.php'); 
+include_once('../../config/db_connection.php');
 
 $password = trim($_POST['pass_to_new_email']);
 $username = $_POST['username'];

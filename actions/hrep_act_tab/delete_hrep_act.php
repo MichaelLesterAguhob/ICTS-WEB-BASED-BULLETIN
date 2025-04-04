@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $del_id = $_POST['del_hrep_act_id'];
 $user_type = $_SESSION['user_type'];

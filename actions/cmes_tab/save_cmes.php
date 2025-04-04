@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $office = mysqli_real_escape_string($con,  $_POST['office']);
 $host = mysqli_real_escape_string($con,  $_POST['host']);
 $time = date('h:i A', strtotime($_POST['time']));

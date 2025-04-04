@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $id = $_POST['edit_hrep_act_id'];
 $old_img = $_POST['edit_hrep_act_img_old'];

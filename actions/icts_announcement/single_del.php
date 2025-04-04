@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $id = $_POST['icts_ann_content_id'];
 $table_name = $_POST['table_name'];

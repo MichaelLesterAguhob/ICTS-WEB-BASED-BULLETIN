@@ -1,5 +1,5 @@
 <?php 
-include_once ('connection.php'); 
+include_once('../../config/db_connection.php');
 $response = "";
 $bday_id = $_POST['bday_id'];
 $edit_name = strtoupper($_POST['edit_name']);

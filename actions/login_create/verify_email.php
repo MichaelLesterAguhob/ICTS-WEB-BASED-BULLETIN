@@ -7,7 +7,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/PHPMailer.php';
 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $email = trim($_POST['email']);
 $code = 0;
 $response = "";

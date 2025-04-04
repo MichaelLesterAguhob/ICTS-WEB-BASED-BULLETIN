@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $id = $_POST['id'];
 $cont_type = $_POST['cont_type2'];

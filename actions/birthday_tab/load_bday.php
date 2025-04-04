@@ -1,6 +1,6 @@
 <?php 
 $response = "";
-include_once('connection.php'); 
+include_once('../../config/db_connection.php');
 
 try 
 {

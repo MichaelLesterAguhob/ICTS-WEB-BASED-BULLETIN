@@ -1,6 +1,6 @@
 
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $quote_id = $_POST['to_edit_quote'];
 $quote = '';
 $author = '';

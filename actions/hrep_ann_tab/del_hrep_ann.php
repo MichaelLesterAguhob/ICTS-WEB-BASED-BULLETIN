@@ -1,5 +1,5 @@
 <?php
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $id = $_POST['delete_hrep_ann_id'];
 

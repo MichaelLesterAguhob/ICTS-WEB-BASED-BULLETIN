@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $c_username = trim($_POST['c_username']);
 $c_password = trim($_POST['c_password']);
 $email = trim($_POST['email']);

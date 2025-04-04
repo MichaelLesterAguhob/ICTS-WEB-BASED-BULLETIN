@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $cont_id = $_POST['edit_icts_cont_id'];
 $title = trim(strtoupper($_POST['edit_icts_ann_title']));

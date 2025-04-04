@@ -1,6 +1,6 @@
 
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $to_delete_bday = $_POST['to_delete_bday'];
 $response = "";
 

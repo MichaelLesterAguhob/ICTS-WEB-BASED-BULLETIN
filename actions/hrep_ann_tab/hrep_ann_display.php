@@ -1,5 +1,5 @@
 <?php
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $data = '';
 $respo = "";
 $hrep_card_cnt = 0;

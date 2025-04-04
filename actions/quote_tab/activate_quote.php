@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = '';
 $activate_quote = $_POST['quote_id'];
 

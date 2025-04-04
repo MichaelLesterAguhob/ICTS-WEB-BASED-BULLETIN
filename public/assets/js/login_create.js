@@ -306,6 +306,9 @@ function recover_account()
                     setTimeout(function()
                     {
                         $('.acct_recovery_msg').css('visibility','hidden');
+                        $('#acct_recovery_email').val("");
+                        $('#acct_recovery_code').val("");
+                        $('#new_pass').val("");
                         back_to_login();
                     }, 1000)
                 }

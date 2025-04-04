@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $bday_card = 0;
 $respo = "";
 $month = date('F');

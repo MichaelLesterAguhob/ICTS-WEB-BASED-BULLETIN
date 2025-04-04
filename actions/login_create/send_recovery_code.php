@@ -8,7 +8,7 @@ require('PHPMailer/src/PHPMailer.php');
 require('PHPMailer/src/Exception.php');
 require('PHPMailer/src/SMTP.php');
 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $email = trim($_POST['recovery_email']);
 $recovery_code = 0;

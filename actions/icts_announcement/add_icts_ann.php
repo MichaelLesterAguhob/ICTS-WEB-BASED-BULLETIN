@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $cont_type_selected = trim($_POST['cont_type_selected']);
 $ann_title = strtoupper(trim($_POST['ann_title_txt']));

@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = "";
 $subject = strtoupper(trim($_POST['edit_subject']));
 $date_rel = $_POST['edit_hrep_ann_date'];

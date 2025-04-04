@@ -1,5 +1,5 @@
 <?php 
-include_once('connection.php');
+include_once('../../config/db_connection.php');
 $respo = '';
 $email = $_POST['recovery_email'];
 $pass = $_POST['new_pass'];
