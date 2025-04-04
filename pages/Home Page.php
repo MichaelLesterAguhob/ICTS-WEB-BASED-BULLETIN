@@ -137,7 +137,7 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="../public/assets/jquery_bootstrap/fontawesome/css/all.css">
     <link rel="stylesheet" href="../public/assets/jquery_bootstrap/bootstrap/css/bootstrap.css">
-    <link rel="icon" type="image/x-icon" href="img/icts_logo.ico">
+    <link rel="icon" type="image/x-icon" href="../public/assets/img/icts_logo.ico">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

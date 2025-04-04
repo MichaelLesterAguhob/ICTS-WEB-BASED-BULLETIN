@@ -4,9 +4,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-require('PHPMailer/src/PHPMailer.php');
-require('PHPMailer/src/Exception.php');
-require('PHPMailer/src/SMTP.php');
+require('../../includes/PHPMailer/src/PHPMailer.php');
+require('../../includes/PHPMailer/src/Exception.php');
+require('../../includes/PHPMailer/src/SMTP.php');
 
 include_once('../../config/db_connection.php');
 $respo = "";

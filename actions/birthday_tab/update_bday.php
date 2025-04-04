@@ -15,8 +15,8 @@ try
     {
         if(file_exists('bday_images/'.$edit_old_image))
         {
-            unlink("bday_images/".$edit_old_image);
-            move_uploaded_file($_FILES['edited_bday_image']['tmp_name'],'bday_images/'.$_FILES['edited_bday_image']['name']);
+            unlink("../../storage/uploads/bday_images/".$edit_old_image);
+            move_uploaded_file($_FILES['edited_bday_image']['tmp_name'],'../../storage/uploads/bday_images/'.$_FILES['edited_bday_image']['name']);
             $new_image = $_FILES['edited_bday_image']['name'];
             $result = mysqli_query($con, "UPDATE birthday_tbl SET name='$edit_name', birth_date='$edit_bdate', image='$new_image' WHERE id='$bday_id'");
             if($result)

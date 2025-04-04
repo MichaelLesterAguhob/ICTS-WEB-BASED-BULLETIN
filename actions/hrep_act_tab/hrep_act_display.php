@@ -13,7 +13,7 @@ try
        '
        <div class="card hrep_act_card" id="hrep_act_card'.$hrep_act_card_count.'">
        <div class="card-body hrep_act_card_body">
-       <img src="../actions/hrep_act_tab/img/'.$row['img'].'" alt="image" class="hrep_act_img">
+       <img src="../../storage/uploads/hrep_act_img/'.$row['img'].'" alt="image" class="hrep_act_img">
        </div>
        </div>
        ';

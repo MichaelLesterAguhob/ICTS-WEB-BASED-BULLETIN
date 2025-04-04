@@ -23,7 +23,7 @@ try
                         </div>
                     </div>
                     <div class="card-body mb-5">
-                        <img src="../actions/hrep_ann_tab/img/'.$hrep_ann_rows['qr'].'" class="hrep_ann_img">
+                        <img src="../../storage/uploads/hrep_ann_img/'.$hrep_ann_rows['qr'].'" class="hrep_ann_img">
                     </div>
                 </div>
             ';

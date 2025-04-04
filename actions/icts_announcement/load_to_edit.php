@@ -55,7 +55,7 @@ try
             </tr>
             <tr>
                 <td>
-                    <img alt="QR Code" src="../actions/icts_announcement/icts_img/'.$rows['img'].'" id="edit_qrform_img_preview" style="width: 122px; height: 127px;">
+                    <img alt="QR Code" src="../../storage/uploads/icts_ann_img/'.$rows['img'].'" id="edit_qrform_img_preview" style="width: 122px; height: 127px;">
                 </td>
                 <td>
                     <input type="hidden" name="edit_qrform_img_holder" value="'.$rows['img'].'">

@@ -3,9 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/PHPMailer.php';
+require '../../includes/PHPMailer/src/Exception.php';
+require '../../includes/PHPMailer/src/SMTP.php';
+require '../../includes/PHPMailer/src/PHPMailer.php';
 
 include_once('../../config/db_connection.php');
 $new_email = trim($_POST['new_email']);

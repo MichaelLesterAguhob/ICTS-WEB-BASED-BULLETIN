@@ -8,7 +8,7 @@ $username = $_SESSION['username'];
 try
 {
     unlink('img/'.$old_img);
-    move_uploaded_file($_FILES['edit_hrep_act_img']['tmp_name'],'img/'.$_FILES['edit_hrep_act_img']['name']);
+    move_uploaded_file($_FILES['edit_hrep_act_img']['tmp_name'],'../../storage/uploads/hrep_act_img/'.$_FILES['edit_hrep_act_img']['name']);
     $new_img = $_FILES['edit_hrep_act_img']['name'];
     $query = mysqli_query($con, "UPDATE hrep_activities SET img='$new_img' WHERE id='$id'");
     if($query)

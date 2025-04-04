@@ -11,7 +11,7 @@ try
 {
     if($image_changed == "new_image")
     {
-        move_uploaded_file($_FILES['edit_hrep_ann_image']['tmp_name'],'img/'.$_FILES['edit_hrep_ann_image']['name']);
+        move_uploaded_file($_FILES['edit_hrep_ann_image']['tmp_name'],'../../storage/uploads/hrep_ann_img/'.$_FILES['edit_hrep_ann_image']['name']);
         $new_image = $_FILES['edit_hrep_ann_image']['name'];
         $update_qry = mysqli_query($con, "UPDATE hrep_ann SET `subject`='$subject', `date_release`='$date_rel', `office`='$office', `qr`='$new_image' WHERE `id`='$id'");
         if($update_qry) 

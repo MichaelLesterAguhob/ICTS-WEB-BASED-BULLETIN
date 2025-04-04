@@ -19,7 +19,7 @@ try
         <div class="card text-dark text-center bday_card" id="bday_card'.$bday_card.'">
         <div class="card-body bday_card_body">
 
-            <img src="../actions/birthday_tab/bday_images/'.$row['image'].'" alt="Image" class="birthday_image">
+            <img src="../../storage/uploads/bday_images/'.$row['image'].'" alt="Image" class="birthday_image">
             <h3 class="bday_name">'.$row['name'].'</h3>
         </div>
 

@@ -11,7 +11,7 @@ try
     $image_filename = "SELECT image FROM birthday_tbl WHERE id='$to_delete_bday'";
     $filename_res = mysqli_query($con, $image_filename);
     $filename = mysqli_fetch_array($filename_res);
-    if(file_exists("bday_images/".$filename[0]))
+    if(file_exists("../../storage/uploads/bday_images/".$filename[0]))
     {
         // unlink("bday_images/".$filename[0]);
         $query = "DELETE FROM birthday_tbl WHERE id='$to_delete_bday'";

@@ -17,7 +17,7 @@ try
             <tr>
                 <td>'.$count.'</td>
                 <td>
-                <img src="../actions/hrep_act_tab/img/'.$rows['img'].'" 
+                <img src="../../storage/uploads/hrep_act_img/'.$rows['img'].'" 
                      alt="Image"
                      style="width: 50px; height: 50px;">
                 </td>

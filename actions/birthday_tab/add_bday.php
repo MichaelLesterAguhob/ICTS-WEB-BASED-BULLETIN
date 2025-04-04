@@ -8,7 +8,7 @@ $user_type = $_SESSION['user_type'];
 $username = $_SESSION['username'];
 try
 {
-    move_uploaded_file($_FILES['bday_image']['tmp_name'],'bday_images/'. $_FILES['bday_image'] ['name']);
+    move_uploaded_file($_FILES['bday_image']['tmp_name'],'../../storage/uploads/bday_images/'. $_FILES['bday_image'] ['name']);
     
     $image = $_FILES['bday_image']['name'];
     $query = "INSERT INTO birthday_tbl (name, birth_date, image) VALUES ('$name','$date','$image')";

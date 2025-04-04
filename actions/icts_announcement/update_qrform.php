@@ -11,7 +11,7 @@ try
     $query1 = mysqli_query($con, "UPDATE icts_ann_cont SET `title`='$title' WHERE `cont_id`='$cont_id' ");
     if($qrform_img != "")
     {
-        move_uploaded_file($_FILES['edit_qr_form_img']['tmp_name'],'icts_img/'. $_FILES['edit_qr_form_img']['name']);
+        move_uploaded_file($_FILES['edit_qr_form_img']['tmp_name'],'../../storage/uploads/icts_ann_img/'. $_FILES['edit_qr_form_img']['name']);
         $img = $_FILES['edit_qr_form_img']['name'];
     }
     $query2 = mysqli_query($con, "SELECT * FROM icts_img_date WHERE cont_id='$cont_id' ");

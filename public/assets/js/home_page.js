@@ -99,7 +99,7 @@ function edit_bday(id_to_edit) {
       if (data.status == "success") {
         $("#edit_image_preview").attr(
           "src",
-          "../actions/birthday_tab/bday_images/" + data.image
+          "../../storage/uploads/bday_images/" + data.image
         );
         $("#edit_name").val(data.name);
         $("#edit_bdate").val(data.date);
@@ -606,7 +606,7 @@ $(document).on("click", ".hrept_act_edit", function () {
   let hrep_act_img = $(this).attr("data-img");
   $("#edit_hrep_act_img_prev").attr(
     "src",
-    "../actions/hrep_act_tab/img/" + hrep_act_img
+    "../storage/uploads/hrep_act_img/" + hrep_act_img
   );
   $("#edit_hrep_act_modal").modal("toggle");
 });
@@ -1148,7 +1148,7 @@ $(document).on("click", ".hrep_ann_edit", function () {
   $("#edit_hrep_ann_img_holder").val(hrep_ann_img);
   $("#edit_hrep_ann_image_preview").attr(
     "src",
-    "../actions/hrep_ann_tab/img/" + hrep_ann_img
+    "../storage/uploads/hrep_ann_img/" + hrep_ann_img
   );
 
   $("#edit_hrep_ann_modal").modal("toggle");

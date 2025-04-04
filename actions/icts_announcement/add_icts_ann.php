@@ -44,7 +44,7 @@ try
     }
     else if($cont_type_selected == "QR/Form")
     {
-      move_uploaded_file($_FILES['qr_form_img']['tmp_name'],'icts_img/'. $_FILES['qr_form_img'] ['name']);
+      move_uploaded_file($_FILES['qr_form_img']['tmp_name'],'../../storage/uploads/icts_ann_img/'. $_FILES['qr_form_img'] ['name']);
     
       $img = $_FILES['qr_form_img']['name'];
       $query1 = mysqli_query($con, "INSERT INTO icts_ann_cont VALUES('',$cont_id,'$ann_title', '$cont_type_selected')");

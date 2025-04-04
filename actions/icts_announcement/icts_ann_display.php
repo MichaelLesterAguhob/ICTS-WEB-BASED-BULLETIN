@@ -64,7 +64,7 @@ try
                 {
                     $date = date('F d, Y',strtotime($icts_qrform_rows['date']));
                     $data .= '
-                    <img src="../actions/icts_announcement/icts_img/'.$icts_qrform_rows['img'].'" class="qr_form_img">
+                    <img src="../../storage/uploads/icts_ann_img/'.$icts_qrform_rows['img'].'" class="qr_form_img">
                     <p class="multiline qrform_date">'.$date.'</p>
                     <h3 class="icts">ICTS</h3>
                     ';
