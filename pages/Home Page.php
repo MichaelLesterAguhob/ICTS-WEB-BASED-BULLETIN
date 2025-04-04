@@ -1,7 +1,6 @@
 
 <?php
-    include_once('../actions/admin/connection.php');
-    session_start();
+    include_once('../config/db_connection.php');
     if(!isset($_SESSION['username']))
     {
         header('location:login_acct.php');

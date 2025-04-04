@@ -1,5 +1,5 @@
 <?php
-    include_once('../actions/login_create/connection.php');
+    include_once('../config/db_connection.php');
     $username = $_SESSION['username'];  
 
     if($_SESSION['user_type'] != 'admin')
